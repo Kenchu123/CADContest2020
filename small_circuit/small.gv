@@ -1,0 +1,10 @@
+module small ( a, b, c, d, o);
+input a, b, c, d;
+output o;
+wire w1, w2, w3;
+assign a = 1'b0;
+assign b = 1'b0;
+AND2 g1(.x(a), .y(b), .out(w1));
+AND2 g2(.x(c), .y(d), .out(w2));
+NOT  g3(.x(w2), .out(w3));
+AND2 g4(.x(w1), .y(w3), .out(o));

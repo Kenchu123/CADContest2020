@@ -1,0 +1,41 @@
+(DELAYFILE
+(TIMESCALE 1ns)
+(CELL
+    (CELLTYPE "AND2")
+    (INSTANCE g1)
+    (DELAY
+        (ABSOLUTE
+        (iopath x out (0.066:0.066:0.066) (0.062:0.062:0.062))
+        (iopath y out (0.024:0.024:0.024) (0.026:0.026:0.026))
+        )
+    )
+)
+(CELL
+    (CELLTYPE "AND2")
+    (INSTANCE g2)
+    (DELAY
+        (ABSOLUTE
+        (iopath x out (0.044:0.044:0.044) (0.045:0.045:0.045))
+        (iopath y out (0.034:0.034:0.034) (0.036:0.036:0.036))
+        )
+    )
+)
+(CELL
+    (CELLTYPE "AND2")
+    (INSTANCE g4)
+    (DELAY
+        (ABSOLUTE
+        (iopath x out (0.060:0.060:0.060) (0.052:0.052:0.052))
+        (iopath y out (0.030:0.030:0.030) (0.038:0.038:0.038))
+        )
+    )
+)
+(CELL
+    (CELLTYPE "NOT")
+    (INSTANCE g3)
+    (DELAY
+        (ABSOLUTE
+        (iopath x out (0.022:0.022:0.022) (0.018:0.018:0.018))
+        )
+    )
+))
