@@ -19,10 +19,10 @@ $(EXEDIR):
 	mkdir -p $(EXEDIR)
 
 $(OBJDIR)/%.o: ./src/%.cpp
-	$(CXX) -c -o $@ $< -I$(INC) $(CFLAGS)
+	$(CXX) -c -o $@ $< -I$(INC) $(CFLAGS) -std=c++11
 
 preprocess: $(PREPROCESS_OBJS)
-	$(CXX) $(CFLAGS) -o $(EXEDIR)/GraphPreprocessing.exe $(PREPROCESS_OBJS)
+	$(CXX) $(CFLAGS) -o $(EXEDIR)/GraphPreprocessing.exe $(PREPROCESS_OBJS) -std=c++11
 
 simulator: $(SIMULATOR_OBJS)
 	$(CXX) $(CFLAGS) -o $(EXEDIR)/GPUSimulator.exe $(PREPROCESS_OBJS)
