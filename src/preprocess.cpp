@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 #include <algorithm>
-#include "nlohmann/json.hpp"
+#include "json.hpp"
 
 using json = nlohmann::basic_json<std::map, std::vector, std::string, bool, std::int64_t, std::uint64_t, float>;
 using namespace std;
@@ -32,13 +32,13 @@ int main(int argc, char *argv[]){
     jsonfile_gv = parseGV(gv_path, gv_data);
     jsonfile_sdf = parseSDF(sdf_path, sdf_data);
     if(argc == 4){
-        output_path = "intermediate/";
+        output_path = "intermediate";
     } 
     else{
         output_path = argv[4];
     }
-    ofstream outfile_gv(output_path + gv);
-    ofstream outfile_sdf(output_path + sdf);
+    ofstream outfile_gv(output_path + "/" + gv);
+    ofstream outfile_sdf(output_path + "/" + sdf);
     outfile_gv << jsonfile_gv.dump(); // save in one line
     // outfile_gv << jsonfile_gv.dump(4); // save indent line
     outfile_sdf << jsonfile_sdf.dump(); // save in one line

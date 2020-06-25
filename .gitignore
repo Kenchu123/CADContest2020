@@ -1,0 +1,9 @@
+ICCAD2020_Benchmarks/
+
+.out
+.o
+.so
+.a
+.json
+bin/
+build/
