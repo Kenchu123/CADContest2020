@@ -7,3 +7,10 @@ ICCAD2020_Benchmarks/
 .json
 bin/
 build/
+
+
+.DS_Store
+intermediate/
+*.pdf
+preVlib.cpp
+preVlib
