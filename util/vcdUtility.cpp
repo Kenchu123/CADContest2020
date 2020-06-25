@@ -17,6 +17,10 @@ int main(int argc, char *argv[]){
     findWire(filepath, wirename);
 }
 
+/* find wire
+ * Input: string filepath, string wirename
+ * Output: print line number and time and value change
+ */ 
 void findWire(string fp, string wn){
     fstream file;
     file.open(fp, ios::in);
