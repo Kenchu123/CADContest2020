@@ -12,7 +12,38 @@ class Cell {
         static void check2(Wire* w) {  // if '10', change to '01'
             if(w -> val == 2) w -> val = 1;
         }
-        // primitive function
+        // User Defined Primitives
+        static void _udp_xbuf(Wire* o, Wire* i, Wire* check_signal){}
+        static void _udp_dff(Wire* q, Wire* d, Wire* clk, Wire* clr, Wire* set, Wire* notifier){}
+        static void _udp_tlat(Wire* q, Wire* d, Wire* en, Wire* clr, Wire* set, Wire* notifier){}
+        static void _udp_mux2(Wire* z, Wire* i0, Wire* i1, Wire* s){
+            /*/ 
+             *    i0 i1 s :  z
+             *    1  ?  0 :  1
+             *    0  ?  0 :  0
+             *    ?  1  1 :  1
+             *    ?  0  1 :  0
+             *    0  0  x :  0
+             *    1  1  x :  1
+            /*/
+            if (s -> val == 0){
+                if (i0 -> val == 3) z -> val = 3;
+                else if (i0 -> val == 0) z -> val = 0;
+                else z -> val = 1;
+            }
+            else if (s -> val == 3){
+                if (i1 -> val == 3) z -> val = 3;
+                else if (i1 -> val == 0) z -> val = 0;
+                else z -> val = 1;
+            }
+            else if (s -> val == 1){
+                if (i0 -> val == 3 && i1 -> val == 3) z -> val = 3;
+                else if (i0 -> val == 0 && i1 -> val == 0) z -> val = 0;
+                else z -> val = 1;
+            }
+            // else z -> val = 1;
+        }
+        // Built-in Primitives
         static void _and(Wire* o, Wire* a, Wire* b) {
             o -> val = a -> val & b -> val;
         }
@@ -32,20 +63,24 @@ class Cell {
             o -> val = a -> val | b -> val | c -> val | d -> val;
         }
         static void _not(Wire* o, Wire* i) {
-            o -> val = ~(i -> val);
+            o -> val = ~(i -> val) + 4;
             check2(o);
         }
         static void _buf(Wire* o, Wire* i) {
             o -> val = i -> val;
         }
         static void _xor(Wire* o, Wire* a, Wire* b) {
-            o -> val = a -> val ^ b -> val;
-            check2(o);
+            if (a -> val == 1 && b -> val == 1) 
+                o -> val = 1;
+            else{
+                o -> val = a -> val ^ b -> val;
+                check2(o);
+            }
         }
         static void _xor(Wire* o, Wire* a, Wire* b, Wire* c) {
-            o -> val = a -> val ^ b -> val;
+            _xor(o, a, b);
             check2(o);
-            o -> val ^= c -> val;
+            _xor(o, o, c);
             check2(o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b) {
@@ -80,10 +115,6 @@ class Cell {
             _xor(o, a, b, c);
             _not(o, o);
         }
-        static void _udp_xbuf(Wire* o, Wire* i, Wire* check_signal) {}
-        static void _udp_dff(Wire* q, Wire* d, Wire* clk, Wire* clr, Wire* set, Wire* notifier) {}
-        static void _udp_tlat(Wire* q, Wire* d, Wire* en, Wire* clr, Wire* set, Wire* notifier) {}
-        static void _udp_mux2(Wire* z, Wire* i0, Wire* i1, Wire* s) {}
 
     private:
 };class GEN_AND2_D1 : public Cell {
