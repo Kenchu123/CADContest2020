@@ -47,6 +47,7 @@ def parse_module(out, lines):
     out.write('        static void step(unordered_map<string, Wire*> &wire) {\n')
     inSpecify = False
     newThings = []
+    newBus = []
     built_in = ['and', 'or', 'not', 'buf', 'xor', 'nand', 'nor', 'xnor']
     primitives = ['udp_mux2', 'udp_tlat', 'udp_dff', 'udp_xbuf']
     for i in range(1, len(lines)):
@@ -55,22 +56,35 @@ def parse_module(out, lines):
 
         if line[0] == 'wire':
             names = line[1:]
-            names = ''.join(names)
-            out.write('            Wire* ' + names + '\n')
-            names = names[:-1].split(',')
-            for name in names:
-                out.write('            ' + name + ' = new Wire();\n')
-                newThings.append(name)
-            print('Wire names: ', names)
-        elif line[0] == 'reg':
-            names = line[1:]
-            names = ''.join(names)
-            out.write('            Reg* ' + names + '\n')
-            names = names[:-1].split(',')
-            for name in names:
-                out.write('            ' + name + ' = new Reg();\n')
-                newThings.append(name)
-            print('Reg names: ', names)
+
+            if names[0][0] == '[': # for Wires, multiple bits
+                bits = int(names[0].split(':')[0][1:]) + 1
+                print('Bus, bitsize = ' + str(bits))
+                # out.write('            Wire** ' + names[1][:-1] + ' = new Wire*[' + str(bits) + '];\n')
+                # out.write('            for (int i = 0; i < ' + str(bits) + '; ++i) ' + names[1][:-1] + '[i] = new Wire();\n')
+                newBus.append(names[1][:-1])
+            else: # for Wire, single bits
+                names = ''.join(names)
+                names = names[:-1].split(',')
+                out.write('            Wire')
+                for j in range(len(names)):
+                    out.write(' *' + names[j])
+                    if j != len(names) - 1: out.write(',')
+                out.write(';\n')
+                for name in names:
+                    out.write('            ' + name + ' = new Wire();\n')
+                    newThings.append(name)
+                print('Wire names: ', names)
+        ## Register only exist in Sequential circuit, which is not need to re-simulate
+        # elif line[0] == 'reg':
+        #     names = line[1:]
+        #     names = ''.join(names)
+        #     out.write('            Reg* ' + names + '\n')
+        #     names = names[:-1].split(',')
+        #     for name in names:
+        #         out.write('            ' + name + ' = new Reg();\n')
+        #         newThings.append(name)
+        #     print('Reg names: ', names)
         elif line[0] == 'specify':
             inSpecify = True
         elif line[0] == 'endspecify':

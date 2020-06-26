@@ -1,5 +1,3 @@
-#include "wire.h"
-
 using namespace std;
 
 class Cell {
@@ -10,10 +8,10 @@ class Cell {
     //    virtual void _step() = 0;
     // primitive
        void _and(Wire* o, Wire* a, Wire* b) {
-           o = a & b;
+        //    o = a & b;
        }
        void _and(Wire* o, Wire* a, Wire* b, Wire* c) {
-           o = a & b;
+        //    o = a & b;
        }
        void _or() {};
 };
