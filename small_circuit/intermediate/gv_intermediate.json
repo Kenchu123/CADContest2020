@@ -1,1 +1,69 @@
-{"small":{"assign":{"a":"1'b0","b":"1'b0"},"input":["a","b","c","d"],"input bitsize":[1,1,1,1],"output":["o"],"output bitsize":[1],"submodule":{"g1":{"para":{"out":"w1","x":"a","y":"b"},"t":"AND2"},"g2":{"para":{"out":"w2","x":"c","y":"d"},"t":"AND2"},"g3":{"para":{"out":"w3","x":"w2"},"t":"NOT"},"g4":{"para":{"out":"o","x":"w1","y":"w3"},"t":"AND2"}},"wire":["w1","w2","w3"],"wire bitsize":[1,1,1]}}
+{
+    "small": {
+        "assign": {
+            "a": "1'b0",
+            "b": "1'b0"
+        },
+        "input": [
+            "a",
+            "b",
+            "c",
+            "d"
+        ],
+        "input bitsize": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "output": [
+            "o"
+        ],
+        "output bitsize": [
+            1
+        ],
+        "submodule": {
+            "g1": {
+                "para": {
+                    "out": "w1",
+                    "x": "a",
+                    "y": "b"
+                },
+                "t": "AND2"
+            },
+            "g2": {
+                "para": {
+                    "out": "w2",
+                    "x": "c",
+                    "y": "d"
+                },
+                "t": "AND2"
+            },
+            "g3": {
+                "para": {
+                    "out": "w3",
+                    "x": "w2"
+                },
+                "t": "NOT"
+            },
+            "g4": {
+                "para": {
+                    "out": "o",
+                    "x": "w1",
+                    "y": "w3"
+                },
+                "t": "AND2"
+            }
+        },
+        "wire": [
+            "w1",
+            "w2",
+            "w3"
+        ],
+        "wire bitsize": [
+            1,
+            1,
+            1
+        ]
+    }
+}

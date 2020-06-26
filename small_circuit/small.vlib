@@ -1,0 +1,28 @@
+module GEN_SCAN_DF_D2 (si,d,se,cp,q);
+  input si;
+  input d;
+  input se;
+  input cp;
+  output q;
+  wire d_i, q_buf, sd, xse, xsd; 
+  reg notifier;
+  supply1 cdn;
+  supply1 sdn;
+  udp_mux2 udpi0 (d_i, d, si, se);
+  udp_dff udpi1 (q_buf, d_i, cp, cdn, sdn, notifier);
+  buf (q, q_buf);
+  not (sd, se);
+  udp_xbuf udpi2 (xse, se, 1'b1);
+  udp_xbuf udpi3 (xsd, sd, 1'b1);
+  specify
+    (posedge cp => (q +: d))=(1, 1);
+    $width(posedge cp, 0, 0, notifier);
+    $width(negedge cp, 0, 0, notifier);
+    $setuphold(posedge cp &&& xse,  posedge si, 0, 0, notifier);
+    $setuphold(posedge cp &&& xsd,  negedge d, 0, 0, notifier);
+    $setuphold(posedge cp,  negedge se, 0, 0, notifier);
+    $setuphold(posedge cp &&& xse,  negedge si, 0, 0, notifier);
+    $setuphold(posedge cp &&& xsd,  posedge d, 0, 0, notifier);
+    $setuphold(posedge cp,  posedge se, 0, 0, notifier);
+  endspecify
+endmodule
