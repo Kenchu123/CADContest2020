@@ -4,27 +4,38 @@
 #include <vector>
 using namespace std;
 
+class Wire;
+class Bus;
+
 class Wire {
     public:
-        Wire() {}
+        short val;
+        Wire(short val = 1) : val(val) {}
         ~Wire() {}
     private:
         
 };
 
-class Bus : public Wire {
+class Bus {
     public:
-        Bus(){}
-        ~Bus(){}
+        Wire** wires;
+        int size;
+        Bus() {}
+        Bus(int size) : size(size) {
+            wires = new Wire*[size];
+        }
+        ~Bus() {}
+        
+        // overload []
     private:
 };
 
 class Reg {
     public:
-        vector<short> val;
+        short val;
         size_t size;
         Reg() {}
-        Reg(int size): size(size) {}
+        Reg(int size): size(size), val(1) {}
         ~Reg() {}
     private:
 };
