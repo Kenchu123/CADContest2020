@@ -1,59 +1,68 @@
-module GEN_SCAN_DF_D2 (si,d,se,cp,q);
-  input si;
-  input d;
-  input se;
-  input cp;
-  output q;
-  wire d_i, q_buf, sd, xse, xsd; 
-  reg notifier;
-  supply1 cdn;
-  supply1 sdn;
-  udp_mux2 udpi0 (d_i, d, si, se);
-  udp_dff udpi1 (q_buf, d_i, cp, cdn, sdn, notifier);
-  buf (q, q_buf);
-  not (sd, se);
-  udp_xbuf udpi2 (xse, se, 1'b1);
-  udp_xbuf udpi3 (xsd, sd, 1'b1);
+module GEN_AO22_D1 (a1,a2,b1,b2,z);
+  input a1;
+  input a2;
+  input b1;
+  input b2;
+  output z;
+  wire net0, net1;
+  and (net0, b1, b2);
+  and (net1, a1, a2);
+  or  (z, net0, net1);
   specify
-    (posedge cp => (q +: d))=(1, 1);
-    $width(posedge cp, 0, 0, notifier);
-    $width(negedge cp, 0, 0, notifier);
-    $setuphold(posedge cp &&& xse,  posedge si, 0, 0, notifier);
-    $setuphold(posedge cp &&& xsd,  negedge d, 0, 0, notifier);
-    $setuphold(posedge cp,  negedge se, 0, 0, notifier);
-    $setuphold(posedge cp &&& xse,  negedge si, 0, 0, notifier);
-    $setuphold(posedge cp &&& xsd,  posedge d, 0, 0, notifier);
-    $setuphold(posedge cp,  posedge se, 0, 0, notifier);
+    (a1 => z) = (1, 1);
+    (a2 => z) = (1, 1);
+    (b1 => z) = (1, 1);
+    (b2 => z) = (1, 1);
   endspecify
 endmodule
-module GEN_RAMS_WT_IPASS_OLAT_60x21 (clk,ra,re,ore,dout,wa,we,di,byp_sel,dbyp);
-  input clk;
-  input [5:0] ra;
-  input re;
-  input ore;
-  output [20:0] dout;
-  input [5:0] wa;
-  input we;
-  input [20:0] di;
-  input byp_sel;
-  input [20:0] dbyp;
-  reg [5:0] ra_d;
-  wire [20:0] dout;
-  reg [20:0] M [59:0];
-  always @( posedge clk ) begin
-    if (we)
-      M[wa] <= di;
-  end
-  always @( posedge clk ) begin
-    if (re)
-      ra_d <= ra;
-  end
-  wire [20:0] dout_ram = M[ra_d];
-  wire [20:0] fbypass_dout_ram = (byp_sel ? dbyp : dout_ram);
-  reg [20:0] dout_r;
-  always @( posedge clk ) begin
-    if (ore)
-      dout_r <= fbypass_dout_ram;
-  end
-  assign dout = dout_r;
+module GEN_AO22_D2 (a1,a2,b1,b2,z);
+  input a1;
+  input a2;
+  input b1;
+  input b2;
+  output z;
+  wire net0, net1;
+  and (net0, b1, b2);
+  and (net1, a1, a2);
+  or  (z, net0, net1);
+  specify
+    (a1 => z) = (1, 1);
+    (a2 => z) = (1, 1);
+    (b1 => z) = (1, 1);
+    (b2 => z) = (1, 1);
+  endspecify
+endmodule
+module GEN_AO22_D4 (a1,a2,b1,b2,z);
+  input a1;
+  input a2;
+  input b1;
+  input b2;
+  output z;
+  wire net0, net1;
+  and (net0, b1, b2);
+  and (net1, a1, a2);
+  or  (z, net0, net1);
+  specify
+    (a1 => z) = (1, 1);
+    (a2 => z) = (1, 1);
+    (b1 => z) = (1, 1);
+    (b2 => z) = (1, 1);
+  endspecify
+endmodule
+module GEN_AO22_D8 (a1,a2,b1,b2,z);
+  input a1;
+  input a2;
+  input b1;
+  input b2;
+  output z;
+  wire net0, net1;
+  and (net0, b1, b2);
+  and (net1, a1, a2);
+  or  (z, net0, net1);
+  specify
+    (a1 => z) = (1, 1);
+    (a2 => z) = (1, 1);
+    (b1 => z) = (1, 1);
+    (b2 => z) = (1, 1);
+  endspecify
 endmodule
