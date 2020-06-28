@@ -327,8 +327,8 @@ json parseGV(string path, vector<string>& data){
     //             "dog"
     //         ],
     //         "input bitsize": [
-    //             "2:1",
-    //             "2",
+    //             "1:2",
+    //             "0:1",
     //             "1",
     //             "1"
     //         ],
@@ -337,7 +337,7 @@ json parseGV(string path, vector<string>& data){
     //             "frog"
     //         ],
     //         "output bitsize": [
-    //             "2",
+    //             "0:1",
     //             "1"
     //         ],
     //         "submodule": {
@@ -380,8 +380,8 @@ json parseGV(string path, vector<string>& data){
     //         "wire bitsize": [
     //             "1",
     //             "1",
-    //             "2",
-    //             "2"
+    //             "0:1",
+    //             "0:1"
     //         ]
     //     }
     // }
@@ -427,13 +427,10 @@ json parseGV(string path, vector<string>& data){
                     string head = tokens[k].substr(1, col_pos - 1);
                     string tail = tokens[k].substr(col_pos + 1, bra_pos - col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
-                    string bitsize = "";
-                    if(head == "0" || tail == "0")
-                        bitsize = to_string(abs(stoi(head) - stoi(tail)) + 1);
-                    else
-                        bitsize = head + ":" + tail;
+                    string bits = "";
+                    bits = (stoi(head) > stoi(tail))? (tail + ":" + head) : (head + ":" + tail);
                     j[module_name]["input"] += name;
-                    j[module_name]["input bitsize"] += bitsize;
+                    j[module_name]["input bitsize"] += bits;
                 }
                 else{
                     j[module_name]["input"] += tokens[k];
@@ -452,13 +449,10 @@ json parseGV(string path, vector<string>& data){
                     string head = tokens[k].substr(1, col_pos - 1);
                     string tail = tokens[k].substr(col_pos + 1, bra_pos - col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
-                    string bitsize = "";
-                    if(head == "0" || tail == "0")
-                        bitsize = to_string(abs(stoi(head) - stoi(tail)) + 1);
-                    else
-                        bitsize = head + ":" + tail;
+                    string bits = "";
+                    bits = (stoi(head) > stoi(tail))? (tail + ":" + head) : (head + ":" + tail);
                     j[module_name]["output"] += name;
-                    j[module_name]["output bitsize"] += bitsize;
+                    j[module_name]["output bitsize"] += bits;
                 }
                 else{
                     j[module_name]["output"] += tokens[k];
@@ -477,13 +471,10 @@ json parseGV(string path, vector<string>& data){
                     string head = tokens[k].substr(1, col_pos - 1);
                     string tail = tokens[k].substr(col_pos + 1, bra_pos - col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
-                    string bitsize = "";
-                    if(head == "0" || tail == "0")
-                        bitsize = to_string(abs(stoi(head) - stoi(tail)) + 1);
-                    else
-                        bitsize = head + ":" + tail;
+                    string bits = "";
+                    bits = (stoi(head) > stoi(tail))? (tail + ":" + head) : (head + ":" + tail);
                     j[module_name]["wire"] += name;
-                    j[module_name]["wire bitsize"] += bitsize;
+                    j[module_name]["wire bitsize"] += bits;
                 }
                 else{
                     j[module_name]["wire"] += tokens[k];
