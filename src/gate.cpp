@@ -114,7 +114,7 @@ void GateMgr::readfiles(string path) {
     // construct gates, multi wire not set
     cout << "Constructing Gates ..." << endl;
     for (auto& name : submodule_names) {
-        cout << "Constructing: " << name << endl;
+        // cout << "Constructing: " << name << endl;
         Gate* g = new Gate();
         g->setVal(name, gv["submodule"][name]["t"]);
         for (auto& el : gv["submodule"][name]["para"].items()) {
@@ -127,7 +127,7 @@ void GateMgr::readfiles(string path) {
             if (spaceAt != string::npos) {
                 size_t ind = stoi(wire_name.substr(spaceAt));
                 wire_name = wire_name.substr(0, spaceAt);
-                cout << "Multi wire: " << wire_name << ", ind: " << ind << endl;
+                // cout << "Multi wire: " << wire_name << ", ind: " << ind << endl;
                 if (str2wires.find(wire_name) == str2wires.end()) {
                     cerr << "Unknown Wire:" << wire_name << endl;
                 }
@@ -140,9 +140,14 @@ void GateMgr::readfiles(string path) {
         str2gate[name] = g;
     }
     // Check gates
+    cout << "gates" << endl;
     for (auto it = str2gate.begin(); it != str2gate.end(); ++it) {
         it->second->print();
     }
-
+    // Counts
+    cout << "Wire count: " << wire.size() << endl;
+    cout << "Input count: " << input.size() << endl;
+    cout << "Output count: " << output.size() << endl;
+    cout << "Gate count: " << str2gate.size() << endl;
     
 }
