@@ -297,8 +297,8 @@ json parseSDF(string path, vector<string>& data){
 json parseGV(string path, vector<string>& data){
     /* .gv file example 
      * module NV_NVDLA_partition_o ( apple, banana, cat, dog, egg, frog);
-     * input [2:0]   apple;
-     * input [1:0]  banana;
+     * input [2:1]   apple;
+     * input [0:1]  banana;
      * input cat, dog;
      * output [1:0] egg;
      * output frog;
@@ -327,18 +327,18 @@ json parseGV(string path, vector<string>& data){
     //             "dog"
     //         ],
     //         "input bitsize": [
-    //             3,
-    //             2,
-    //             1,
-    //             1
+    //             "2:1",
+    //             "2",
+    //             "1",
+    //             "1"
     //         ],
     //         "output": [
     //             "egg",
     //             "frog"
     //         ],
     //         "output bitsize": [
-    //             2,
-    //             1
+    //             "2",
+    //             "1"
     //         ],
     //         "submodule": {
     //             "i_am_name_1": {
@@ -378,10 +378,10 @@ json parseGV(string path, vector<string>& data){
     //             "w4"
     //         ],
     //         "wire bitsize": [
-    //             1,
-    //             1,
-    //             2,
-    //             2
+    //             "1",
+    //             "1",
+    //             "2",
+    //             "2"
     //         ]
     //     }
     // }
@@ -423,16 +423,21 @@ json parseGV(string path, vector<string>& data){
                 if(tokens[k][0] == '['){
                     size_t col_pos = tokens[k].find_first_of(':');
                     size_t ws_pos = tokens[k].find_first_of(' ');
-                    string bitsize = tokens[k].substr(1, col_pos - 1);
+                    size_t bra_pos = tokens[k].find_first_of(']');
+                    string head = tokens[k].substr(1, col_pos - 1);
+                    string tail = tokens[k].substr(col_pos + 1, bra_pos - col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
-                    int bs = stoi(bitsize) + 1;
-                    trimws(name);
+                    string bitsize = "";
+                    if(head == "0" || tail == "0")
+                        bitsize = to_string(abs(stoi(head) - stoi(tail)) + 1);
+                    else
+                        bitsize = head + ":" + tail;
                     j[module_name]["input"] += name;
-                    j[module_name]["input bitsize"] += bs;
+                    j[module_name]["input bitsize"] += bitsize;
                 }
                 else{
                     j[module_name]["input"] += tokens[k];
-                    j[module_name]["input bitsize"] += 1;
+                    j[module_name]["input bitsize"] += "1";
                 }
             }
         }
@@ -443,16 +448,21 @@ json parseGV(string path, vector<string>& data){
                 if(tokens[k][0] == '['){
                     size_t col_pos = tokens[k].find_first_of(':');
                     size_t ws_pos = tokens[k].find_first_of(' ');
-                    string bitsize = tokens[k].substr(1, col_pos - 1);
+                    size_t bra_pos = tokens[k].find_first_of(']');
+                    string head = tokens[k].substr(1, col_pos - 1);
+                    string tail = tokens[k].substr(col_pos + 1, bra_pos - col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
-                    int bs = stoi(bitsize) + 1;
-                    trimws(name);
+                    string bitsize = "";
+                    if(head == "0" || tail == "0")
+                        bitsize = to_string(abs(stoi(head) - stoi(tail)) + 1);
+                    else
+                        bitsize = head + ":" + tail;
                     j[module_name]["output"] += name;
-                    j[module_name]["output bitsize"] += bs;
+                    j[module_name]["output bitsize"] += bitsize;
                 }
                 else{
                     j[module_name]["output"] += tokens[k];
-                    j[module_name]["output bitsize"] += 1;
+                    j[module_name]["output bitsize"] += "1";
                 }
             }
         }
@@ -463,15 +473,21 @@ json parseGV(string path, vector<string>& data){
                 if(tokens[k][0] == '['){
                     size_t col_pos = tokens[k].find_first_of(':');
                     size_t ws_pos = tokens[k].find_first_of(' ');
-                    string bitsize = tokens[k].substr(1, col_pos - 1);
+                    size_t bra_pos = tokens[k].find_first_of(']');
+                    string head = tokens[k].substr(1, col_pos - 1);
+                    string tail = tokens[k].substr(col_pos + 1, bra_pos - col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
-                    trimws(name);
+                    string bitsize = "";
+                    if(head == "0" || tail == "0")
+                        bitsize = to_string(abs(stoi(head) - stoi(tail)) + 1);
+                    else
+                        bitsize = head + ":" + tail;
                     j[module_name]["wire"] += name;
-                    j[module_name]["wire bitsize"] += stoi(bitsize) + 1;
+                    j[module_name]["wire bitsize"] += bitsize;
                 }
                 else{
                     j[module_name]["wire"] += tokens[k];
-                    j[module_name]["wire bitsize"] += 1;
+                    j[module_name]["wire bitsize"] += "1";
                 }
             }
         }
