@@ -5,14 +5,16 @@ import sys
 
 vlib_path = sys.argv[1]
 output_path = sys.argv[2]
+cpp_path = sys.argv[3]
 vlib = open(vlib_path, 'r')
-output = open(output_path + '.hpp', "w")
+output = open(output_path + '.h', "w")
+cpp = open(cpp_path + '.cpp', "w")
 
 # define DEFINE in output
 defines = ["#ifndef VLIB\n", "#define VLIB\n"]
 output.writelines(defines)
 # define includes in output
-headers = ["#include <string>\n", "#include <unordered_map>\n", "#include \"wire.h\"\n"]
+headers = ["#include <string>\n", "#include <iostream>\n", "#include <unordered_map>\n", "#include \"wire.h\"\n"]
 output.writelines(headers)
 # write template class
 template = open("./vlib_template.hpp", "r")
@@ -29,10 +31,12 @@ module_cnt = 0
 
 # parse module
 newKeyWord = {}
+module_names = []
 def parse_module(out, lines):
     print(lines)
     # line 0, module <name> (params ...)
     module_name = lines[0][1]
+    module_names.append(module_name)
     params = lines[0][2:]
     params = ''.join(params).translate({ord(i): None for i in '();'}) # remove '(', ')', ';'
     params = params.split(',')
@@ -45,8 +49,10 @@ def parse_module(out, lines):
     out.write('        ~' + module_name + '(){}\n')
     # writing _step
     out.write('        static void step(unordered_map<string, Wire*> &wire) {\n')
+    out.write('            cout << \"This is ' + module_name + ' running ...\" << endl;\n')
     inSpecify = False
     newThings = []
+    newBus = []
     built_in = ['and', 'or', 'not', 'buf', 'xor', 'nand', 'nor', 'xnor']
     primitives = ['udp_mux2', 'udp_tlat', 'udp_dff', 'udp_xbuf']
     for i in range(1, len(lines)):
@@ -55,22 +61,35 @@ def parse_module(out, lines):
 
         if line[0] == 'wire':
             names = line[1:]
-            names = ''.join(names)
-            out.write('            Wire* ' + names + '\n')
-            names = names[:-1].split(',')
-            for name in names:
-                out.write('            ' + name + ' = new Wire();\n')
-                newThings.append(name)
-            print('Wire names: ', names)
-        elif line[0] == 'reg':
-            names = line[1:]
-            names = ''.join(names)
-            out.write('            Reg* ' + names + '\n')
-            names = names[:-1].split(',')
-            for name in names:
-                out.write('            ' + name + ' = new Reg();\n')
-                newThings.append(name)
-            print('Reg names: ', names)
+
+            if names[0][0] == '[': # for Wires, multiple bits
+                bits = int(names[0].split(':')[0][1:]) + 1
+                print('Bus, bitsize = ' + str(bits))
+                # out.write('            Wire** ' + names[1][:-1] + ' = new Wire*[' + str(bits) + '];\n')
+                # out.write('            for (int i = 0; i < ' + str(bits) + '; ++i) ' + names[1][:-1] + '[i] = new Wire();\n')
+                newBus.append(names[1][:-1])
+            else: # for Wire, single bits
+                names = ''.join(names)
+                names = names[:-1].split(',')
+                out.write('            Wire')
+                for j in range(len(names)):
+                    out.write(' *' + names[j])
+                    if j != len(names) - 1: out.write(',')
+                out.write(';\n')
+                for name in names:
+                    out.write('            ' + name + ' = new Wire();\n')
+                    newThings.append(name)
+                print('Wire names: ', names)
+        ## Register only exist in Sequential circuit, which is not need to re-simulate
+        # elif line[0] == 'reg':
+        #     names = line[1:]
+        #     names = ''.join(names)
+        #     out.write('            Reg* ' + names + '\n')
+        #     names = names[:-1].split(',')
+        #     for name in names:
+        #         out.write('            ' + name + ' = new Reg();\n')
+        #         newThings.append(name)
+        #     print('Reg names: ', names)
         elif line[0] == 'specify':
             inSpecify = True
         elif line[0] == 'endspecify':
@@ -99,6 +118,21 @@ def parse_module(out, lines):
     out.write('        }\n')
     out.write('};\n')
 
+def string2vlib(out, out_h, names):
+    # print(names)
+    out_h.write('typedef void (*func_ptr)(unordered_map<string, Wire*>&);\n')
+    out_h.write('extern unordered_map<string, func_ptr> vlib; \n')
+    out.write("#include \"vlib.h\"\n")
+    out.write('typedef void (*func_ptr)(unordered_map<string, Wire*>&);\n')
+    out.write('unordered_map<string, func_ptr> vlib = {\n')
+    for i, name in enumerate(names):
+        out.write('    { \"' + name + "\" , &" + name + "::step }")
+        if i != len(names) - 1: out.write(',')
+        out.write('\n')
+    out.write('};\n')
+
+
+
 while line:
     parts = line.split() # split line with spaces
     # Get module lines
@@ -117,6 +151,7 @@ while line:
         module_cnt += 1
         parse_module(output, module_lines)
         
+        
 
     line = vlib.readline()
     line_cnt += 1
@@ -128,6 +163,9 @@ vlib.close()
 print('Line Count: {}'.format(line_cnt))
 print('Module Count: {}'.format(module_cnt))
 
+string2vlib(cpp, output, module_names)
 output.write("#endif")
 
+output.close()
+cpp.close()
 # print(newKeyWord)

@@ -4,18 +4,19 @@
 #include <unordered_map>
 #include <string>
 #include <vector>
-#include "vlib.hpp"
+#include "vlib.h"
 #include "wire.h"
 using namespace std;
 
-class Gate() {
+class Gate {
     public:
         unordered_map<string, Wire*> wire;
         // Something to call vlib function
         int delay;
         string type;
         Gate() {}
-        Gate(vector<string> params, vector<int> bitSize) {
+        Gate(string t, vector<string> params, vector<int> bitSize) {
+            type = t;
             for (size_t i = 0;i < params.size(); ++i)
                 wire[params[i]] = new Wire(bitSize[i]);
         }
@@ -23,9 +24,9 @@ class Gate() {
         void step() {
             // call vlib step
             // vlib[type] is a function pointer
-            vlib[type].step(wire);
+            vlib[type](wire);
         }
     private:
-}
+};
 
 #endif
