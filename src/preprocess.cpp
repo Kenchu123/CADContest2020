@@ -407,14 +407,16 @@ json parseGV(string path, vector<string>& data){
                 exit(1); 
             }
             module_name = module_name.substr(0, ws_pos);
-            j[module_name]["input"] = nullptr;
-            j[module_name]["input bitsize"] = nullptr;
-            j[module_name]["output"] = nullptr;
-            j[module_name]["output bitsize"] = nullptr;
-            j[module_name]["wire"] = nullptr;
-            j[module_name]["wire bitsize"] = nullptr;
-            j[module_name]["assign"] = nullptr;
-            j[module_name]["submodule"] = nullptr;
+            j["module_name"] = module_name;
+            j["input"] = nullptr;
+            j["input bitsize"] = nullptr;
+            j["output"] = nullptr;
+            j["output bitsize"] = nullptr;
+            j["wire"] = nullptr;
+            j["wire bitsize"] = nullptr;
+            j["assign"] = nullptr;
+            j["submodule"] = nullptr;
+            j["submodule_names"] = nullptr;
         }
         else if(data[i].find("input") == 0){
             string str = data[i].substr(5);
@@ -427,12 +429,12 @@ json parseGV(string path, vector<string>& data){
                     string name = tokens[k].substr(ws_pos + 1);
                     int bs = stoi(bitsize) + 1;
                     trimws(name);
-                    j[module_name]["input"] += name;
-                    j[module_name]["input bitsize"] += bs;
+                    j["input"] += name;
+                    j["input bitsize"] += bs;
                 }
                 else{
-                    j[module_name]["input"] += tokens[k];
-                    j[module_name]["input bitsize"] += 1;
+                    j["input"] += tokens[k];
+                    j["input bitsize"] += 1;
                 }
             }
         }
@@ -447,12 +449,12 @@ json parseGV(string path, vector<string>& data){
                     string name = tokens[k].substr(ws_pos + 1);
                     int bs = stoi(bitsize) + 1;
                     trimws(name);
-                    j[module_name]["output"] += name;
-                    j[module_name]["output bitsize"] += bs;
+                    j["output"] += name;
+                    j["output bitsize"] += bs;
                 }
                 else{
-                    j[module_name]["output"] += tokens[k];
-                    j[module_name]["output bitsize"] += 1;
+                    j["output"] += tokens[k];
+                    j["output bitsize"] += 1;
                 }
             }
         }
@@ -466,12 +468,12 @@ json parseGV(string path, vector<string>& data){
                     string bitsize = tokens[k].substr(1, col_pos - 1);
                     string name = tokens[k].substr(ws_pos + 1);
                     trimws(name);
-                    j[module_name]["wire"] += name;
-                    j[module_name]["wire bitsize"] += stoi(bitsize) + 1;
+                    j["wire"] += name;
+                    j["wire bitsize"] += stoi(bitsize) + 1;
                 }
                 else{
-                    j[module_name]["wire"] += tokens[k];
-                    j[module_name]["wire bitsize"] += 1;
+                    j["wire"] += tokens[k];
+                    j["wire bitsize"] += 1;
                 }
             }
         }
@@ -484,9 +486,9 @@ json parseGV(string path, vector<string>& data){
             if(idx_f != string::npos && idx_l != string::npos){
                 idx_str = name.substr(idx_f + 1, idx_l - idx_f - 1);
                 name = name.substr(0, idx_f);
-                j[module_name]["assign"][name + ' ' + idx_str] = value;
+                j["assign"][name + ' ' + idx_str] = value;
             }
-            else j[module_name]["assign"][name] = value; 
+            else j["assign"][name] = value; 
         }
         else if(data[i].find("endmodule") == string::npos && !data[i].empty()){
             size_t par_pos_f = data[i].find_first_of('(');
@@ -502,8 +504,8 @@ json parseGV(string path, vector<string>& data){
             type = type_inst.substr(0, ws_pos);
             instance = type_inst.substr(ws_pos);
             trimws(instance);
-            j[module_name]["submodule"][instance]["t"] = type;
-
+            j["submodule"][instance]["t"] = type;
+            j["submodule_names"] += instance;
             vector<string> tokens = split(str, '.');
             vector<string> parameters, names;
             for(int k = 0;k < tokens.size();++k){
@@ -521,7 +523,7 @@ json parseGV(string path, vector<string>& data){
                 names.push_back(name);
             }
             for(int k = 0;k < names.size();++k){
-                j[module_name]["submodule"][instance]["para"][parameters[k]] = nullptr;
+                j["submodule"][instance]["para"][parameters[k]] = nullptr;
                 string idx_str = "";
                 if(names[k][0] == '{'){
                     string s = names[k].substr(1, names[k].size() - 2);
@@ -532,9 +534,9 @@ json parseGV(string path, vector<string>& data){
                         if(idx_f != string::npos && idx_l != string::npos){
                             idx_str = vec[l].substr(idx_f + 1, idx_l - idx_f - 1);
                             vec[l] = vec[l].substr(0, idx_f);
-                            j[module_name]["submodule"][instance]["para"][parameters[k]] += vec[l] + ' ' + idx_str;
+                            j["submodule"][instance]["para"][parameters[k]] += vec[l] + ' ' + idx_str;
                         }
-                        else j[module_name]["submodule"][instance]["para"][parameters[k]] += vec[l];
+                        else j["submodule"][instance]["para"][parameters[k]] += vec[l];
                     }
                 }
                 else{
@@ -543,9 +545,9 @@ json parseGV(string path, vector<string>& data){
                     if(idx_f != string::npos && idx_l != string::npos){
                         idx_str = names[k].substr(idx_f + 1, idx_l - idx_f - 1);
                         names[k] = names[k].substr(0, idx_f);
-                        j[module_name]["submodule"][instance]["para"][parameters[k]] = names[k] + ' ' + idx_str;
+                        j["submodule"][instance]["para"][parameters[k]] = names[k] + ' ' + idx_str;
                     }
-                    else j[module_name]["submodule"][instance]["para"][parameters[k]] = names[k];
+                    else j["submodule"][instance]["para"][parameters[k]] = names[k];
                 } 
             }
         }
@@ -553,9 +555,9 @@ json parseGV(string path, vector<string>& data){
     // string prnt = j.dump(4);
     // cout << "################### IN JSONFILE ###################" << endl;
     // cout << prnt << endl;
-    cout << "input size :" << j[module_name]["input"].size() << endl;
-    cout << "output size :" << j[module_name]["output"].size() << endl;
-    cout << "wire size :" << j[module_name]["wire"].size() << endl;
+    cout << "input size :" << j["input"].size() << endl;
+    cout << "output size :" << j["output"].size() << endl;
+    cout << "wire size :" << j["wire"].size() << endl;
     return j;
 }
 // json parseVlib()
