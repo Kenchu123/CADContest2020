@@ -1,7 +1,7 @@
 原gv檔舉例
     module NV_NVDLA_partition_o ( apple, banana, cat, dog, egg, frog);
-    input [2:0] apple;
-    input [1:0] banana;
+    input [2:1] apple;
+    input [0:1] banana;
     input cat, dog;
     output [1:0] egg;
     output frog;
@@ -27,18 +27,18 @@ gv_intermediate.json(順序不固定、且擠成一行)
                     "dog"
                 ],
                 "input bitsize": [
-                    3,
-                    2,
-                    1,
-                    1
+                    "2:1",
+                    "2",
+                    "1",
+                    "1"
                 ],
                 "output": [
                     "egg",
                     "frog"
                 ],
                 "output bitsize": [
-                    2,
-                    1
+                    "2",
+                    "1"
                 ],
                 "submodule": {
                     "i_am_name_1": {
@@ -78,10 +78,10 @@ gv_intermediate.json(順序不固定、且擠成一行)
                     "w4"
                 ],
                 "wire bitsize": [
-                    1,
-                    1,
-                    2,
-                    2
+                    "1",
+                    "1",
+                    "2",
+                    "2"
                 ]
             }
         }

@@ -27,11 +27,11 @@ void GateMgr::readfiles(string path) {
     const auto module_name          = gv["module_name"].get<string>();
     const auto submodule_names      = gv["submodule_names"].get< vector<string> >();
     const auto input                = gv["input"].get< vector<string> >();
-    const auto input_bitSize        = gv["input bitsize"].get< vector<int> >();
+    const auto input_bitSize        = gv["input bitsize"].get< vector<string> >();
     const auto output               = gv["output"].get< vector<string> >();
-    const auto output_bitSize       = gv["output bitsize"].get< vector<int> >();
+    const auto output_bitSize       = gv["output bitsize"].get< vector<string> >();
     const auto wire                 = gv["wire"].get< vector<string> >();
-    const auto wire_bitSize         = gv["wire bitsize"].get< vector<int> >();
+    const auto wire_bitSize         = gv["wire bitsize"].get< vector<string> >();
     const auto assign               = gv["assign"].get< unordered_map<string, string> >();
     printf("Finish Converting\n");
     assert(wire.size() == wire_bitSize.size());
@@ -40,42 +40,59 @@ void GateMgr::readfiles(string path) {
     cout << "Constructing Wires ..." << endl;
     // making wires
     for (size_t i = 0; i < wire.size(); ++i) {
-        if (wire_bitSize[i] > 1) {
-            cout << "Multi Wire: " << wire[i] << ", bitSize: " << wire_bitSize[i] << endl;
-            for (size_t j = 0; j < wire_bitSize[i]; ++j) {
-                Wire* w = new Wire(wire[i] + ' ' + to_string(j), 0);
-                str2wires[wire[i]].push_back(w);
-            }
-        }
-        else {
+        if (wire_bitSize[i] == "1") {
             Wire* w = new Wire(wire[i], 0);
             str2wire[wire[i]] = w;
+        }
+        else {
+            // multi wire
+            size_t col = wire_bitSize[i].find(':');
+            if (col == string::npos) cerr << "[Error] wire bitSize invalid!" << endl;
+            cout << "Multi Wire: " << wire[i] << ", bitSize: " << wire_bitSize[i] << endl;
+            int l = stoi(wire_bitSize[i].substr(0, col));
+            int r = stoi(wire_bitSize[i].substr(col + 1));
+            for (size_t j = l; j <= r; ++j) {
+                Wire* w = new Wire(wire[i] + ' ' + to_string(j), 0);
+                str2wires[wire[i]][j] = w;
+            }
         }
     }
     // making input wires
     for (size_t i = 0; i < input.size(); ++i) {
-        if (input_bitSize[i] > 1) {
-            for (size_t j = 0; j < input_bitSize[i]; ++j) {
-                Wire* w = new Wire(input[i] + ' ' + to_string(j), 1);
-                str2wires[input[i]].push_back(w);
-            }
-        }
-        else {
+        if (input_bitSize[i] == "1") {
             Wire* w = new Wire(input[i], 1);
             str2wire[input[i]] = w;
+        }
+        else {
+            // multi wire
+            size_t col = input_bitSize[i].find(':');
+            if (col == string::npos) cerr << "[Error] input bitSize invalid!" << endl;
+            cout << "Multi Wire: " << wire[i] << ", bitSize: " << input_bitSize[i] << endl;
+            int l = stoi(input_bitSize[i].substr(0, col));
+            int r = stoi(input_bitSize[i].substr(col + 1));
+            for (size_t j = l; j <= r; ++j) {
+                Wire* w = new Wire(input[i] + ' ' + to_string(j), 1);
+                str2wires[input[i]][j] = w;
+            }
         }
     }
     // making output wires
     for (size_t i = 0; i < output.size(); ++i) {
-        if (output_bitSize[i] > 1) {
-            for (size_t j = 0; j < output_bitSize[i]; ++j) {
-                Wire* w = new Wire(output[i] + ' ' + to_string(j), 2);
-                str2wires[output[i]].push_back(w);
-            }
-        }
-        else {
+        if (output_bitSize[i] == "1") {
             Wire* w = new Wire(output[i], 2);
             str2wire[output[i]] = w;
+        }
+        else {
+            // multi wire
+            size_t col = output_bitSize[i].find(':');
+            if (col == string::npos) cerr << "[Error] input bitSize invalid!" << endl;
+            cout << "Multi Wire: " << wire[i] << ", bitSize: " << output_bitSize[i] << endl;
+            int l = stoi(output_bitSize[i].substr(0, col));
+            int r = stoi(output_bitSize[i].substr(col + 1));
+            for (size_t j = l; j <= r; ++j) {
+                Wire* w = new Wire(output[i] + ' ' + to_string(j), 2);
+                str2wires[output[i]][j] = w;
+            }
         }
     }
     // making "1'b0", "1'b1"
@@ -91,7 +108,7 @@ void GateMgr::readfiles(string path) {
     }
     cout << "str2wires" << endl;
     for (auto it = str2wires.begin(); it != str2wires.end(); ++it) {
-        for (auto w : it->second) w->print();
+        for (auto w = it->second.begin(); w != it->second.end(); ++w) w->second->print();
     }
 
     // construct gates, multi wire not set

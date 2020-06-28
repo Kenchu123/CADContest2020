@@ -18,7 +18,7 @@ class GateMgr {
         ~GateMgr() {}
         vector<Gate*> gates;
         unordered_map<string, Wire*> str2wire;
-        unordered_map<string, vector<Wire*> > str2wires;
+        unordered_map<string, unordered_map<int, Wire*> > str2wires;
         unordered_map<string, Gate*> str2gate;
         void readfiles(string path);
         

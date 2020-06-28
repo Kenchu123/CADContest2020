@@ -37,13 +37,18 @@ class Bus {
     public:
         Wire** wires;
         int size;
-        Bus() {}
-        Bus(int size) : size(size) {
+        Bus(int size = 1) : size(size) {
             wires = new Wire*[size];
+            for (int i = 0;i < size;++i)
+                wires[i] = new Wire;
         }
         ~Bus() {}
         
         // overload []
+        short &operator[](int);
+        const short &operator[](int) const;
+
+
     private:
 };
 
