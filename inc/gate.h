@@ -39,6 +39,7 @@ class Gate {
         ~Gate() {}
 
         unordered_map<string, Wire*> wire; // to get .gv string to wire
+        unordered_map<string, short> lastWireVal; // to get lastWireVal
         int delay;
         short val;
         string type, name;
@@ -53,6 +54,8 @@ class Gate {
         void setWire(string s, Wire* w) {
             cout << "Gate setting wire: " << s << " " << w << endl;
             wire[s] = w;
+            if (w) lastWireVal[s] = w->val;
+            else lastWireVal[s] = 0;
         }
         void print() {
             cout << "Gate: " << name << ", type: " << type << endl;

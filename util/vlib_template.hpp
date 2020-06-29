@@ -1,5 +1,19 @@
 using namespace std;
 
+////////////
+// Note : vlib.h has changed ,following code can no longer be used
+////////////
+
+
+
+
+
+
+
+
+
+
+
 class Cell {
     public:
         Cell() {}
@@ -36,7 +50,7 @@ class Cell {
                 else if (i0 -> val == 0 && i1 -> val == 0) z -> val = 0;
                 else z -> val = 1;
             }
-            // else z -> val = 1;
+            else z -> val = 1;
         }
         // Built-in Primitives
         static void _and(Wire* o, Wire* a, Wire* b) {
