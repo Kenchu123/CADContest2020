@@ -1,0 +1,1 @@
+./bin/GPUSimulator.exe ./small_circuit/intermediate ./small_circuit/small_input.vcd SAIF_or_VCD_flag SAIF_or_output_VCD.saif.vcd

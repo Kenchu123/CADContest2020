@@ -118,7 +118,8 @@ class Cell {
         }
 
     private:
-};class GEN_AND2_D1 : public Cell {
+};
+class GEN_AND2_D1 : public Cell {
     public:
         GEN_AND2_D1(){}
         ~GEN_AND2_D1(){}
