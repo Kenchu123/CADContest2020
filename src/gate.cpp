@@ -3,6 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
+#include <cmath>
 #include <unordered_map>
 #include <utility>
 #include <typeinfo>
@@ -16,17 +17,19 @@ using json = nlohmann::json;
 // private member function
 bool
 Gate::transition(short bef, short aft){
- 
-    return 0;
-}
-// public member function
-void
-Gate::update(string s, short v) { // input is set to val
-    // TODO:
-    // compare to lastVal, and update lastVal
-    // if has change, set input posedge/negedge and call step(), which will update output
-    // if output change, set output, output lastVal, and posedge/negedge and call getDelay()
-    // after, call ouptut wire to update, which call next gate ...
+    // posedge(i.e. 1) : 0->1, 0->x, 0->z, x->1, z->1 
+    // negedge(i.e. 0) : 1->0, 1->x, 1->z, x->0, z->0
+    // z->x, x->z wont change output, so transition() wont be called (I hope...)
+    if ((bef == 0 && aft != 0) || (bef != 3 && aft == 3)) return 1;
+    else if ((bef == 1 && aft != 1) || (bef != 0 && aft == 0)) return 0;
+    else if ((bef == 2 && aft == 1) || (bef == 1 && aft == 2)){
+        cerr << "Error : z->x or x->z occurred... before: " << bef << "after: " << aft << endl;
+        exit(1);
+    }
+    else{
+        cerr << "Error : 1->1 or 0->0 or x->x or z->z occurred... before: " << bef << "after: " << aft << endl;
+        exit(1);
+    }
 }
 
 // get delay time given input and output wire, input edge and output edge
@@ -58,6 +61,46 @@ Gate::getDelay(string i, string o, bool inedge, bool outedge){
         }
     }
     return 0;
+}
+
+// public member function
+void
+Gate::update(unordered_map<string, short>& m) { // input is set to val
+    // TODO:
+    // compare to lastVal, and update lastVal
+    // if has change, set input posedge/negedge and call step(), which will update output
+    // if output change, set output, output lastVal, and posedge/negedge and call getDelay()
+    // after, call ouptut wire to update, which call next gate ...
+    unordered_map<string, bool> inputedge; 
+    for (auto& e : input){
+        if (m.find(e) != m.end()){
+            // if input changes
+            if (wire[e] -> val != lastWireVal[e]){
+                inputedge[e] = transition(lastWireVal[e], wire[e] -> val);
+                lastWireVal[e] = m[e]; // set input lastval
+            }   
+        }
+    }
+    step();
+    unordered_map<string, bool> outputedge; 
+    for (auto& e : output){
+        // if output changes
+        if (wire[e] -> val != lastWireVal[e]){
+            outputedge[e] = transition(lastWireVal[e], wire[e] -> val);
+            lastWireVal[e] = m[e]; // set output lastval
+        }
+    }
+
+    for (auto& eo : outputedge){
+        int delay = INT32_MAX;
+        for (auto& ei : inputedge){
+            int delay_cand = getDelay(ei.first, eo.first, ei.second, eo.second);
+            if (delay_cand < delay) 
+                delay = delay_cand; // get min delay
+        }
+        // wire[eo.first] -> update(delay);
+        // Normally, glitch is handled when calling wire->update().
+    }
 }
 
 void 

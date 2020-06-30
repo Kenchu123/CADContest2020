@@ -47,9 +47,9 @@ class Gate {
         unordered_set<string> input; // store input name in a gate, ex. "w1", "w2", "w3"
         unordered_set<string> output; // store output name in a gate, ex. "ci", "co", "q", "s"
 
-        short val;
+        // short val;
         string type, name;
-        void update(string, short); // which input is set to val
+        void update(unordered_map<string, short>&); // which input is set to val, ex. string : "w1", short : 3
         void step() {
             // vlib[type] is a function pointer to its vlib step
             vlib[type](wire);
@@ -72,9 +72,9 @@ class Gate {
             }
             cout << "--------------------" << endl;
         }
-        int getDelay(string, string, bool, bool); // getDelay(inwire, outwire, inedge, outedge)
     private:
         bool transition(short, short);
+        int getDelay(string, string, bool, bool); // getDelay(inwire, outwire, inedge, outedge)
 };
 
 #endif
