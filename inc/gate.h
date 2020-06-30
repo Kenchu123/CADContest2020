@@ -40,7 +40,7 @@ class Gate {
 
         unordered_map<string, Wire*> wire; // to get .gv string to wire
         unordered_map<string, short> lastWireVal; // to get lastWireVal
-        int delay;
+        unordered_map<string, pair<int, int> > delay;
         short val;
         string type, name;
         void step() {

@@ -21,9 +21,8 @@ void GateMgr::readfiles(string path) {
     gv_file >> gv;
     printf("Reading sdf ...\n");
     sdf_file >> sdf;
-    printf("Converting JSON to STL ...\n");
+    printf("Converting gv JSON to STL ...\n");
     // converting gv
-    // sdf unset
     const auto module_name          = gv["module_name"].get<string>();
     const auto submodule_names      = gv["submodule_names"].get< vector<string> >();
     const auto input                = gv["input"].get< vector<string> >();
@@ -149,5 +148,22 @@ void GateMgr::readfiles(string path) {
     cout << "Input count: " << input.size() << endl;
     cout << "Output count: " << output.size() << endl;
     cout << "Gate count: " << str2gate.size() << endl;
-    
+
+
+
+    // converting sdf
+    printf("Converting sdf JSON to STL ...\n");
+    cout << "Getting Delay Time Information..." << endl;
+    for (auto& instance : sdf["cell"].items()){
+            cout << instance.key() << endl;
+        for (auto& el : sdf["cell"][instance.key()]["d"].items()){
+            assert(el.value().size() == 2);
+            // assume timescale = 1ns , convert to 1ps
+            const auto d = sdf["cell"][instance.key()]["d"][el.key()].get< vector<float> >();
+            int r_delay = d[0] * 1000;
+            int f_delay = d[1] * 1000;
+            str2gate[instance.key()] -> delay[el.key()] = make_pair(r_delay, f_delay);
+        }
+    }
+    printf("Finish Converting\n");
 }
