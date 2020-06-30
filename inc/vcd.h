@@ -16,7 +16,7 @@ class Vcd {
         strmap symbols;
         myvcd data;
         string path;
-        string timescale;
+        string timescale = "1ps";
                
         Vcd() {}
         Vcd(string p): path(p) {}

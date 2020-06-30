@@ -2,6 +2,7 @@
 #define GATE
 
 #include <unordered_map>
+#include <unordered_set>
 #include <string>
 #include <vector>
 #include "vlib.h"
@@ -14,12 +15,13 @@ class GateMgr;
 
 class GateMgr {
     public:
-        GateMgr() {}
+        GateMgr(string u = "1ps"): vcd_time_unit(u) {}
         ~GateMgr() {}
         vector<Gate*> gates;
         unordered_map<string, Wire*> str2wire;
         unordered_map<string, unordered_map<int, Wire*> > str2wires;
         unordered_map<string, Gate*> str2gate;
+        string vcd_time_unit, sdf_time_unit;
         void readfiles(string path);
         
     private:
@@ -38,11 +40,16 @@ class Gate {
         // }
         ~Gate() {}
 
-        unordered_map<string, Wire*> wire; // to get .gv string to wire
+        unordered_map<string, Wire*> wire; // to get .gv string to wire, ex. "w1" to Wire*
         unordered_map<string, short> lastWireVal; // to get lastWireVal
         unordered_map<string, pair<int, int> > delay;
+
+        unordered_set<string> input; // store input name in a gate, ex. "w1", "w2", "w3"
+        unordered_set<string> output; // store output name in a gate, ex. "ci", "co", "q", "s"
+
         short val;
         string type, name;
+        void update(string, short); // which input is set to val
         void step() {
             // vlib[type] is a function pointer to its vlib step
             vlib[type](wire);
@@ -65,6 +72,7 @@ class Gate {
             }
             cout << "--------------------" << endl;
         }
+        int getDelay(string, string, bool, bool); // getDelay(inwire, outwire, inedge, outedge)
     private:
 };
 

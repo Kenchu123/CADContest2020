@@ -7,12 +7,54 @@
 #include <utility>
 #include <typeinfo>
 #include "gate.h"
+#include "vcd.h"
 #include "json.hpp"
 
 using namespace std;
 using json = nlohmann::json;
 
-void GateMgr::readfiles(string path) {
+void
+Gate::update(string s, short v) { // input is set to val
+    // TODO:
+    // compare to lastVal, and update lastVal
+    // if has change, set input posedge/negedge and call step(), which will update output
+    // if output change, set output, output lastVal, and posedge/negedge and call getDelay()
+    // after, call ouptut wire to update, which call next gate ...
+}
+
+// get delay time given input and output wire, input edge and output edge
+int 
+Gate::getDelay(string i, string o, bool inedge, bool outedge){
+    for (auto& el : delay){
+        size_t wspa = el.first.find_last_of(" ");
+        string input, output;
+        bool flg = 0;
+        output = el.first.substr(wspa + 1);
+        if (output != o) continue;
+        if (el.first.find("posedge") != string::npos){
+            input = el.first.substr(9, wspa - 10);
+            flg = 1;
+        }
+        else if (el.first.find("negedge") != string::npos){
+            input = el.first.substr(9, wspa - 10);
+            flg = 0;
+        }
+        else {
+            input = el.first.substr(0, wspa);
+            inedge = flg = 0;
+        }
+        if (outedge){
+            if (inedge == flg && i == input) return el.second.first;
+        }
+        else {
+            if (inedge == flg && i == input) return el.second.second;
+        }
+    }
+    return 0;
+}
+
+void 
+GateMgr::readfiles(string path) {
     // read path/gv_intermediate.json, sdf_intermediate.json
     ifstream gv_file(path + "/gv_intermediate.json");
     ifstream sdf_file(path + "/sdf_intermediate.json");
@@ -154,14 +196,43 @@ void GateMgr::readfiles(string path) {
     // converting sdf
     printf("Converting sdf JSON to STL ...\n");
     cout << "Getting Delay Time Information..." << endl;
+    int sdf_timescale = -1, vcd_timescale = 1, timescale = 1;
+    sdf_time_unit = sdf["timescale"];
+    if (sdf_time_unit == "1fs") sdf_timescale = 1;
+    else if (sdf_time_unit == "1ps") sdf_timescale = 1000;
+    else if (sdf_time_unit == "1ns") sdf_timescale = 1000000;
+    else if (sdf_time_unit == "1us") sdf_timescale = 1000000000;
+    else {
+        cerr << "not a valid TIMESCALE in sdf: " << sdf_time_unit << "!!! Error! Exiting..." << endl;
+        exit(1);
+    }
+    if (vcd_time_unit == "1fs") vcd_timescale = 1;
+    else if (vcd_time_unit == "1ps") vcd_timescale = 1000;
+    else if (vcd_time_unit == "1ns") vcd_timescale = 1000000;
+    else if (vcd_time_unit == "1us") vcd_timescale = 1000000000;
+    else {
+        cerr << "not a valid TIMESCALE in vcd: " << vcd_time_unit << "!!! Error! Exiting..." << endl;
+        exit(1);
+    }
+    assert(sdf_timescale >= vcd_timescale);
+    timescale = sdf_timescale / vcd_timescale;
     for (auto& instance : sdf["cell"].items()){
-            cout << instance.key() << endl;
         for (auto& el : sdf["cell"][instance.key()]["d"].items()){
             assert(el.value().size() == 2);
-            // assume timescale = 1ns , convert to 1ps
+            // get input or output
+            size_t wspa = el.key().find_last_of(" ");
+            if (el.key().find("negedge") != string::npos || el.key().find("posedge") != string::npos) {
+                str2gate[instance.key()] -> input.insert(el.key().substr(9, wspa - 10));
+                str2gate[instance.key()] -> output.insert(el.key().substr(wspa + 1));
+            }
+            else {
+                str2gate[instance.key()] -> input.insert(el.key().substr(0, wspa));
+                str2gate[instance.key()] -> output.insert(el.key().substr(wspa + 1));
+            }
+            // get delay
             const auto d = sdf["cell"][instance.key()]["d"][el.key()].get< vector<float> >();
-            int r_delay = d[0] * 1000;
-            int f_delay = d[1] * 1000;
+            int r_delay = d[0] * timescale;
+            int f_delay = d[1] * timescale;
             str2gate[instance.key()] -> delay[el.key()] = make_pair(r_delay, f_delay);
         }
     }

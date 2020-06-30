@@ -125,7 +125,6 @@ Vcd::readvcd(){
         else if (dumpvar_flg){
             // array elem
             if (v[i][0] == 'b'){
-                cout << "arr" << i << endl;
                 size_t pos = v[i].find(" ");
                 string bits = v[i].substr(1, pos - 1);
                 reverse(bits.begin(), bits.end());
@@ -140,7 +139,6 @@ Vcd::readvcd(){
             }
             // one bit
             else {
-                cout << i << endl;
                 string sym = v[i].substr(1);
                 short value = convert_val(v[i][0]);
                 data[make_pair(symbols[sym].first, "")][time] = value;
