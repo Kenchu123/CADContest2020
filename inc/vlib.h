@@ -27,6 +27,7 @@ class Cell {
              *    0  0  x :  0
              *    1  1  x :  1
             /*/
+            check2(i0); check2(i1); check2(s);
             if (s -> val == 0){
                 if (i0 -> val == 3) z -> val = 3;
                 else if (i0 -> val == 0) z -> val = 0;
@@ -42,7 +43,6 @@ class Cell {
                 else if (i0 -> val == 0 && i1 -> val == 0) z -> val = 0;
                 else z -> val = 1;
             }
-            // else z -> val = 1;
         }
         // Built-in Primitives
         static void _and(Wire* o, Wire* a, Wire* b) {

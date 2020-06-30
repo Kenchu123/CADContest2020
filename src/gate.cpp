@@ -13,6 +13,13 @@
 using namespace std;
 using json = nlohmann::json;
 
+// private member function
+bool
+Gate::transition(short bef, short aft){
+ 
+    return 0;
+}
+// public member function
 void
 Gate::update(string s, short v) { // input is set to val
     // TODO:

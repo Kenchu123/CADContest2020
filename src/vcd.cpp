@@ -76,15 +76,27 @@ Vcd::convert_val(char ch){
 void 
 Vcd::print(){
     cout << "timescale: " << timescale << endl;
-    for(auto e : data){
-        // name
-        (e.first.second == "") ? cout << e.first.first << endl
-                                     : cout << e.first.first << "[" << e.first.second << "]" << endl;
-        for(auto elem : e.second){
-            // time & value
-            cout << "\t" << elem.first << " " << elem.second << endl;
+    for (auto& e : data){
+        // time
+        cout << "@" << e.first << endl;
+        for (auto& el : e.second){
+            // name & value
+            cout << "\t";
+            (el.first.second == "") ? cout << el.first.first << "     "
+                                    : cout << el.first.first << "[" << el.first.second << "] ";
+            cout << el.second << endl;
         }
     }
+    // cout << "timescale: " << timescale << endl;
+    // for(auto& e : data){
+    //     // name
+    //     (e.first.second == "") ? cout << e.first.first << endl
+    //                                  : cout << e.first.first << "[" << e.first.second << "]" << endl;
+    //     for(auto& elem : e.second){
+    //         // time & value
+    //         cout << "\t" << elem.first << " " << elem.second << endl;
+    //     }
+    // }
 }
 
 // still four value 0, 1, x, z
@@ -134,16 +146,64 @@ Vcd::readvcd(){
                 assert(start < end);
                 for (int j = start;j < end;++j){
                     short value = (j - start > bits.size() - 1) ? convert_val(bits.back()) : convert_val(bits[j - start]);
-                    data[make_pair(symbols[sym].first, to_string(j))][time] = value;
+                    data[time][make_pair(symbols[sym].first, to_string(j))] = value;
                 }
             }
             // one bit
             else {
                 string sym = v[i].substr(1);
                 short value = convert_val(v[i][0]);
-                data[make_pair(symbols[sym].first, "")][time] = value;
+                data[time][make_pair(symbols[sym].first, "")] = value;
             }
         }
     }
     return;
+    // data.clear();
+    // fstream file;
+    // vector<string> v;
+    // file.open(path, ios::in);
+    // if (!file) {
+    //     cerr << "Can't open file!" << endl;
+    //     exit(1);  
+    // }
+    // cout << "Reading vcd..." << endl;
+    // string buf;
+    // while (!file.eof()) {
+    //     getline(file, buf);
+    //     if (buf != "" && buf[0] != ' ')
+    //     v.push_back(buf);
+    // }
+    // file.close();
+    // getsyms(v);
+    // unsigned long long time = 0;
+    // bool dumpvar_flg = false;
+    // for (int i = 0;i < v.size();++i){
+    //     if (v[i].find("#") == 0){
+    //         time = stoull(v[i].substr(1));
+    //         dumpvar_flg = true;
+    //     }
+    //     else if (dumpvar_flg){
+    //         // array elem
+    //         if (v[i][0] == 'b'){
+    //             size_t pos = v[i].find(" ");
+    //             string bits = v[i].substr(1, pos - 1);
+    //             reverse(bits.begin(), bits.end());
+    //             string sym = v[i].substr(pos + 1);
+    //             unsigned start = symbols[sym].second.first;
+    //             unsigned end = symbols[sym].second.second;
+    //             assert(start < end);
+    //             for (int j = start;j < end;++j){
+    //                 short value = (j - start > bits.size() - 1) ? convert_val(bits.back()) : convert_val(bits[j - start]);
+    //                 data[make_pair(symbols[sym].first, to_string(j))][time] = value;
+    //             }
+    //         }
+    //         // one bit
+    //         else {
+    //             string sym = v[i].substr(1);
+    //             short value = convert_val(v[i][0]);
+    //             data[make_pair(symbols[sym].first, "")][time] = value;
+    //         }
+    //     }
+    // }
+    // return;
 }

@@ -74,6 +74,7 @@ class Gate {
         }
         int getDelay(string, string, bool, bool); // getDelay(inwire, outwire, inedge, outedge)
     private:
+        bool transition(short, short);
 };
 
 #endif

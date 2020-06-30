@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
     // vcd.print(); 
 
     GateMgr gateMgr(vcd.timescale);
-    gateMgr.readfiles(intermediat_path);    
+    //gateMgr.readfiles(intermediat_path);    
 }
 
 
