@@ -51,7 +51,7 @@ class Gate {
             type = t;
         }
         void setWire(string s, Wire* w) {
-            cout << "Gate setting wire: " << s << " " << w << endl;
+            // cout << "Gate setting wire: " << s << " " << w << endl;
             wire[s] = w;
         }
         void print() {
