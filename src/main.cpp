@@ -1,7 +1,28 @@
 #include <iostream>
 #include <stdio.h>
+#include <cuda_runtime_api.h>
+#include <cuda.h>
 #include "gate.h"
 using namespace std;
+
+void getGPU() {
+    int deviceCount;
+    int deviceId;
+    int MaxThreadsPerBlock, MaxSharedMemoryPerBlock, ProcessorCount, MaxBlockDimX;
+    cudaGetDeviceCount(&deviceCount);
+    cudaGetDevice(&deviceId);
+    cudaDeviceGetAttribute(&MaxThreadsPerBlock, cudaDevAttrMaxThreadsPerBlock, deviceId);
+    cudaDeviceGetAttribute(&MaxSharedMemoryPerBlock, cudaDevAttrMaxSharedMemoryPerBlock, deviceId);
+    cudaDeviceGetAttribute(&ProcessorCount, cudaDevAttrMultiProcessorCount, deviceId);
+    cudaDeviceGetAttribute(&MaxBlockDimX, cudaDevAttrMaxBlockDimX, deviceId);
+
+    cout << "Device Count: " << deviceCount << endl;
+    cout << "Current Device: " << deviceId << endl;
+    cout << "MaxThreadsPerBlock: " << MaxThreadsPerBlock << endl;
+    cout << "MaxSharedMemoryPerBlock: " <<  MaxSharedMemoryPerBlock << " bytes" << endl;
+    cout << "ProcessorCount: " <<  ProcessorCount << endl;
+    cout << "MaxBlockDimX: " << MaxBlockDimX << endl;
+}
 
 int main(int argc, char* argv[]) {
     if (argc != 6 && argc != 7) {
@@ -17,6 +38,7 @@ int main(int argc, char* argv[]) {
     if (argc == 7) output_path = argv[6];
 
     cout << "Hi, this is simulator" << endl;
+    getGPU();
     // vector<string> v = {"a1", "a2", "b1", "b2", "z"};
     // vector<int> s = {1, 1, 1, 1, 1};
     // Gate* g = new Gate("GEN_AO22_D1", v, s);

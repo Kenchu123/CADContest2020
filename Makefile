@@ -1,4 +1,4 @@
-CXX = g++
+CXX = nvcc
 INC = ./inc
 LIB = ./lib
 OBJDIR = ./build
