@@ -1,0 +1,1 @@
+./bin/GPUSimulator.exe ./small_circuit/intermediate ./small_circuit/small_input.vcd a b c d

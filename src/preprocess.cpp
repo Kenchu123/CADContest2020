@@ -18,7 +18,7 @@ json parseGV(string, vector<string>&);
 
 int main(int argc, char *argv[]){
     if(argc != 4 && argc != 5){
-        cerr << "Usage: ./preprocessing <netlist.gv> <netlist.sdf> <std_cells.vlib> [intermediate_representation.file]";
+        cerr << "Usage: ./GraphPreprocessing.exe <netlist.gv> <netlist.sdf> <std_cells.vlib> [intermediate_representation.file]";
         exit(1);
     }
     string gv_path = argv[1];
@@ -126,77 +126,6 @@ vector<string> split(string& s, char delimiter){
  * Reutrn : json object
  */
 json parseSDF(string path, vector<string>& data){
-    /* .sdf file example 
-     * (DELAYFILE
-     * (TIMESCALE 1ns)
-     * (CELL
-     *     (CELLTYPE "GEN_FA_D1")
-     *     (INSTANCE u_NV_NVDLA_pdp_ICCADs_u_core_ICCADs_u_cal2d_ICCADs_intadd_94_ICCADs_U15)
-     *     (DELAY
-     *         (ABSOLUTE
-     *         (iopath a co (0.066:0.066:0.066) (0.062:0.062:0.062))
-     *         (iopath b co (0.024:0.024:0.024) (0.026:0.026:0.026))
-     *         (iopath ci co (0.038:0.038:0.038) (0.037:0.037:0.037))
-     *         (iopath (posedge a) s (0.053:0.053:0.053) (0.047:0.047:0.047))
-     *         (iopath (negedge a) s (0.048:0.048:0.048) (0.049:0.049:0.049))
-     *         (iopath (posedge b) s (0.049:0.049:0.049) (0.044:0.044:0.044))
-     *         (iopath (negedge b) s (0.044:0.044:0.044) (0.045:0.045:0.045))
-     *         (iopath (posedge ci) s (0.036:0.036:0.036) (0.042:0.042:0.042))
-     *         (iopath (negedge ci) s (0.044:0.044:0.044) (0.036:0.036:0.036))
-     *         )
-     *     )
-     * ))
-     */
-    ////////////////////////// output format //////////////////////////
-    /*
-     *  THE FOLLOWING IS IN ONE LINE
-     * {
-     *     "cell": {
-     *          "u_NV_NVDLA_pdp_ICCADs_u_core_ICCADs_u_cal2d_ICCADs_intadd_94_ICCADs_U15": {
-     *              "d": {
-     *                  "(negedge a) s": [
-     *                      0.048,
-     *                      0.049
-     *                  ],
-     *                  "(negedge b) s": [
-     *                      0.044,
-     *                      0.045
-     *                  ],
-     *                  "(negedge ci) s": [
-     *                      0.044,
-     *                      0.036
-     *                  ],
-     *                  "(posedge a) s": [
-     *                      0.053,
-     *                      0.047
-     *                  ],
-     *                  "(posedge b) s": [
-     *                      0.049,
-     *                      0.044
-     *                  ],
-     *                  "(posedge ci) s": [
-     *                      0.036,
-     *                      0.042
-     *                  ],
-     *                  "a co": [
-     *                      0.066,
-     *                      0.062
-     *                  ],
-     *                  "b co": [
-     *                      0.024,
-     *                      0.026
-     *                  ],
-     *                  "ci co": [
-     *                      0.038,
-     *                      0.037
-     *                  ]
-     *              },
-     *              "t": "GEN_FA_D1"
-     *          }
-     *      },
-     *      "timescale": "1ns"
-     *  }
-     */
     getfileline(path, data);
     json j;
     string type = "", instance = "";
@@ -295,96 +224,6 @@ json parseSDF(string path, vector<string>& data){
 }
 
 json parseGV(string path, vector<string>& data){
-    /* .gv file example 
-     * module NV_NVDLA_partition_o ( apple, banana, cat, dog, egg, frog);
-     * input [2:1]   apple;
-     * input [0:1]  banana;
-     * input cat, dog;
-     * output [1:0] egg;
-     * output frog;
-     * wire w1, w2;
-     * wire [1:0] w3;
-     * wire [1:0] w4;
-     * assign apple[0] = 1'b1;
-     * assign cat = 1'b0;
-     * SUB_MODULE_1 i_am_name_1 (.clk(banana[0]), .clr_(banana[1]), .ra({w1, w2, w3[0], w3[1]}), .a(cat), .b(dog), .c(1'b1), .o(egg[0]), .o2(egg[1]));
-     * SUB_MODULE_2 i_am_name_2 (.x(apple[0]), .y(apple[1]), .z(apple[2]), .j(w4[0]), .k(w4[1]), .o(frog));
-     */
-    ////////////////////////// output format //////////////////////////
-    /*
-     *  THE FOLLOWING IS IN ONE LINE
-     */
-    // {
-    //     "NV_NVDLA_partition_o": {
-    //         "assign": {
-    //             "apple 0": "1'b1",
-    //             "cat": "1'b0"
-    //         },
-    //         "input": [
-    //             "apple",
-    //             "banana",
-    //             "cat",
-    //             "dog"
-    //         ],
-    //         "input bitsize": [
-    //             "1:2",
-    //             "0:1",
-    //             "1",
-    //             "1"
-    //         ],
-    //         "output": [
-    //             "egg",
-    //             "frog"
-    //         ],
-    //         "output bitsize": [
-    //             "0:1",
-    //             "1"
-    //         ],
-    //         "submodule": {
-    //             "i_am_name_1": {
-    //                 "para": {
-    //                     "a": "cat",
-    //                     "b": "dog",
-    //                     "c": "1'b1",
-    //                     "clk": "banana 0",
-    //                     "clr_": "banana 1",
-    //                     "o": "egg 0",
-    //                     "o2": "egg 1",
-    //                     "ra": [
-    //                         "w1",
-    //                         "w2",
-    //                         "w3 0",
-    //                         "w3 1"
-    //                     ]
-    //                 },
-    //                 "t": "SUB_MODULE_1"
-    //             },
-    //             "i_am_name_2": {
-    //                 "para": {
-    //                     "j": "w4 0",
-    //                     "k": "w4 1",
-    //                     "o": "frog",
-    //                     "x": "apple 0",
-    //                     "y": "apple 1",
-    //                     "z": "apple 2"
-    //                 },
-    //                 "t": "SUB_MODULE_2"
-    //             }
-    //         },
-    //         "wire": [
-    //             "w1",
-    //             "w2",
-    //             "w3",
-    //             "w4"
-    //         ],
-    //         "wire bitsize": [
-    //             "1",
-    //             "1",
-    //             "0:1",
-    //             "0:1"
-    //         ]
-    //     }
-    // }
     getfileline(path, data, ';');
     json j;
     string module_name = "";

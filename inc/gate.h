@@ -2,6 +2,7 @@
 #define GATE
 
 #include <unordered_map>
+#include <unordered_set>
 #include <string>
 #include <vector>
 #include "vlib.h"
@@ -14,12 +15,13 @@ class GateMgr;
 
 class GateMgr {
     public:
-        GateMgr() {}
+        GateMgr(string u = "1ps"): vcd_time_unit(u) {}
         ~GateMgr() {}
         vector<Gate*> gates;
         unordered_map<string, Wire*> str2wire;
         unordered_map<string, unordered_map<int, Wire*> > str2wires;
         unordered_map<string, Gate*> str2gate;
+        string vcd_time_unit, sdf_time_unit;
         void readfiles(string path);
         
     private:
@@ -38,10 +40,16 @@ class Gate {
         // }
         ~Gate() {}
 
-        unordered_map<string, Wire*> wire; // to get .gv string to wire
-        int delay;
-        short val;
+        unordered_map<string, Wire*> wire; // to get .gv string to wire, ex. "w1" to Wire*
+        unordered_map<string, short> lastWireVal; // to get lastWireVal
+        unordered_map<string, pair<int, int> > delay;
+
+        unordered_set<string> input; // store input name in a gate, ex. "w1", "w2", "w3"
+        unordered_set<string> output; // store output name in a gate, ex. "ci", "co", "q", "s"
+
+        // short val;
         string type, name;
+        void update(unordered_map<string, short>&); // which input is set to val, ex. string : "w1", short : 3
         void step() {
             // vlib[type] is a function pointer to its vlib step
             vlib[type](wire);
@@ -53,6 +61,8 @@ class Gate {
         void setWire(string s, Wire* w) {
             // cout << "Gate setting wire: " << s << " " << w << endl;
             wire[s] = w;
+            if (w) lastWireVal[s] = w->val;
+            else lastWireVal[s] = 0;
         }
         void print() {
             cout << "Gate: " << name << ", type: " << type << endl;
@@ -63,6 +73,8 @@ class Gate {
             cout << "--------------------" << endl;
         }
     private:
+        bool transition(short, short);
+        int getDelay(string, string, bool, bool); // getDelay(inwire, outwire, inedge, outedge)
 };
 
 #endif
