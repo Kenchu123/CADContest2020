@@ -18,7 +18,7 @@ class Wire {
         int time;
         string name;
         size_t type; // 0 for wire, 1 for input, 2 for output
-        vector<pair<Gate*, string> > fanouts; // string : ex. "w1", "W2", "w3"
+        vector<Gate*> fanouts;
         Wire() {
             val = 1;
             name = "";
@@ -37,7 +37,7 @@ class Wire {
         }
         void update(int t){
             time = t;
-            // call gates undone
+            // call undone
         }
     private:
         

@@ -17,7 +17,7 @@ class GateMgr {
     public:
         GateMgr(string u = "1ps"): vcd_time_unit(u) {}
         ~GateMgr() {}
-        vector<Gate*> gates;
+        // vector<Gate*> gates;
         unordered_map<string, Wire*> str2wire;
         unordered_map<string, unordered_map<int, Wire*> > str2wires;
         unordered_map<string, Gate*> str2gate;
@@ -48,6 +48,7 @@ class Gate {
 
         // short val;
         string type, name;
+        void update();
         void update(unordered_map<string, short>&); // which input is set to val, ex. string : "w1", short : 3
         void step() {
             // vlib[type] is a function pointer to its vlib step

@@ -64,6 +64,38 @@ Gate::getDelay(string i, string o, bool inedge, bool outedge){
 }
 
 // public member function
+void 
+Gate::update(){
+    unordered_map<string, bool> inputedge; 
+    for (auto& e : input){
+        // if input changes
+        if (wire[e] -> val != lastWireVal[e]){
+            inputedge[e] = transition(lastWireVal[e], wire[e] -> val);
+            lastWireVal[e] = wire[e] -> val; // set input lastval
+        }   
+    }
+    step();
+    unordered_map<string, bool> outputedge; 
+    for (auto& e : output){
+        // if output changes
+        if (wire[e] -> val != lastWireVal[e]){
+            outputedge[e] = transition(lastWireVal[e], wire[e] -> val);
+            lastWireVal[e] = wire[e] -> val; // set output lastval
+        }
+    }
+
+    for (auto& eo : outputedge){
+        int delay = INT32_MAX;
+        for (auto& ei : inputedge){
+            int delay_cand = getDelay(ei.first, eo.first, ei.second, eo.second);
+            if (delay_cand < delay) 
+                delay = delay_cand; // get min delay
+        }
+        wire[eo.first] -> update(delay);
+        // Normally, glitch is handled when calling wire->update().
+    }
+}
+
 void
 Gate::update(unordered_map<string, short>& m) { // input is set to val
     // TODO:
@@ -305,14 +337,14 @@ GateMgr::readfiles(string path) {
                     cerr << "Unknown Wire:" << wire_name << endl;
                 }
                 if (str2gate[name] -> input.find(el.key()) != str2gate[name] -> input.end()){
-                    str2wires[wire_name][ind] -> fanouts.push_back(make_pair(str2gate[name], el.key()));
-                    cout << wire_name + ' ' + to_string(ind) << "set fanout " << name << " input: " << el.key() << endl;
+                    str2wires[wire_name][ind] -> fanouts.push_back(str2gate[name]);
+                    // cout << wire_name + ' ' + to_string(ind) << "set fanout " << name << endl;
                 }   
             }
             else {
                 if (str2gate[name] -> input.find(el.key()) != str2gate[name] -> input.end()){
-                    str2wire[wire_name] -> fanouts.push_back(make_pair(str2gate[name], el.key()));
-                    cout << wire_name << " set fanout " << name << " input: " << el.key() << endl;
+                    str2wire[wire_name] -> fanouts.push_back(str2gate[name]);
+                    // cout << wire_name << " set fanout " << name << endl;
                 }
             }
         }
