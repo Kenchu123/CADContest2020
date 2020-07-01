@@ -98,7 +98,7 @@ Gate::update(unordered_map<string, short>& m) { // input is set to val
             if (delay_cand < delay) 
                 delay = delay_cand; // get min delay
         }
-        // wire[eo.first] -> update(delay);
+        wire[eo.first] -> update(delay);
         // Normally, glitch is handled when calling wire->update().
     }
 }
@@ -287,4 +287,36 @@ GateMgr::readfiles(string path) {
         }
     }
     printf("Finish Converting\n");
+
+    // read wire fanouts
+    printf("Reading wire fanouts from gv...\n");
+    for (auto& name : submodule_names) {
+        for (auto& el : gv["submodule"][name]["para"].items()) {
+            if (el.value().is_array()) { // this is multi bus, only appears in sequential
+                continue;
+            }
+            string wire_name = el.value();
+            size_t spaceAt = wire_name.find(" ");
+            // check if it's multi wire by if it's contains space
+            if (spaceAt != string::npos) {
+                size_t ind = stoi(wire_name.substr(spaceAt));
+                wire_name = wire_name.substr(0, spaceAt);
+                if (str2wires.find(wire_name) == str2wires.end()) {
+                    cerr << "Unknown Wire:" << wire_name << endl;
+                }
+                if (str2gate[name] -> input.find(el.key()) != str2gate[name] -> input.end()){
+                    str2wires[wire_name][ind] -> fanouts.push_back(make_pair(str2gate[name], el.key()));
+                    cout << wire_name + ' ' + to_string(ind) << "set fanout " << name << " input: " << el.key() << endl;
+                }   
+            }
+            else {
+                if (str2gate[name] -> input.find(el.key()) != str2gate[name] -> input.end()){
+                    str2wire[wire_name] -> fanouts.push_back(make_pair(str2gate[name], el.key()));
+                    cout << wire_name << " set fanout " << name << " input: " << el.key() << endl;
+                }
+            }
+        }
+    }
+    printf("Finish Reading...\n");
+
 }

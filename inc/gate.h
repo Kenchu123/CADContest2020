@@ -23,7 +23,6 @@ class GateMgr {
         unordered_map<string, Gate*> str2gate;
         string vcd_time_unit, sdf_time_unit;
         void readfiles(string path);
-        
     private:
 };
 

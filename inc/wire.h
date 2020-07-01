@@ -5,29 +5,39 @@
 #include <string>
 #include <iostream>
 #include <stdio.h>
+
 using namespace std;
 
+class Gate;
 class Wire;
 class Bus;
 
 class Wire {
     public:
         short val;
+        int time;
         string name;
         size_t type; // 0 for wire, 1 for input, 2 for output
+        vector<pair<Gate*, string> > fanouts; // string : ex. "w1", "W2", "w3"
         Wire() {
             val = 1;
             name = "";
             type = 0;
+            time = 0;
         }
         Wire(string n, size_t t) {
             name = n;
             type = t;
             val = 1;
+            time = 0;
         }
         ~Wire() {}
         void print() {
             cout << "Wire: " << name << ", type:" << type << ", val: " << val << endl;
+        }
+        void update(int t){
+            time = t;
+            // call gates undone
         }
     private:
         
