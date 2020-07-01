@@ -18,7 +18,7 @@ class Wire {
         unsigned long long time;
         string name;
         size_t type; // 0 for wire, 1 for input, 2 for output
-        vector<pair<Gate*, string> > fanouts; // Gate* g1's input wire w1, Gate* g2's input wire a1 ...
+        vector<Gate*> fanouts;
         Wire() {
             val = 1;
             name = "";
@@ -35,9 +35,12 @@ class Wire {
         void print() {
             cout << "Wire: " << name << ", type:" << type << ", val: " << val << endl;
         }
+        void setVal(short v) {
+            val = v;
+        }
         void update(int t){
             time = t;
-            // call gates undone
+            // call undone
         }
     private:
         

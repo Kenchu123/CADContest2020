@@ -53,6 +53,7 @@ class Gate {
 
         // short val;
         string type, name;
+        void update();
         void update(unordered_map<string, short>&); // which input is set to val, ex. string : "w1", short : 3
         void step() {
             // vlib[type] is a function pointer to its vlib step
@@ -68,13 +69,18 @@ class Gate {
             if (w) lastWireVal[s] = w->val;
             else lastWireVal[s] = 0;
         }
+        void syncLastVal() {
+            for (auto& w : wire) {
+                w.second->print();
+                lastWireVal[w.first] = w.second->val;
+            }
+        }
         void print() {
             cout << "Gate: " << name << ", type: " << type << endl;
             for (auto it = wire.begin(); it != wire.end(); ++it) {
                 if (it->second)
                     cout << it->first << " " << it->second->name << endl;
             }
-            cout << "--------------------" << endl;
         }
     private:
         bool transition(short, short);
