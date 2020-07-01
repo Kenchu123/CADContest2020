@@ -139,7 +139,7 @@ GateMgr::readfiles(string path) {
             // multi wire
             size_t col = wire_bitSize[i].find(':');
             if (col == string::npos) cerr << "[Error] wire bitSize invalid!" << endl;
-            cout << "Multi Wire: " << wire[i] << ", bitSize: " << wire_bitSize[i] << endl;
+            // cout << "Multi Wire: " << wire[i] << ", bitSize: " << wire_bitSize[i] << endl;
             int l = stoi(wire_bitSize[i].substr(0, col));
             int r = stoi(wire_bitSize[i].substr(col + 1));
             for (size_t j = l; j <= r; ++j) {
@@ -158,7 +158,7 @@ GateMgr::readfiles(string path) {
             // multi wire
             size_t col = input_bitSize[i].find(':');
             if (col == string::npos) cerr << "[Error] input bitSize invalid!" << endl;
-            cout << "Multi Wire: " << wire[i] << ", bitSize: " << input_bitSize[i] << endl;
+            // cout << "Multi Wire: " << wire[i] << ", bitSize: " << input_bitSize[i] << endl;
             int l = stoi(input_bitSize[i].substr(0, col));
             int r = stoi(input_bitSize[i].substr(col + 1));
             for (size_t j = l; j <= r; ++j) {
@@ -177,7 +177,7 @@ GateMgr::readfiles(string path) {
             // multi wire
             size_t col = output_bitSize[i].find(':');
             if (col == string::npos) cerr << "[Error] input bitSize invalid!" << endl;
-            cout << "Multi Wire: " << wire[i] << ", bitSize: " << output_bitSize[i] << endl;
+            // cout << "Multi Wire: " << wire[i] << ", bitSize: " << output_bitSize[i] << endl;
             int l = stoi(output_bitSize[i].substr(0, col));
             int r = stoi(output_bitSize[i].substr(col + 1));
             for (size_t j = l; j <= r; ++j) {
@@ -193,14 +193,14 @@ GateMgr::readfiles(string path) {
     str2wire["1'b1"] = one;
 
     // Check wires
-    cout << "str2wire" << endl;
-    for (auto it = str2wire.begin(); it != str2wire.end(); ++it) {
-        it->second->print();
-    }
-    cout << "str2wires" << endl;
-    for (auto it = str2wires.begin(); it != str2wires.end(); ++it) {
-        for (auto w = it->second.begin(); w != it->second.end(); ++w) w->second->print();
-    }
+    // cout << "str2wire" << endl;
+    // for (auto it = str2wire.begin(); it != str2wire.end(); ++it) {
+    //     it->second->print();
+    // }
+    // cout << "str2wires" << endl;
+    // for (auto it = str2wires.begin(); it != str2wires.end(); ++it) {
+    //     for (auto w = it->second.begin(); w != it->second.end(); ++w) w->second->print();
+    // }
 
     // construct gates, multi wire not set
     cout << "Constructing Gates ..." << endl;
@@ -230,11 +230,11 @@ GateMgr::readfiles(string path) {
         }
         str2gate[name] = g;
     }
-    // Check gates
-    cout << "gates" << endl;
-    for (auto it = str2gate.begin(); it != str2gate.end(); ++it) {
-        it->second->print();
-    }
+    // // Check gates
+    // cout << "gates" << endl;
+    // for (auto it = str2gate.begin(); it != str2gate.end(); ++it) {
+    //     it->second->print();
+    // }
     // Counts
     cout << "Wire count: " << wire.size() << endl;
     cout << "Input count: " << input.size() << endl;
