@@ -25,15 +25,44 @@ public:
     void print() { cout << val << " "; }
 };
 
+
+class HI {
+public:
+    __host__ __device__ static void sayHi() {
+        
+    }
+};
+
+class Mut {
+public:
+    __host__ __device__ static void mut3(int* v) {
+        *v = *v * 3;
+    }
+};
+
 __global__ void add(Cell *a, Cell *b, Cell *c, int n) {
     // *c = *a + *b;
+    void (*mut3)(int*) = &Mut::mut3;
     int index = threadIdx.x + blockIdx.x * blockDim.x;
-    if (index < n) c[index].setVal(a[index].getVal() + b[index].getVal());
+    if (index < n) {
+        c[index].setVal(a[index].getVal() + b[index].getVal());
+        mut3(&c[index].val);
+    }
 }
 
 
+void say() {
+    cout << "Say" << endl;
+}
+// typedef void (*func_ptr)(void);
+
 int main() {
     cout << "Size of Cell: " << sizeof(Cell) << endl;
+    void (*sayHi)() = &HI::sayHi;
+    sayHi();
+    // int d = 3;
+    // Mut::mut3(&d);
+    // cout << d << endl;
 
     Cell *a, *b, *c;
     Cell *d_a, *d_b, *d_c;
