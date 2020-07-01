@@ -17,12 +17,17 @@ class GateMgr {
     public:
         GateMgr(string u = "1ps"): vcd_time_unit(u) {}
         ~GateMgr() {}
-        vector<Gate*> gates;
+        // vector<Gate*> gates;
         unordered_map<string, Wire*> str2wire;
         unordered_map<string, unordered_map<int, Wire*> > str2wires;
         unordered_map<string, Gate*> str2gate;
         string vcd_time_unit, sdf_time_unit;
         void readfiles(string path);
+        void print() {
+            cout << "Wire count: " << str2wire.size() << endl;
+            cout << "Wires count: " << str2wires.size() << endl;
+            cout << "Gate count: " << str2gate.size() << endl;
+        }
     private:
 };
 

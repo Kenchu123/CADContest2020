@@ -15,10 +15,10 @@ class Bus;
 class Wire {
     public:
         short val;
-        int time;
+        unsigned long long time;
         string name;
         size_t type; // 0 for wire, 1 for input, 2 for output
-        vector<pair<Gate*, string> > fanouts; // string : ex. "w1", "W2", "w3"
+        vector<pair<Gate*, string> > fanouts; // Gate* g1's input wire w1, Gate* g2's input wire a1 ...
         Wire() {
             val = 1;
             name = "";

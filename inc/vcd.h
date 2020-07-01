@@ -10,15 +10,14 @@ using namespace std;
 
 typedef unordered_map<string, pair<string, pair<unsigned, unsigned> > > strmap;
 // typedef map<pair<string, string>, map<unsigned long long, short> > myvcd;
-typedef map<unsigned long long, map<pair<string, string>, short> > myvcd;
+typedef map<unsigned long long, map<string, short> > myvcd;
 
 class Vcd {
     public:
         strmap symbols;
-        myvcd data; // myvcd : map<ull, map<pair, short>>
-                    // pair is like:
-                    // single bit pair<"name", "">
-                    // multi bit pair<"name", "idx">
+        myvcd data; // myvcd : map<ull, map<string, short>>
+                    // single bit "name"
+                    // multi bit "name idx"
         string path;
         string timescale = "1ps";
                

@@ -65,7 +65,7 @@ Gate::getDelay(string i, string o, bool inedge, bool outedge){
 
 // public member function
 void
-Gate::update(unordered_map<string, short>& m) { // input is set to val
+Gate::update(unordered_map<string, short>& m) { // input (a1 a2 a3) is set to val
     // TODO:
     // compare to lastVal, and update lastVal
     // if has change, set input posedge/negedge and call step(), which will update output
@@ -306,13 +306,13 @@ GateMgr::readfiles(string path) {
                 }
                 if (str2gate[name] -> input.find(el.key()) != str2gate[name] -> input.end()){
                     str2wires[wire_name][ind] -> fanouts.push_back(make_pair(str2gate[name], el.key()));
-                    cout << wire_name + ' ' + to_string(ind) << "set fanout " << name << " input: " << el.key() << endl;
+                    // cout << wire_name + ' ' + to_string(ind) << "set fanout " << name << " input: " << el.key() << endl;
                 }   
             }
             else {
                 if (str2gate[name] -> input.find(el.key()) != str2gate[name] -> input.end()){
                     str2wire[wire_name] -> fanouts.push_back(make_pair(str2gate[name], el.key()));
-                    cout << wire_name << " set fanout " << name << " input: " << el.key() << endl;
+                    // cout << wire_name << " set fanout " << name << " input: " << el.key() << endl;
                 }
             }
         }

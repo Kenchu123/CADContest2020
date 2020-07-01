@@ -6,6 +6,7 @@
 #include <map>
 #include "gate.h"
 #include "vcd.h"
+#include "simulator.h"
 using namespace std;
 
 
@@ -24,11 +25,14 @@ int main(int argc, char *argv[]) {
     cout << "HI, this is the simulator" << endl;
 
     Vcd vcd(input_vcd_path);
-    // vcd.readvcd();
+    vcd.readvcd();
     // vcd.print(); 
 
     GateMgr gateMgr(vcd.timescale);
-    gateMgr.readfiles(intermediat_path);    
+    gateMgr.readfiles(intermediat_path);
+    Simulator sim(&gateMgr, &vcd);
+    sim.simulate();
+
 }
 
 
