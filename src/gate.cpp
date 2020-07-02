@@ -7,9 +7,12 @@
 #include <unordered_map>
 #include <utility>
 #include <typeinfo>
+#include <assert.h>
 #include "gate.h"
 #include "vcd.h"
 #include "json.hpp"
+#include "global.h"
+#include "event.h"
 
 using namespace std;
 using json = nlohmann::json;
@@ -19,10 +22,10 @@ bool
 Gate::transition(short bef, short aft){
     // posedge(i.e. 1) : 0->1, 0->x, 0->z, x->1, z->1 
     // negedge(i.e. 0) : 1->0, 1->x, 1->z, x->0, z->0
-    // x->z z->x wont change output , set as negedge. 
+    // z->x, x->z wont change output, set as negedge.
     if ((bef == 0 && aft != 0) || (bef != 3 && aft == 3)) return 1;
     else if ((bef == 3 && aft != 3) || (bef != 0 && aft == 0)) return 0;
-    else if ((bef == 1 && aft == 2) || (bef == 2 && aft == 1)) return 0;
+    else if ((bef == 2 && aft == 1) || (bef == 1 && aft == 2)) return 0;
     else{
         cerr << "Error : 1->1 or 0->0 or x->x or z->z occurred... before: " << bef << "after: " << aft << endl;
         exit(1);
@@ -63,10 +66,12 @@ Gate::getDelay(string i, string o, bool inedge, bool outedge){
 // public member function
 void 
 Gate::update(){
+    cout << "Gate [" << name << "] update..." << endl;
+    print();
     unordered_map<string, bool> inputedge; 
     for (auto& e : input){
         // if input changes
-        if (wire[e] -> val != lastWireVal[e]){
+        if (wire[e] && wire[e] -> val != lastWireVal[e]){
             inputedge[e] = transition(lastWireVal[e], wire[e] -> val);
             lastWireVal[e] = wire[e] -> val; // set input lastval
         }   
@@ -75,22 +80,25 @@ Gate::update(){
     unordered_map<string, bool> outputedge; 
     for (auto& e : output){
         // if output changes
-        if (wire[e] -> val != lastWireVal[e]){
+        if (wire[e] && wire[e] -> val != lastWireVal[e]){
             outputedge[e] = transition(lastWireVal[e], wire[e] -> val);
-            lastWireVal[e] = wire[e] -> val; // set output lastval
+            // make ouput val back to lastWireVal, output shoud be change when delay timeup, not now
+            wire[e]->setNewVal(wire[e] -> val); // new wire val stored, but shoud not to change now
+            wire[e]->setVal(lastWireVal[e]); // set wire value to old value
+            lastWireVal[e] = wire[e]->newVal; // gate lastWireVal = new wire Val
         }
     }
-
     for (auto& eo : outputedge){
-        int delay = INT32_MAX;
+        int delay = 1e9;
         for (auto& ei : inputedge){
             int delay_cand = getDelay(ei.first, eo.first, ei.second, eo.second);
             if (delay_cand < delay) 
                 delay = delay_cand; // get min delay
         }
-        wire[eo.first] -> update(delay);
+        if (wire[eo.first]) wire[eo.first] -> update(delay); // create Event, with new val stored
         // Normally, glitch is handled when calling wire->update().
     }
+    cout << "Gate [" << name << "] update finish" << endl;
 }
 
 void
@@ -217,7 +225,9 @@ GateMgr::readfiles(string path) {
     }
     // making "1'b0", "1'b1"
     Wire* zero = new Wire("1'b0", 0);
+    zero->setVal(0);
     Wire* one = new Wire("1'b1", 0);
+    one->setVal(3);
     str2wire["1'b0"] = zero;
     str2wire["1'b1"] = one;
 

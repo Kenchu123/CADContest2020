@@ -1,19 +1,5 @@
 using namespace std;
 
-////////////
-// Note : vlib.h has changed ,following code can no longer be used
-////////////
-
-
-
-
-
-
-
-
-
-
-
 class Cell {
     public:
         Cell() {}
@@ -35,6 +21,7 @@ class Cell {
              *    0  0  x :  0
              *    1  1  x :  1
             /*/
+            check2(i0); check2(i1); check2(s);
             if (s -> val == 0){
                 if (i0 -> val == 3) z -> val = 3;
                 else if (i0 -> val == 0) z -> val = 0;
@@ -50,35 +37,43 @@ class Cell {
                 else if (i0 -> val == 0 && i1 -> val == 0) z -> val = 0;
                 else z -> val = 1;
             }
-            else z -> val = 1;
         }
         // Built-in Primitives
         static void _and(Wire* o, Wire* a, Wire* b) {
+            check2(a); check2(b);
             o -> val = a -> val & b -> val;
         }
         static void _and(Wire* o, Wire* a, Wire* b, Wire* c) {
+            check2(a); check2(b); check2(c);
             o -> val = a -> val & b -> val & c -> val;
         }
         static void _and(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            check2(a); check2(b); check2(c); check2(d);
             o -> val = a -> val & b -> val & c -> val & d -> val;
         }
         static void _or(Wire* o, Wire* a, Wire* b) {
+            check2(a); check2(b);
             o -> val = a -> val | b -> val;
         }
         static void _or(Wire* o, Wire* a, Wire* b, Wire* c) {
+            check2(a); check2(b); check2(c);
             o -> val = a -> val | b -> val | c -> val;
         }
         static void _or(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            check2(a); check2(b); check2(c); check2(d);
             o -> val = a -> val | b -> val | c -> val | d -> val;
         }
         static void _not(Wire* o, Wire* i) {
+            check2(i);
             o -> val = ~(i -> val) + 4;
             check2(o);
         }
         static void _buf(Wire* o, Wire* i) {
+            check2(i);
             o -> val = i -> val;
         }
         static void _xor(Wire* o, Wire* a, Wire* b) {
+            check2(a); check2(b);
             if (a -> val == 1 && b -> val == 1) 
                 o -> val = 1;
             else{
@@ -87,40 +82,49 @@ class Cell {
             }
         }
         static void _xor(Wire* o, Wire* a, Wire* b, Wire* c) {
+            check2(a); check2(b); check2(c);
             _xor(o, a, b);
             check2(o);
             _xor(o, o, c);
             check2(o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b) {
+            check2(a); check2(b);
             _and(o, a, b);
             _not(o, o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b, Wire* c) {
+            check2(a); check2(b); check2(c);
             _and(o, a, b, c);
             _not(o, o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            check2(a); check2(b); check2(c); check2(d);
             _and(o, a, b, c, d);
             _not(o, o);
         }
         static void _nor(Wire* o, Wire* a, Wire* b) {
+            check2(a); check2(b);
             _or(o, a, b);
             _not(o, o);
         }
         static void _nor(Wire* o, Wire* a, Wire* b, Wire* c) {
+            check2(a); check2(b); check2(c);
             _or(o, a, b, c);
             _not(o, o);
         }
         static void _nor(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            check2(a); check2(b); check2(c); check2(d);
             _or(o, a, b, c, d);
             _not(o, o);
         }
         static void _xnor(Wire* o, Wire* a, Wire* b) {
+            check2(a); check2(b);
             _xor(o, a, b);
             _not(o, o);
         }
         static void _xnor(Wire* o, Wire* a, Wire* b, Wire* c) {
+            check2(a); check2(b); check2(c);
             _xor(o, a, b, c);
             _not(o, o);
         }

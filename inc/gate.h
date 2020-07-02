@@ -68,11 +68,10 @@ class Gate {
             // cout << "Gate setting wire: " << s << " " << w << endl;
             wire[s] = w;
             if (w) lastWireVal[s] = w->val;
-            else lastWireVal[s] = 0;
+            else lastWireVal[s] = 1;
         }
         void syncLastVal() {
             for (auto& w : wire) {
-                w.second->print();
                 lastWireVal[w.first] = w.second->val;
             }
         }
@@ -80,7 +79,7 @@ class Gate {
             cout << "Gate: " << name << ", type: " << type << endl;
             for (auto it = wire.begin(); it != wire.end(); ++it) {
                 if (it->second)
-                    cout << it->first << " " << it->second->name << endl;
+                    cout << it->first << " " << it->second->name << " " << it->second->val << endl;
             }
         }
     private:

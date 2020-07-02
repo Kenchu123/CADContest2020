@@ -15,12 +15,14 @@ class Bus;
 class Wire {
     public:
         short val;
+        short newVal;
         unsigned long long time;
         string name;
         size_t type; // 0 for wire, 1 for input, 2 for output
         vector<Gate*> fanouts;
         Wire() {
             val = 1;
+            newVal = 1;
             name = "";
             type = 0;
             time = 0;
@@ -29,19 +31,18 @@ class Wire {
             name = n;
             type = t;
             val = 1;
+            newVal = 1;
             time = 0;
         }
-        ~Wire() {}
+        ~Wire() {
+            time = 0;
+        }
         void print() {
             cout << "Wire: " << name << ", type:" << type << ", val: " << val << endl;
         }
-        void setVal(short v) {
-            val = v;
-        }
-        void update(int t){
-            time = t;
-            // call undone
-        }
+        void update(int t);
+        inline void setVal(short v) { val = v; }
+        inline void setNewVal(short v) { newVal = v; }
     private:
         
 };
