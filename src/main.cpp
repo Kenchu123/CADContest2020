@@ -24,7 +24,7 @@ int main(int argc, char *argv[]) {
     if (argc == 7) output_path = argv[6];
     cout << "HI, this is the simulator" << endl;
 
-    Vcd vcd(input_vcd_path);
+    Vcd vcd(input_vcd_path, output_path);
     vcd.readvcd();
     // vcd.print(); 
 

@@ -98,7 +98,7 @@ void Simulator::runEvent() {
         unordered_set<Gate*> gates;
         setEventChangeWires(e, gates);
         // Run Gate update
-        cout << "Running Gate updates ..." << endl;
+        // cout << "Running Gate updates ..." << endl;
         for (auto& g : gates) {
             if (g) g->update();
         }
@@ -108,7 +108,7 @@ void Simulator::runEvent() {
         // call output vcd
 
         // delete e;
-        cout << "Event finished, call next event" << endl;
+        // cout << "Event finished, call next event" << endl;
         eq.pop();
     }
 }

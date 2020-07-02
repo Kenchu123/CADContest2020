@@ -46,7 +46,6 @@ class Cell {
         }
         // Built-in Primitives
         static void _and(Wire* o, Wire* a, Wire* b) {
-            cout << o << " " << a << " " << b << endl;
             check2(a); check2(b);
             o -> val = a -> val & b -> val;
         }

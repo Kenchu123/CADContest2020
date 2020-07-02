@@ -66,8 +66,8 @@ Gate::getDelay(string i, string o, bool inedge, bool outedge){
 // public member function
 void 
 Gate::update(){
-    cout << "Gate [" << name << "] update..." << endl;
-    print();
+    // cout << "Gate [" << name << "] update..." << endl;
+    // print();
     unordered_map<string, bool> inputedge; 
     for (auto& e : input){
         // if input changes
@@ -98,7 +98,7 @@ Gate::update(){
         if (wire[eo.first]) wire[eo.first] -> update(delay); // create Event, with new val stored
         // Normally, glitch is handled when calling wire->update().
     }
-    cout << "Gate [" << name << "] update finish" << endl;
+    // cout << "Gate [" << name << "] update finish" << endl;
 }
 
 void

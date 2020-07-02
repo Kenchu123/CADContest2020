@@ -6,6 +6,7 @@
 #include <map>
 #include <string>
 #include <utility>
+#include <fstream>
 #include "gate.h"
 using namespace std;
 
@@ -28,14 +29,19 @@ class Vcd {
         vector<string> scopes;
         string path; 
         string timescale = "1ps";
+        ofstream outfile;
                
         Vcd() {}
-        Vcd(string p): path(p) {}
-        ~Vcd() {}
+        Vcd(string p, string o): path(p) {
+            outfile.open(o);
+        }
+        ~Vcd() {
+            outfile.close();
+        }
         void print();
         void readvcd();
         void gensyms(string, GateMgr*);
-        // void writevcd(string, Event*, GateMgr*);
+        void writevcd(const Event*, GateMgr*);
 
     private:
         void trimws(string&);

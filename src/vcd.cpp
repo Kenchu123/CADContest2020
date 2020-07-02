@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <assert.h>
 
+#include "event.h"
 using namespace std;
 
 // private member function
@@ -302,9 +303,6 @@ Vcd::readvcd(){
 
 void 
 Vcd::gensyms(string path, GateMgr* mgr){
-    fstream outfile;
-    outfile.open(path, ios::out);  
-    outfile.clear();
     cout << "Dumping vcd $var..." << endl;
     // $timescale
     outfile << "$timescale " + timescale + " $end\n";
@@ -338,43 +336,39 @@ Vcd::gensyms(string path, GateMgr* mgr){
     // $enddefinitions $end
     outfile << "$enddefinitions $end\n";
     cout << "Finish Dumping vcd $var..." << endl;
-    outfile.close();
 }
 
-// void
-// Vcd::writevcd(string path, Event* e, GateMgr* mgr){
-//     fstream outfile;
-//     outfile.open(path, ios::app);
-//     outfile << (e -> time == 0) ? "$dumpvars\n" : "#" + to_string(e -> time) + "\n";
+void
+Vcd::writevcd(const Event* e, GateMgr* mgr){
+    outfile << ((e -> time == 0) ? "$dumpvars\n" : "#" + to_string(e -> time) + "\n");
     
-//     unordered_map<string, map<int, short> >  m; // for multi bits
-//     for (auto& el : e -> changeWires){
-//         // multi bits
-//         size_t pos = el.first.find(" ");
-//         if (pos != string::npos){
-//             string name = el.first.substr(0, pos);
-//             int idx = stoi(el.first.substr(pos + 1));
-//             int size = outsyms[name].first;
-//             for (int i = 0;i < size;++i){
-//                 if (i == idx) 
-//                     m[name][idx] = el.second;
-//                 else 
-//                     m[name][i] = mgr -> str2wires[name][i] -> val;
-//             }
-//         }
-//         // single bit
-//         else {
-//             outfile << convert_short(el.second) << outsyms[el.first].second << '\n';
-//         }
-//     }
-//     // multi bits
-//     for (auto& el : m){
-//         int size = outsyms[el.first].first;
-//         string bits = "";
-//         for (int i = size - 1;i >= 0 ;--i)
-//             bits += convert_short(el.second[i]);
-//         outfile << "b" + bits + " " + outsyms[el.first].second << '\n';
-//     }
-//     outfile << (e -> time == 0) ? "$end\n" : ""; 
-//     outfile.close();
-// }
+    unordered_map<string, map<int, short> >  m; // for multi bits
+    for (auto& el : e -> changeWires){
+        // multi bits
+        size_t pos = el.first.find(" ");
+        if (pos != string::npos){
+            string name = el.first.substr(0, pos);
+            int idx = stoi(el.first.substr(pos + 1));
+            int size = outsyms[name].first;
+            for (int i = 0;i < size;++i){
+                if (i == idx) 
+                    m[name][idx] = el.second;
+                else 
+                    m[name][i] = mgr -> str2wires[name][i] -> val;
+            }
+        }
+        // single bit
+        else {
+            outfile << convert_short(el.second) << outsyms[el.first].second << '\n';
+        }
+    }
+    // multi bits
+    for (auto& el : m){
+        int size = outsyms[el.first].first;
+        string bits = "";
+        for (int i = size - 1;i >= 0 ;--i)
+            bits += convert_short(el.second[i]);
+        outfile << "b" + bits + " " + outsyms[el.first].second << '\n';
+    }
+    outfile << ((e -> time == 0) ? "$end\n" : ""); 
+}
