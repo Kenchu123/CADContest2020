@@ -14,3 +14,7 @@ intermediate/
 *.pdf
 preVlib.cpp
 preVlib
+
+*.vcd
+*.sdf
+*.vlib
