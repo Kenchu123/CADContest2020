@@ -15,7 +15,7 @@ Simulator::createEvent(unsigned long long& t, map<string, short>& wires) {
     }
     else {
         // Not exist, create a new one
-        cout << "Creating Event [VCD] at time: " << t << endl;
+        // cout << "Creating Event [VCD] at time: " << t << endl;
         Event* e = new Event;
         e->setTime(t);
         e->addChangeWires(wires);
@@ -39,7 +39,7 @@ Simulator::createEvent(unsigned long long& t, string& s, short v) {
     }
     else {
         // Not exist, create a new one
-        cout << "Creating Event [Wire] at time: " << t << endl;
+        // cout << "Creating Event [Wire] at time: " << t << endl;
         Event* e = new Event;
         e->setTime(t);
         e->addChangeWire(s, v);
@@ -82,7 +82,7 @@ Simulator::setEventChangeWires(const Event* e, unordered_set<Gate*>& gates) {
         for (auto& g : wire->fanouts) gates.insert(g); // add invoked gates
         // cout << "wire->fanouts count: " << wire->fanouts.size() << endl;
     }
-    cout << "SetEventChangeWires, changeWire Count: " << e->changeWires.size() << ", Gate Count: " << gates.size() << endl;
+    // cout << "SetEventChangeWires, changeWire Count: " << e->changeWires.size() << ", Gate Count: " << gates.size() << endl;
 }
 
 void Simulator::runEvent() {
@@ -106,7 +106,8 @@ void Simulator::runEvent() {
 
 
         // call output vcd
-
+        cout << "Writing VCD..." << endl;
+        vcd->writevcd(e, gm);
         // delete e;
         // cout << "Event finished, call next event" << endl;
         eq.pop();

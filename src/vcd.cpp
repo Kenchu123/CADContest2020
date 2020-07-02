@@ -349,13 +349,19 @@ Vcd::writevcd(const Event* e, GateMgr* mgr){
         if (pos != string::npos){
             string name = el.first.substr(0, pos);
             int idx = stoi(el.first.substr(pos + 1));
-            int size = outsyms[name].first;
-            for (int i = 0;i < size;++i){
-                if (i == idx) 
-                    m[name][idx] = el.second;
-                else 
-                    m[name][i] = mgr -> str2wires[name][i] -> val;
+            for (auto& w : mgr->str2wires[name]) {
+                if (w.first == idx)
+                    m[name][w.first] = el.second;
+                else
+                    m[name][w.first] = w.second->val;
             }
+            // int size = outsyms[name].first;
+            // for (int i = 0;i < size;++i){
+            //     if (i == idx) 
+            //         m[name][idx] = el.second;
+            //     else 
+            //         m[name][i] = mgr -> str2wires[name][i] -> val;
+            // }
         }
         // single bit
         else {
