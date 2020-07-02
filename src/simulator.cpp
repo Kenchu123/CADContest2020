@@ -91,6 +91,10 @@ void Simulator::runEvent() {
         cout << "Running ";
         const Event* e = eq.top();
         global_time = e->time;
+        if (global_time > dumpoff_time) {
+            cout << "Dumpout finish" << endl; // stop simulating after dumpoff time
+            exit(1);
+        }
         e->print();
         // cout << "Global time:" << global_time << endl;
 
@@ -104,10 +108,11 @@ void Simulator::runEvent() {
         }
         // change special glitch
 
-
         // call output vcd
         cout << "Writing VCD..." << endl;
-        vcd->writevcd(e, gm);
+        if (global_time >= dumpon_time && global_time <= dumpoff_time) {
+            vcd->writevcd(e, gm);
+        }
         // delete e;
         // cout << "Event finished, call next event" << endl;
         eq.pop();

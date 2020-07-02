@@ -30,70 +30,69 @@ Vcd::split(string& s, char delimiter){
 }
 
 void 
-Vcd::getsyms(vector<string>& v){
-    for (int i = 0;i < v.size();++i){
-        if (v[i].find("$var") == 0){
-            vector<string> tokens;
-            string sym = "", name = "";
-            unsigned start = 0, end = 0;
-            tokens = split(v[i], ' ');
-            sym = tokens[3];
-            name = tokens[4];
-            if (tokens[2] == "1"){
+Vcd::getsyms(string& v){
+    if (v.find("$var") == 0){
+        vector<string> tokens;
+        string sym = "", name = "";
+        unsigned start = 0, end = 0;
+        tokens = split(v, ' ');
+        sym = tokens[3];
+        name = tokens[4];
+        if (tokens[2] == "1"){
+            symbols[sym] = make_pair(name, make_pair(start, end));
+        }
+        else {
+            if (tokens.size() == 6){
+                size_t col_pos = tokens[4].find(':');
+                size_t l_pos = tokens[4].find('[');
+                size_t r_pos = tokens[4].find(']');
+                start = (unsigned)stoi(tokens[4].substr(l_pos + 1, col_pos - l_pos - 1));
+                end = (unsigned)stoi(tokens[4].substr(col_pos + 1, tokens[4].size() - col_pos - 2));
+                if (start > end){
+                    unsigned tmp = start;
+                    start = end;
+                    end = tmp;
+                }
+                name = name.substr(0, l_pos);
                 symbols[sym] = make_pair(name, make_pair(start, end));
             }
-            else {
-                if (tokens.size() == 6){
-                    size_t col_pos = tokens[4].find(':');
-                    size_t l_pos = tokens[4].find('[');
-                    size_t r_pos = tokens[4].find(']');
-                    start = (unsigned)stoi(tokens[4].substr(l_pos + 1, col_pos - l_pos - 1));
-                    end = (unsigned)stoi(tokens[4].substr(col_pos + 1, tokens[4].size() - col_pos - 2));
-                    if (start > end){
-                        unsigned tmp = start;
-                        start = end;
-                        end = tmp;
-                    }
-                    name = name.substr(0, l_pos);
-                    symbols[sym] = make_pair(name, make_pair(start, end));
+            else if (tokens.size() == 7){
+                size_t pos = tokens[5].find(':');
+                start = (unsigned)stoi(tokens[5].substr(1, pos - 1));
+                end = (unsigned)stoi(tokens[5].substr(pos + 1, tokens[5].size() - pos - 2));
+                if (start > end){
+                    unsigned tmp = start;
+                    start = end;
+                    end = tmp;
                 }
-                else if (tokens.size() == 7){
-                    size_t pos = tokens[5].find(':');
-                    start = (unsigned)stoi(tokens[5].substr(1, pos - 1));
-                    end = (unsigned)stoi(tokens[5].substr(pos + 1, tokens[5].size() - pos - 2));
-                    if (start > end){
-                        unsigned tmp = start;
-                        start = end;
-                        end = tmp;
-                    }
-                    symbols[sym] = make_pair(name, make_pair(start, end));
-                }
-                else{
-                    cerr << "Error : tokens size = " << tokens.size() << endl;
-                    exit(1);
-                }
+                symbols[sym] = make_pair(name, make_pair(start, end));
+            }
+            else{
+                cerr << "Error : tokens size = " << tokens.size() << endl;
+                exit(1);
             }
         }
-        else if(v[i].find("$timescale") == 0){
-            string str = v[i];
-            trimws(str);
-            if (str.size() == 10){
-                timescale = v[i + 1];
-                trimws(timescale);
-                size_t start = timescale.find_first_not_of('\t');
-                if(start != string::npos) timescale = timescale.substr(start);
-                size_t end = timescale.find_last_not_of('\t');
-                if(end != string::npos) timescale = timescale.substr(0, end + 1);
-            }
-            else timescale = v[i].substr(11, 3);
+    }
+    else if(v.find("$timescale") == 0){
+        string str = v;
+        trimws(str);
+        // if (str.size() == 10){
+        //     timescale = v[i + 1];
+        //     trimws(timescale);
+        //     size_t start = timescale.find_first_not_of('\t');
+        //     if(start != string::npos) timescale = timescale.substr(start);
+        //     size_t end = timescale.find_last_not_of('\t');
+        //     if(end != string::npos) timescale = timescale.substr(0, end + 1);
+        // }
+        // else 
+        timescale = v.substr(11, 3);
 
-        }
-        else if(v[i].find("$scope") == 0){
-            vector<string> tokens;
-            tokens = split(v[i], ' ');
-            if (tokens[1] == "module")
-                scopes.push_back(tokens[2]);
-        }
+    }
+    else if(v.find("$scope") == 0){
+        vector<string> tokens;
+        tokens = split(v, ' ');
+        if (tokens[1] == "module")
+            scopes.push_back(tokens[2]);
     }
 }
 
@@ -201,10 +200,10 @@ Vcd::print(){
 //     <"b", "1"> , 10000, 0
 //     <"b", "2"> , 10000, 3
 void
-Vcd::readvcd(){
+Vcd::readvcd(unsigned long long& dumpoff_time){
     data.clear();
     fstream file;
-    vector<string> v;
+    // vector<string> v;
     file.open(path, ios::in);
     if (!file) {
         cerr << "Can't open file!" << endl;
@@ -212,93 +211,44 @@ Vcd::readvcd(){
     }
     cout << "Reading vcd..." << endl;
     string buf;
+    bool dumpvar_flg = false;
+    unsigned long long time = 0;
     while (!file.eof()) {
         getline(file, buf);
-        if (buf != "")
-            v.push_back(buf);
-    }
-    file.close();
-    getsyms(v);
-    unsigned long long time = 0;
-    bool dumpvar_flg = false;
-    for (int i = 0;i < v.size();++i){
-        if (v[i].find("$dumpvars") == 0) dumpvar_flg = true;
-        else if (v[i][0] == '$') continue;
-        else if (v[i].find("#") == 0){
-            time = stoull(v[i].substr(1));
-        }
-        else if (dumpvar_flg){
-            // array elem
-            if (v[i][0] == 'b'){
-                size_t pos = v[i].find(" ");
-                string bits = v[i].substr(1, pos - 1);
-                reverse(bits.begin(), bits.end());
-                string sym = v[i].substr(pos + 1);
-                unsigned start = symbols[sym].second.first;
-                unsigned end = symbols[sym].second.second;
-                assert(start < end);
-                for (int j = start;j < end;++j){
-                    short value = (j - start > bits.size() - 1) ? convert_val(bits.back()) : convert_val(bits[j - start]);
-                    data[time][symbols[sym].first + ' ' + to_string(j)] = value;
+        if (buf != "") {
+            if (!dumpvar_flg) getsyms(buf);
+            if (buf.find("$dumpvars") == 0) dumpvar_flg = true;
+            else if (buf[0] == '$') continue;
+            else if (buf.find("#") == 0){
+                time = stoull(buf.substr(1));
+                if (time > dumpoff_time) return;
+            }
+            else if (dumpvar_flg){
+                // array elem
+                if (buf[0] == 'b'){
+                    size_t pos = buf.find(" ");
+                    string bits = buf.substr(1, pos - 1);
+                    reverse(bits.begin(), bits.end());
+                    string sym = buf.substr(pos + 1);
+                    unsigned start = symbols[sym].second.first;
+                    unsigned end = symbols[sym].second.second;
+                    assert(start < end);
+                    for (int j = start;j < end;++j){
+                        short value = (j - start > bits.size() - 1) ? convert_val(bits.back()) : convert_val(bits[j - start]);
+                        data[time][symbols[sym].first + ' ' + to_string(j)] = value;
+                    }
+                }
+                // one bit
+                else {
+                    string sym = buf.substr(1);
+                    short value = convert_val(buf[0]);
+                    data[time][symbols[sym].first] = value;
                 }
             }
-            // one bit
-            else {
-                string sym = v[i].substr(1);
-                short value = convert_val(v[i][0]);
-                data[time][symbols[sym].first] = value;
-            }
         }
     }
+    file.close();
     return;
-    // data.clear();
-    // fstream file;
-    // vector<string> v;
-    // file.open(path, ios::in);
-    // if (!file) {
-    //     cerr << "Can't open file!" << endl;
-    //     exit(1);  
-    // }
-    // cout << "Reading vcd..." << endl;
-    // string buf;
-    // while (!file.eof()) {
-    //     getline(file, buf);
-    //     if (buf != "" && buf[0] != ' ')
-    //     v.push_back(buf);
-    // }
-    // file.close();
-    // getsyms(v);
-    // unsigned long long time = 0;
-    // bool dumpvar_flg = false;
-    // for (int i = 0;i < v.size();++i){
-    //     if (v[i].find("#") == 0){
-    //         time = stoull(v[i].substr(1));
-    //         dumpvar_flg = true;
-    //     }
-    //     else if (dumpvar_flg){
-    //         // array elem
-    //         if (v[i][0] == 'b'){
-    //             size_t pos = v[i].find(" ");
-    //             string bits = v[i].substr(1, pos - 1);
-    //             reverse(bits.begin(), bits.end());
-    //             string sym = v[i].substr(pos + 1);
-    //             unsigned start = symbols[sym].second.first;
-    //             unsigned end = symbols[sym].second.second;
-    //             assert(start < end);
-    //             for (int j = start;j < end;++j){
-    //                 short value = (j - start > bits.size() - 1) ? convert_val(bits.back()) : convert_val(bits[j - start]);
-    //                 data[make_pair(symbols[sym].first, to_string(j))][time] = value;
-    //             }
-    //         }
-    //         // one bit
-    //         else {
-    //             string sym = v[i].substr(1);
-    //             short value = convert_val(v[i][0]);
-    //             data[make_pair(symbols[sym].first, "")][time] = value;
-    //         }
-    //     }
-    // }
-    // return;
 }
 
 void 

@@ -18,14 +18,16 @@ int main(int argc, char *argv[]) {
     string intermediat_path = argv[1];
     string input_vcd_path = argv[2];
     string saif_vcd_flag = argv[3];
-    string dumpon_time = argv[4];
-    string dompoff_time = argv[5];
+    string dumpon_time_s = argv[4];
+    string dumpoff_time_s = argv[5];
+    unsigned long long dumpon_time = stoull(dumpon_time_s);
+    unsigned long long dumpoff_time = stoull(dumpoff_time_s);
     string output_path = "";
     if (argc == 7) output_path = argv[6];
     cout << "HI, this is the simulator" << endl;
 
     Vcd vcd(input_vcd_path, output_path);
-    vcd.readvcd();
+    vcd.readvcd(dumpoff_time);
     // vcd.print(); 
 
     GateMgr gateMgr(vcd.timescale);
@@ -33,7 +35,7 @@ int main(int argc, char *argv[]) {
 
     vcd.gensyms(output_path, &gateMgr);
     // vcd.writevcd(output_path, &e, $gateMgr); // if flg == vcd
-    Simulator sim(&gateMgr, &vcd);
+    Simulator sim(&gateMgr, &vcd, dumpon_time, dumpoff_time);
     sim.simulate();
 
 }

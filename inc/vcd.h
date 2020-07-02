@@ -39,7 +39,7 @@ class Vcd {
             outfile.close();
         }
         void print();
-        void readvcd();
+        void readvcd(unsigned long long&);
         void gensyms(string, GateMgr*);
         void writevcd(const Event*, GateMgr*);
 
@@ -48,7 +48,7 @@ class Vcd {
         vector<string> split(string&, char);
         short convert_val(char);
         string convert_short(short);
-        void getsyms(vector<string>&);
+        void getsyms(string&);
         string genAscii(int);
 };
 #endif
