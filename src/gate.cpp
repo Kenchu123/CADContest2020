@@ -19,13 +19,10 @@ bool
 Gate::transition(short bef, short aft){
     // posedge(i.e. 1) : 0->1, 0->x, 0->z, x->1, z->1 
     // negedge(i.e. 0) : 1->0, 1->x, 1->z, x->0, z->0
-    // z->x, x->z wont change output, so transition() wont be called (I hope...)
+    // x->z z->x wont change output , set as negedge. 
     if ((bef == 0 && aft != 0) || (bef != 3 && aft == 3)) return 1;
-    else if ((bef == 1 && aft != 1) || (bef != 0 && aft == 0)) return 0;
-    else if ((bef == 2 && aft == 1) || (bef == 1 && aft == 2)){
-        cerr << "Error : z->x or x->z occurred... before: " << bef << "after: " << aft << endl;
-        exit(1);
-    }
+    else if ((bef == 3 && aft != 3) || (bef != 0 && aft == 0)) return 0;
+    else if ((bef == 1 && aft == 2) || (bef == 2 && aft == 1)) return 0;
     else{
         cerr << "Error : 1->1 or 0->0 or x->x or z->z occurred... before: " << bef << "after: " << aft << endl;
         exit(1);

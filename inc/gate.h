@@ -3,6 +3,7 @@
 
 #include <unordered_map>
 #include <unordered_set>
+#include <map>
 #include <string>
 #include <vector>
 #include "vlib.h"
@@ -19,7 +20,7 @@ class GateMgr {
         ~GateMgr() {}
         // vector<Gate*> gates;
         unordered_map<string, Wire*> str2wire;
-        unordered_map<string, unordered_map<int, Wire*> > str2wires;
+        unordered_map<string, map<int, Wire*> > str2wires;
         unordered_map<string, Gate*> str2gate;
         string vcd_time_unit, sdf_time_unit;
         void readfiles(string path);
