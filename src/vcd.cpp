@@ -2,6 +2,8 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <algorithm>
+#include <assert.h>
 
 using namespace std;
 
@@ -170,9 +172,10 @@ Vcd::print(){
         for (auto& el : e.second){
             // name & value
             cout << "\t";
-            (el.first.second == "") ? cout << el.first.first << "     "
-                                    : cout << el.first.first << "[" << el.first.second << "] ";
-            cout << el.second << endl;
+            cout << el.first << " " << el.second << endl;
+            // (el.first.second == "") ? cout << el.first.first << "     "
+            //                         : cout << el.first.first << "[" << el.first.second << "] ";
+            // cout << el.second << endl;
         }
     }
     // cout << "timescale: " << timescale << endl;
@@ -235,14 +238,14 @@ Vcd::readvcd(){
                 assert(start < end);
                 for (int j = start;j < end;++j){
                     short value = (j - start > bits.size() - 1) ? convert_val(bits.back()) : convert_val(bits[j - start]);
-                    data[time][make_pair(symbols[sym].first, to_string(j))] = value;
+                    data[time][symbols[sym].first + ' ' + to_string(j)] = value;
                 }
             }
             // one bit
             else {
                 string sym = v[i].substr(1);
                 short value = convert_val(v[i][0]);
-                data[time][make_pair(symbols[sym].first, "")] = value;
+                data[time][symbols[sym].first] = value;
             }
         }
     }

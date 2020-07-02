@@ -15,7 +15,7 @@ class GateMgr;
 typedef unordered_map<string, pair<string, pair<unsigned, unsigned> > > in_strmap;
 typedef map<string, pair<unsigned, string> > out_strmap;
 // typedef map<pair<string, string>, map<unsigned long long, short> > myvcd;
-typedef map<unsigned long long, map<pair<string, string>, short> > myvcd;
+typedef map<unsigned long long, map<string, short> > myvcd;
 
 class Vcd {
     public:

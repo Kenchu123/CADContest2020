@@ -1,0 +1,34 @@
+$date
+	Thu Jun  3 20:47:59 2020
+$end
+$timescale 1ps $end
+$scope module small $end
+$var wire 1 ! a [44:3] $end
+$var wire 1 " b $end
+$var wire 1 # c $end
+$var wire 1 $ d $end
+$upscope $end
+$enddefinitions $end
+$dumpvars
+#0
+b0 !
+0"
+0#
+0$
+#2
+1"
+1#
+1$
+#4
+b100100xxxzzz !
+0$
+#6
+0#
+#8
+b000 !
+0"
+1#
+#10
+b1110 !
+1"
+0#

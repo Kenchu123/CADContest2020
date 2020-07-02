@@ -24,6 +24,11 @@ class GateMgr {
         unordered_map<string, Gate*> str2gate;
         string vcd_time_unit, sdf_time_unit;
         void readfiles(string path);
+        void print() {
+            cout << "Wire count: " << str2wire.size() << endl;
+            cout << "Wires count: " << str2wires.size() << endl;
+            cout << "Gate count: " << str2gate.size() << endl;
+        }
     private:
 };
 
@@ -65,13 +70,18 @@ class Gate {
             if (w) lastWireVal[s] = w->val;
             else lastWireVal[s] = 0;
         }
+        void syncLastVal() {
+            for (auto& w : wire) {
+                w.second->print();
+                lastWireVal[w.first] = w.second->val;
+            }
+        }
         void print() {
             cout << "Gate: " << name << ", type: " << type << endl;
             for (auto it = wire.begin(); it != wire.end(); ++it) {
                 if (it->second)
                     cout << it->first << " " << it->second->name << endl;
             }
-            cout << "--------------------" << endl;
         }
     private:
         bool transition(short, short);

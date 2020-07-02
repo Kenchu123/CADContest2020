@@ -6,6 +6,7 @@
 #include <map>
 #include "gate.h"
 #include "vcd.h"
+#include "simulator.h"
 using namespace std;
 
 
@@ -32,6 +33,9 @@ int main(int argc, char *argv[]) {
 
     vcd.gensyms(output_path, &gateMgr);
     // vcd.writevcd(output_path, &e, $gateMgr); // if flg == vcd
+    Simulator sim(&gateMgr, &vcd);
+    sim.simulate();
+
 }
 
 

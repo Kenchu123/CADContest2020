@@ -142,7 +142,7 @@ class GEN_AND2_D1 : public Cell {
         GEN_AND2_D1(){}
         ~GEN_AND2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND2_D1 running ..." << endl;
+            // cout << "This is GEN_AND2_D1 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -151,7 +151,7 @@ class GEN_AND2_D2 : public Cell {
         GEN_AND2_D2(){}
         ~GEN_AND2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND2_D2 running ..." << endl;
+            // cout << "This is GEN_AND2_D2 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -160,7 +160,7 @@ class GEN_AND2_D4 : public Cell {
         GEN_AND2_D4(){}
         ~GEN_AND2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND2_D4 running ..." << endl;
+            // cout << "This is GEN_AND2_D4 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -169,7 +169,7 @@ class GEN_AND2_D8 : public Cell {
         GEN_AND2_D8(){}
         ~GEN_AND2_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND2_D8 running ..." << endl;
+            // cout << "This is GEN_AND2_D8 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -178,7 +178,7 @@ class GEN_AND3_D1 : public Cell {
         GEN_AND3_D1(){}
         ~GEN_AND3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND3_D1 running ..." << endl;
+            // cout << "This is GEN_AND3_D1 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -187,7 +187,7 @@ class GEN_AND3_D2 : public Cell {
         GEN_AND3_D2(){}
         ~GEN_AND3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND3_D2 running ..." << endl;
+            // cout << "This is GEN_AND3_D2 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -196,7 +196,7 @@ class GEN_AND3_D4 : public Cell {
         GEN_AND3_D4(){}
         ~GEN_AND3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND3_D4 running ..." << endl;
+            // cout << "This is GEN_AND3_D4 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -205,7 +205,7 @@ class GEN_AND3_D8 : public Cell {
         GEN_AND3_D8(){}
         ~GEN_AND3_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND3_D8 running ..." << endl;
+            // cout << "This is GEN_AND3_D8 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -214,7 +214,7 @@ class GEN_AND4_D1 : public Cell {
         GEN_AND4_D1(){}
         ~GEN_AND4_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND4_D1 running ..." << endl;
+            // cout << "This is GEN_AND4_D1 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -223,7 +223,7 @@ class GEN_AND4_D2 : public Cell {
         GEN_AND4_D2(){}
         ~GEN_AND4_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND4_D2 running ..." << endl;
+            // cout << "This is GEN_AND4_D2 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -232,7 +232,7 @@ class GEN_AND4_D4 : public Cell {
         GEN_AND4_D4(){}
         ~GEN_AND4_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND4_D4 running ..." << endl;
+            // cout << "This is GEN_AND4_D4 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -241,7 +241,7 @@ class GEN_AND4_D8 : public Cell {
         GEN_AND4_D8(){}
         ~GEN_AND4_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AND4_D8 running ..." << endl;
+            // cout << "This is GEN_AND4_D8 running ..." << endl;
             _and(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -250,7 +250,7 @@ class GEN_AO211_D1 : public Cell {
         GEN_AO211_D1(){}
         ~GEN_AO211_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO211_D1 running ..." << endl;
+            // cout << "This is GEN_AO211_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"]);
@@ -263,7 +263,7 @@ class GEN_AO211_D2 : public Cell {
         GEN_AO211_D2(){}
         ~GEN_AO211_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO211_D2 running ..." << endl;
+            // cout << "This is GEN_AO211_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"]);
@@ -276,7 +276,7 @@ class GEN_AO211_D4 : public Cell {
         GEN_AO211_D4(){}
         ~GEN_AO211_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO211_D4 running ..." << endl;
+            // cout << "This is GEN_AO211_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"]);
@@ -289,7 +289,7 @@ class GEN_AO21_D1 : public Cell {
         GEN_AO21_D1(){}
         ~GEN_AO21_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO21_D1 running ..." << endl;
+            // cout << "This is GEN_AO21_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"]);
@@ -302,7 +302,7 @@ class GEN_AO21_D2 : public Cell {
         GEN_AO21_D2(){}
         ~GEN_AO21_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO21_D2 running ..." << endl;
+            // cout << "This is GEN_AO21_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"]);
@@ -315,7 +315,7 @@ class GEN_AO21_D4 : public Cell {
         GEN_AO21_D4(){}
         ~GEN_AO21_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO21_D4 running ..." << endl;
+            // cout << "This is GEN_AO21_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"]);
@@ -328,7 +328,7 @@ class GEN_AO221_D1 : public Cell {
         GEN_AO221_D1(){}
         ~GEN_AO221_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO221_D1 running ..." << endl;
+            // cout << "This is GEN_AO221_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -344,7 +344,7 @@ class GEN_AO221_D2 : public Cell {
         GEN_AO221_D2(){}
         ~GEN_AO221_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO221_D2 running ..." << endl;
+            // cout << "This is GEN_AO221_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -360,7 +360,7 @@ class GEN_AO221_D4 : public Cell {
         GEN_AO221_D4(){}
         ~GEN_AO221_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO221_D4 running ..." << endl;
+            // cout << "This is GEN_AO221_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -376,7 +376,7 @@ class GEN_AO222_D1 : public Cell {
         GEN_AO222_D1(){}
         ~GEN_AO222_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO222_D1 running ..." << endl;
+            // cout << "This is GEN_AO222_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -395,7 +395,7 @@ class GEN_AO222_D2 : public Cell {
         GEN_AO222_D2(){}
         ~GEN_AO222_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO222_D2 running ..." << endl;
+            // cout << "This is GEN_AO222_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -414,7 +414,7 @@ class GEN_AO222_D4 : public Cell {
         GEN_AO222_D4(){}
         ~GEN_AO222_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO222_D4 running ..." << endl;
+            // cout << "This is GEN_AO222_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -433,7 +433,7 @@ class GEN_AO22_D1 : public Cell {
         GEN_AO22_D1(){}
         ~GEN_AO22_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO22_D1 running ..." << endl;
+            // cout << "This is GEN_AO22_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -449,7 +449,7 @@ class GEN_AO22_D2 : public Cell {
         GEN_AO22_D2(){}
         ~GEN_AO22_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO22_D2 running ..." << endl;
+            // cout << "This is GEN_AO22_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -465,7 +465,7 @@ class GEN_AO22_D4 : public Cell {
         GEN_AO22_D4(){}
         ~GEN_AO22_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO22_D4 running ..." << endl;
+            // cout << "This is GEN_AO22_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -481,7 +481,7 @@ class GEN_AO22_D8 : public Cell {
         GEN_AO22_D8(){}
         ~GEN_AO22_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO22_D8 running ..." << endl;
+            // cout << "This is GEN_AO22_D8 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -497,7 +497,7 @@ class GEN_AO31_D1 : public Cell {
         GEN_AO31_D1(){}
         ~GEN_AO31_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO31_D1 running ..." << endl;
+            // cout << "This is GEN_AO31_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"], wire["a3"]);
@@ -510,7 +510,7 @@ class GEN_AO31_D2 : public Cell {
         GEN_AO31_D2(){}
         ~GEN_AO31_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO31_D2 running ..." << endl;
+            // cout << "This is GEN_AO31_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"], wire["a3"]);
@@ -523,7 +523,7 @@ class GEN_AO31_D4 : public Cell {
         GEN_AO31_D4(){}
         ~GEN_AO31_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO31_D4 running ..." << endl;
+            // cout << "This is GEN_AO31_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _and(net0, wire["a1"], wire["a2"], wire["a3"]);
@@ -536,7 +536,7 @@ class GEN_AO32_D1 : public Cell {
         GEN_AO32_D1(){}
         ~GEN_AO32_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO32_D1 running ..." << endl;
+            // cout << "This is GEN_AO32_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -552,7 +552,7 @@ class GEN_AO32_D2 : public Cell {
         GEN_AO32_D2(){}
         ~GEN_AO32_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO32_D2 running ..." << endl;
+            // cout << "This is GEN_AO32_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -568,7 +568,7 @@ class GEN_AO32_D4 : public Cell {
         GEN_AO32_D4(){}
         ~GEN_AO32_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO32_D4 running ..." << endl;
+            // cout << "This is GEN_AO32_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -584,7 +584,7 @@ class GEN_AO33_D1 : public Cell {
         GEN_AO33_D1(){}
         ~GEN_AO33_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO33_D1 running ..." << endl;
+            // cout << "This is GEN_AO33_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -600,7 +600,7 @@ class GEN_AO33_D2 : public Cell {
         GEN_AO33_D2(){}
         ~GEN_AO33_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO33_D2 running ..." << endl;
+            // cout << "This is GEN_AO33_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -616,7 +616,7 @@ class GEN_AO33_D4 : public Cell {
         GEN_AO33_D4(){}
         ~GEN_AO33_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AO33_D4 running ..." << endl;
+            // cout << "This is GEN_AO33_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -632,7 +632,7 @@ class GEN_AOI211_D1 : public Cell {
         GEN_AOI211_D1(){}
         ~GEN_AOI211_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI211_D1 running ..." << endl;
+            // cout << "This is GEN_AOI211_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -648,7 +648,7 @@ class GEN_AOI211_D2 : public Cell {
         GEN_AOI211_D2(){}
         ~GEN_AOI211_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI211_D2 running ..." << endl;
+            // cout << "This is GEN_AOI211_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -664,7 +664,7 @@ class GEN_AOI211_D4 : public Cell {
         GEN_AOI211_D4(){}
         ~GEN_AOI211_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI211_D4 running ..." << endl;
+            // cout << "This is GEN_AOI211_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -680,7 +680,7 @@ class GEN_AOI21_D1 : public Cell {
         GEN_AOI21_D1(){}
         ~GEN_AOI21_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI21_D1 running ..." << endl;
+            // cout << "This is GEN_AOI21_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -696,7 +696,7 @@ class GEN_AOI21_D2 : public Cell {
         GEN_AOI21_D2(){}
         ~GEN_AOI21_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI21_D2 running ..." << endl;
+            // cout << "This is GEN_AOI21_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -712,7 +712,7 @@ class GEN_AOI21_D4 : public Cell {
         GEN_AOI21_D4(){}
         ~GEN_AOI21_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI21_D4 running ..." << endl;
+            // cout << "This is GEN_AOI21_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -728,7 +728,7 @@ class GEN_AOI221_D1 : public Cell {
         GEN_AOI221_D1(){}
         ~GEN_AOI221_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI221_D1 running ..." << endl;
+            // cout << "This is GEN_AOI221_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -747,7 +747,7 @@ class GEN_AOI221_D2 : public Cell {
         GEN_AOI221_D2(){}
         ~GEN_AOI221_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI221_D2 running ..." << endl;
+            // cout << "This is GEN_AOI221_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -766,7 +766,7 @@ class GEN_AOI221_D4 : public Cell {
         GEN_AOI221_D4(){}
         ~GEN_AOI221_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI221_D4 running ..." << endl;
+            // cout << "This is GEN_AOI221_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -785,7 +785,7 @@ class GEN_AOI222_D1 : public Cell {
         GEN_AOI222_D1(){}
         ~GEN_AOI222_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI222_D1 running ..." << endl;
+            // cout << "This is GEN_AOI222_D1 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -807,7 +807,7 @@ class GEN_AOI222_D2 : public Cell {
         GEN_AOI222_D2(){}
         ~GEN_AOI222_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI222_D2 running ..." << endl;
+            // cout << "This is GEN_AOI222_D2 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -829,7 +829,7 @@ class GEN_AOI222_D4 : public Cell {
         GEN_AOI222_D4(){}
         ~GEN_AOI222_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI222_D4 running ..." << endl;
+            // cout << "This is GEN_AOI222_D4 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -851,7 +851,7 @@ class GEN_AOI22_D1 : public Cell {
         GEN_AOI22_D1(){}
         ~GEN_AOI22_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI22_D1 running ..." << endl;
+            // cout << "This is GEN_AOI22_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -870,7 +870,7 @@ class GEN_AOI22_D2 : public Cell {
         GEN_AOI22_D2(){}
         ~GEN_AOI22_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI22_D2 running ..." << endl;
+            // cout << "This is GEN_AOI22_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -889,7 +889,7 @@ class GEN_AOI22_D4 : public Cell {
         GEN_AOI22_D4(){}
         ~GEN_AOI22_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI22_D4 running ..." << endl;
+            // cout << "This is GEN_AOI22_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -908,7 +908,7 @@ class GEN_AOI31_D1 : public Cell {
         GEN_AOI31_D1(){}
         ~GEN_AOI31_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI31_D1 running ..." << endl;
+            // cout << "This is GEN_AOI31_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -924,7 +924,7 @@ class GEN_AOI31_D2 : public Cell {
         GEN_AOI31_D2(){}
         ~GEN_AOI31_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI31_D2 running ..." << endl;
+            // cout << "This is GEN_AOI31_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -940,7 +940,7 @@ class GEN_AOI31_D4 : public Cell {
         GEN_AOI31_D4(){}
         ~GEN_AOI31_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI31_D4 running ..." << endl;
+            // cout << "This is GEN_AOI31_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -956,7 +956,7 @@ class GEN_AOI32_D1 : public Cell {
         GEN_AOI32_D1(){}
         ~GEN_AOI32_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI32_D1 running ..." << endl;
+            // cout << "This is GEN_AOI32_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -975,7 +975,7 @@ class GEN_AOI32_D2 : public Cell {
         GEN_AOI32_D2(){}
         ~GEN_AOI32_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI32_D2 running ..." << endl;
+            // cout << "This is GEN_AOI32_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -994,7 +994,7 @@ class GEN_AOI32_D4 : public Cell {
         GEN_AOI32_D4(){}
         ~GEN_AOI32_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI32_D4 running ..." << endl;
+            // cout << "This is GEN_AOI32_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1013,7 +1013,7 @@ class GEN_AOI33_D1 : public Cell {
         GEN_AOI33_D1(){}
         ~GEN_AOI33_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI33_D1 running ..." << endl;
+            // cout << "This is GEN_AOI33_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1032,7 +1032,7 @@ class GEN_AOI33_D2 : public Cell {
         GEN_AOI33_D2(){}
         ~GEN_AOI33_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI33_D2 running ..." << endl;
+            // cout << "This is GEN_AOI33_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1051,7 +1051,7 @@ class GEN_AOI33_D4 : public Cell {
         GEN_AOI33_D4(){}
         ~GEN_AOI33_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_AOI33_D4 running ..." << endl;
+            // cout << "This is GEN_AOI33_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1070,7 +1070,7 @@ class GEN_BUF_D1 : public Cell {
         GEN_BUF_D1(){}
         ~GEN_BUF_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_BUF_D1 running ..." << endl;
+            // cout << "This is GEN_BUF_D1 running ..." << endl;
             _buf(wire["z"], wire["i"]);
         }
 };
@@ -1079,7 +1079,7 @@ class GEN_BUF_D2 : public Cell {
         GEN_BUF_D2(){}
         ~GEN_BUF_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_BUF_D2 running ..." << endl;
+            // cout << "This is GEN_BUF_D2 running ..." << endl;
             _buf(wire["z"], wire["i"]);
         }
 };
@@ -1088,7 +1088,7 @@ class GEN_BUF_D4 : public Cell {
         GEN_BUF_D4(){}
         ~GEN_BUF_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_BUF_D4 running ..." << endl;
+            // cout << "This is GEN_BUF_D4 running ..." << endl;
             _buf(wire["z"], wire["i"]);
         }
 };
@@ -1097,7 +1097,7 @@ class GEN_BUF_D8 : public Cell {
         GEN_BUF_D8(){}
         ~GEN_BUF_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_BUF_D8 running ..." << endl;
+            // cout << "This is GEN_BUF_D8 running ..." << endl;
             _buf(wire["z"], wire["i"]);
         }
 };
@@ -1106,7 +1106,7 @@ class GEN_FA_D1 : public Cell {
         GEN_FA_D1(){}
         ~GEN_FA_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_FA_D1 running ..." << endl;
+            // cout << "This is GEN_FA_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1126,7 +1126,7 @@ class GEN_FA_D2 : public Cell {
         GEN_FA_D2(){}
         ~GEN_FA_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_FA_D2 running ..." << endl;
+            // cout << "This is GEN_FA_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1146,7 +1146,7 @@ class GEN_FA_D4 : public Cell {
         GEN_FA_D4(){}
         ~GEN_FA_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_FA_D4 running ..." << endl;
+            // cout << "This is GEN_FA_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1166,7 +1166,7 @@ class GEN_HA_D1 : public Cell {
         GEN_HA_D1(){}
         ~GEN_HA_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_HA_D1 running ..." << endl;
+            // cout << "This is GEN_HA_D1 running ..." << endl;
             _xor(wire["s"], wire["a"], wire["b"]);
             _and(wire["co"], wire["a"], wire["b"]);
         }
@@ -1176,7 +1176,7 @@ class GEN_HA_D2 : public Cell {
         GEN_HA_D2(){}
         ~GEN_HA_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_HA_D2 running ..." << endl;
+            // cout << "This is GEN_HA_D2 running ..." << endl;
             _xor(wire["s"], wire["a"], wire["b"]);
             _and(wire["co"], wire["a"], wire["b"]);
         }
@@ -1186,7 +1186,7 @@ class GEN_HA_D4 : public Cell {
         GEN_HA_D4(){}
         ~GEN_HA_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_HA_D4 running ..." << endl;
+            // cout << "This is GEN_HA_D4 running ..." << endl;
             _xor(wire["s"], wire["a"], wire["b"]);
             _and(wire["co"], wire["a"], wire["b"]);
         }
@@ -1196,7 +1196,7 @@ class GEN_INV_D1 : public Cell {
         GEN_INV_D1(){}
         ~GEN_INV_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_INV_D1 running ..." << endl;
+            // cout << "This is GEN_INV_D1 running ..." << endl;
             _not(wire["zn"], wire["i"]);
         }
 };
@@ -1205,7 +1205,7 @@ class GEN_INV_D2 : public Cell {
         GEN_INV_D2(){}
         ~GEN_INV_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_INV_D2 running ..." << endl;
+            // cout << "This is GEN_INV_D2 running ..." << endl;
             _not(wire["zn"], wire["i"]);
         }
 };
@@ -1214,7 +1214,7 @@ class GEN_INV_D4 : public Cell {
         GEN_INV_D4(){}
         ~GEN_INV_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_INV_D4 running ..." << endl;
+            // cout << "This is GEN_INV_D4 running ..." << endl;
             _not(wire["zn"], wire["i"]);
         }
 };
@@ -1223,7 +1223,7 @@ class GEN_INV_D8 : public Cell {
         GEN_INV_D8(){}
         ~GEN_INV_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_INV_D8 running ..." << endl;
+            // cout << "This is GEN_INV_D8 running ..." << endl;
             _not(wire["zn"], wire["i"]);
         }
 };
@@ -1232,7 +1232,7 @@ class GEN_MAJORITYAOI222_D1 : public Cell {
         GEN_MAJORITYAOI222_D1(){}
         ~GEN_MAJORITYAOI222_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYAOI222_D1 running ..." << endl;
+            // cout << "This is GEN_MAJORITYAOI222_D1 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -1254,7 +1254,7 @@ class GEN_MAJORITYAOI222_D2 : public Cell {
         GEN_MAJORITYAOI222_D2(){}
         ~GEN_MAJORITYAOI222_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYAOI222_D2 running ..." << endl;
+            // cout << "This is GEN_MAJORITYAOI222_D2 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -1276,7 +1276,7 @@ class GEN_MAJORITYAOI222_D4 : public Cell {
         GEN_MAJORITYAOI222_D4(){}
         ~GEN_MAJORITYAOI222_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYAOI222_D4 running ..." << endl;
+            // cout << "This is GEN_MAJORITYAOI222_D4 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -1298,7 +1298,7 @@ class GEN_MAJORITYAOI22_D1 : public Cell {
         GEN_MAJORITYAOI22_D1(){}
         ~GEN_MAJORITYAOI22_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYAOI22_D1 running ..." << endl;
+            // cout << "This is GEN_MAJORITYAOI22_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1317,7 +1317,7 @@ class GEN_MAJORITYAOI22_D2 : public Cell {
         GEN_MAJORITYAOI22_D2(){}
         ~GEN_MAJORITYAOI22_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYAOI22_D2 running ..." << endl;
+            // cout << "This is GEN_MAJORITYAOI22_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1336,7 +1336,7 @@ class GEN_MAJORITYAOI22_D4 : public Cell {
         GEN_MAJORITYAOI22_D4(){}
         ~GEN_MAJORITYAOI22_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYAOI22_D4 running ..." << endl;
+            // cout << "This is GEN_MAJORITYAOI22_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1355,7 +1355,7 @@ class GEN_MAJORITYOAI22_D1 : public Cell {
         GEN_MAJORITYOAI22_D1(){}
         ~GEN_MAJORITYOAI22_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYOAI22_D1 running ..." << endl;
+            // cout << "This is GEN_MAJORITYOAI22_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1374,7 +1374,7 @@ class GEN_MAJORITYOAI22_D2 : public Cell {
         GEN_MAJORITYOAI22_D2(){}
         ~GEN_MAJORITYOAI22_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYOAI22_D2 running ..." << endl;
+            // cout << "This is GEN_MAJORITYOAI22_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1393,7 +1393,7 @@ class GEN_MAJORITYOAI22_D4 : public Cell {
         GEN_MAJORITYOAI22_D4(){}
         ~GEN_MAJORITYOAI22_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MAJORITYOAI22_D4 running ..." << endl;
+            // cout << "This is GEN_MAJORITYOAI22_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1412,7 +1412,7 @@ class GEN_LATCH_D1 : public Cell {
         GEN_LATCH_D1(){}
         ~GEN_LATCH_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_LATCH_D1 running ..." << endl;
+            // cout << "This is GEN_LATCH_D1 running ..." << endl;
             _udp_tlat(wire["q"], wire["d"], wire["e"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1421,7 +1421,7 @@ class GEN_LATCH_D2 : public Cell {
         GEN_LATCH_D2(){}
         ~GEN_LATCH_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_LATCH_D2 running ..." << endl;
+            // cout << "This is GEN_LATCH_D2 running ..." << endl;
             _udp_tlat(wire["q"], wire["d"], wire["e"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1430,7 +1430,7 @@ class GEN_LATCH_D4 : public Cell {
         GEN_LATCH_D4(){}
         ~GEN_LATCH_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_LATCH_D4 running ..." << endl;
+            // cout << "This is GEN_LATCH_D4 running ..." << endl;
             _udp_tlat(wire["q"], wire["d"], wire["e"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1439,7 +1439,7 @@ class GEN_DFCLR_D1 : public Cell {
         GEN_DFCLR_D1(){}
         ~GEN_DFCLR_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFCLR_D1 running ..." << endl;
+            // cout << "This is GEN_DFCLR_D1 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1448,7 +1448,7 @@ class GEN_DFCLR_D2 : public Cell {
         GEN_DFCLR_D2(){}
         ~GEN_DFCLR_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFCLR_D2 running ..." << endl;
+            // cout << "This is GEN_DFCLR_D2 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1457,7 +1457,7 @@ class GEN_DFCLR_D4 : public Cell {
         GEN_DFCLR_D4(){}
         ~GEN_DFCLR_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFCLR_D4 running ..." << endl;
+            // cout << "This is GEN_DFCLR_D4 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1466,7 +1466,7 @@ class GEN_DFCLR_D8 : public Cell {
         GEN_DFCLR_D8(){}
         ~GEN_DFCLR_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFCLR_D8 running ..." << endl;
+            // cout << "This is GEN_DFCLR_D8 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1475,7 +1475,7 @@ class GEN_DF_D1 : public Cell {
         GEN_DF_D1(){}
         ~GEN_DF_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DF_D1 running ..." << endl;
+            // cout << "This is GEN_DF_D1 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1484,7 +1484,7 @@ class GEN_DF_D2 : public Cell {
         GEN_DF_D2(){}
         ~GEN_DF_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DF_D2 running ..." << endl;
+            // cout << "This is GEN_DF_D2 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1493,7 +1493,7 @@ class GEN_DF_D4 : public Cell {
         GEN_DF_D4(){}
         ~GEN_DF_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DF_D4 running ..." << endl;
+            // cout << "This is GEN_DF_D4 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1502,7 +1502,7 @@ class GEN_DF_D8 : public Cell {
         GEN_DF_D8(){}
         ~GEN_DF_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DF_D8 running ..." << endl;
+            // cout << "This is GEN_DF_D8 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1511,7 +1511,7 @@ class GEN_DFSET_D1 : public Cell {
         GEN_DFSET_D1(){}
         ~GEN_DFSET_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFSET_D1 running ..." << endl;
+            // cout << "This is GEN_DFSET_D1 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1520,7 +1520,7 @@ class GEN_DFSET_D2 : public Cell {
         GEN_DFSET_D2(){}
         ~GEN_DFSET_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFSET_D2 running ..." << endl;
+            // cout << "This is GEN_DFSET_D2 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1529,7 +1529,7 @@ class GEN_DFSET_D4 : public Cell {
         GEN_DFSET_D4(){}
         ~GEN_DFSET_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFSET_D4 running ..." << endl;
+            // cout << "This is GEN_DFSET_D4 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1538,7 +1538,7 @@ class GEN_DFSET_D8 : public Cell {
         GEN_DFSET_D8(){}
         ~GEN_DFSET_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_DFSET_D8 running ..." << endl;
+            // cout << "This is GEN_DFSET_D8 running ..." << endl;
             _udp_dff(wire["q"], wire["d"], wire["cp"], wire["cdn"], wire["sdn"], wire["notifier"]);
         }
 };
@@ -1547,7 +1547,7 @@ class GEN_MUX2_D1 : public Cell {
         GEN_MUX2_D1(){}
         ~GEN_MUX2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX2_D1 running ..." << endl;
+            // cout << "This is GEN_MUX2_D1 running ..." << endl;
             _udp_mux2(wire["z"], wire["i0"], wire["i1"], wire["s"]);
         }
 };
@@ -1556,7 +1556,7 @@ class GEN_MUX2_D2 : public Cell {
         GEN_MUX2_D2(){}
         ~GEN_MUX2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX2_D2 running ..." << endl;
+            // cout << "This is GEN_MUX2_D2 running ..." << endl;
             _udp_mux2(wire["z"], wire["i0"], wire["i1"], wire["s"]);
         }
 };
@@ -1565,7 +1565,7 @@ class GEN_MUX2_D4 : public Cell {
         GEN_MUX2_D4(){}
         ~GEN_MUX2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX2_D4 running ..." << endl;
+            // cout << "This is GEN_MUX2_D4 running ..." << endl;
             _udp_mux2(wire["z"], wire["i0"], wire["i1"], wire["s"]);
         }
 };
@@ -1574,7 +1574,7 @@ class GEN_MUX2N_D1 : public Cell {
         GEN_MUX2N_D1(){}
         ~GEN_MUX2N_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX2N_D1 running ..." << endl;
+            // cout << "This is GEN_MUX2N_D1 running ..." << endl;
             Wire *z;
             z = new Wire();
             _udp_mux2(z, wire["i0"], wire["i1"], wire["s"]);
@@ -1587,7 +1587,7 @@ class GEN_MUX2N_D2 : public Cell {
         GEN_MUX2N_D2(){}
         ~GEN_MUX2N_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX2N_D2 running ..." << endl;
+            // cout << "This is GEN_MUX2N_D2 running ..." << endl;
             Wire *z;
             z = new Wire();
             _udp_mux2(z, wire["i0"], wire["i1"], wire["s"]);
@@ -1600,7 +1600,7 @@ class GEN_MUX2N_D4 : public Cell {
         GEN_MUX2N_D4(){}
         ~GEN_MUX2N_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX2N_D4 running ..." << endl;
+            // cout << "This is GEN_MUX2N_D4 running ..." << endl;
             Wire *z;
             z = new Wire();
             _udp_mux2(z, wire["i0"], wire["i1"], wire["s"]);
@@ -1613,7 +1613,7 @@ class GEN_MUX3_D1 : public Cell {
         GEN_MUX3_D1(){}
         ~GEN_MUX3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX3_D1 running ..." << endl;
+            // cout << "This is GEN_MUX3_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _udp_mux2(net0, wire["i0"], wire["i1"], wire["s0"]);
@@ -1626,7 +1626,7 @@ class GEN_MUX3_D2 : public Cell {
         GEN_MUX3_D2(){}
         ~GEN_MUX3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX3_D2 running ..." << endl;
+            // cout << "This is GEN_MUX3_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _udp_mux2(net0, wire["i0"], wire["i1"], wire["s0"]);
@@ -1639,7 +1639,7 @@ class GEN_MUX3_D4 : public Cell {
         GEN_MUX3_D4(){}
         ~GEN_MUX3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX3_D4 running ..." << endl;
+            // cout << "This is GEN_MUX3_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _udp_mux2(net0, wire["i0"], wire["i1"], wire["s0"]);
@@ -1652,7 +1652,7 @@ class GEN_MUX3N_D1 : public Cell {
         GEN_MUX3N_D1(){}
         ~GEN_MUX3N_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX3N_D1 running ..." << endl;
+            // cout << "This is GEN_MUX3N_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -1668,7 +1668,7 @@ class GEN_MUX3N_D2 : public Cell {
         GEN_MUX3N_D2(){}
         ~GEN_MUX3N_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX3N_D2 running ..." << endl;
+            // cout << "This is GEN_MUX3N_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -1684,7 +1684,7 @@ class GEN_MUX3N_D4 : public Cell {
         GEN_MUX3N_D4(){}
         ~GEN_MUX3N_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX3N_D4 running ..." << endl;
+            // cout << "This is GEN_MUX3N_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -1700,7 +1700,7 @@ class GEN_MUX4_D1 : public Cell {
         GEN_MUX4_D1(){}
         ~GEN_MUX4_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX4_D1 running ..." << endl;
+            // cout << "This is GEN_MUX4_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -1716,7 +1716,7 @@ class GEN_MUX4_D2 : public Cell {
         GEN_MUX4_D2(){}
         ~GEN_MUX4_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX4_D2 running ..." << endl;
+            // cout << "This is GEN_MUX4_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -1732,7 +1732,7 @@ class GEN_MUX4_D4 : public Cell {
         GEN_MUX4_D4(){}
         ~GEN_MUX4_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX4_D4 running ..." << endl;
+            // cout << "This is GEN_MUX4_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -1748,7 +1748,7 @@ class GEN_MUX4N_D1 : public Cell {
         GEN_MUX4N_D1(){}
         ~GEN_MUX4N_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX4N_D1 running ..." << endl;
+            // cout << "This is GEN_MUX4N_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1767,7 +1767,7 @@ class GEN_MUX4N_D2 : public Cell {
         GEN_MUX4N_D2(){}
         ~GEN_MUX4N_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX4N_D2 running ..." << endl;
+            // cout << "This is GEN_MUX4N_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1786,7 +1786,7 @@ class GEN_MUX4N_D4 : public Cell {
         GEN_MUX4N_D4(){}
         ~GEN_MUX4N_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_MUX4N_D4 running ..." << endl;
+            // cout << "This is GEN_MUX4N_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -1805,7 +1805,7 @@ class GEN_NAND2_D1 : public Cell {
         GEN_NAND2_D1(){}
         ~GEN_NAND2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND2_D1 running ..." << endl;
+            // cout << "This is GEN_NAND2_D1 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1814,7 +1814,7 @@ class GEN_NAND2_D2 : public Cell {
         GEN_NAND2_D2(){}
         ~GEN_NAND2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND2_D2 running ..." << endl;
+            // cout << "This is GEN_NAND2_D2 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1823,7 +1823,7 @@ class GEN_NAND2_D4 : public Cell {
         GEN_NAND2_D4(){}
         ~GEN_NAND2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND2_D4 running ..." << endl;
+            // cout << "This is GEN_NAND2_D4 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1832,7 +1832,7 @@ class GEN_NAND2_D8 : public Cell {
         GEN_NAND2_D8(){}
         ~GEN_NAND2_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND2_D8 running ..." << endl;
+            // cout << "This is GEN_NAND2_D8 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1841,7 +1841,7 @@ class GEN_NAND3_D1 : public Cell {
         GEN_NAND3_D1(){}
         ~GEN_NAND3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND3_D1 running ..." << endl;
+            // cout << "This is GEN_NAND3_D1 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1850,7 +1850,7 @@ class GEN_NAND3_D2 : public Cell {
         GEN_NAND3_D2(){}
         ~GEN_NAND3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND3_D2 running ..." << endl;
+            // cout << "This is GEN_NAND3_D2 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1859,7 +1859,7 @@ class GEN_NAND3_D4 : public Cell {
         GEN_NAND3_D4(){}
         ~GEN_NAND3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND3_D4 running ..." << endl;
+            // cout << "This is GEN_NAND3_D4 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1868,7 +1868,7 @@ class GEN_NAND3_D8 : public Cell {
         GEN_NAND3_D8(){}
         ~GEN_NAND3_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND3_D8 running ..." << endl;
+            // cout << "This is GEN_NAND3_D8 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1877,7 +1877,7 @@ class GEN_NAND4_D1 : public Cell {
         GEN_NAND4_D1(){}
         ~GEN_NAND4_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND4_D1 running ..." << endl;
+            // cout << "This is GEN_NAND4_D1 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -1886,7 +1886,7 @@ class GEN_NAND4_D2 : public Cell {
         GEN_NAND4_D2(){}
         ~GEN_NAND4_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND4_D2 running ..." << endl;
+            // cout << "This is GEN_NAND4_D2 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -1895,7 +1895,7 @@ class GEN_NAND4_D4 : public Cell {
         GEN_NAND4_D4(){}
         ~GEN_NAND4_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND4_D4 running ..." << endl;
+            // cout << "This is GEN_NAND4_D4 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -1904,7 +1904,7 @@ class GEN_NAND4_D8 : public Cell {
         GEN_NAND4_D8(){}
         ~GEN_NAND4_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NAND4_D8 running ..." << endl;
+            // cout << "This is GEN_NAND4_D8 running ..." << endl;
             _nand(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -1913,7 +1913,7 @@ class GEN_NOR2_D1 : public Cell {
         GEN_NOR2_D1(){}
         ~GEN_NOR2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR2_D1 running ..." << endl;
+            // cout << "This is GEN_NOR2_D1 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1922,7 +1922,7 @@ class GEN_NOR2_D2 : public Cell {
         GEN_NOR2_D2(){}
         ~GEN_NOR2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR2_D2 running ..." << endl;
+            // cout << "This is GEN_NOR2_D2 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1931,7 +1931,7 @@ class GEN_NOR2_D4 : public Cell {
         GEN_NOR2_D4(){}
         ~GEN_NOR2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR2_D4 running ..." << endl;
+            // cout << "This is GEN_NOR2_D4 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1940,7 +1940,7 @@ class GEN_NOR2_D8 : public Cell {
         GEN_NOR2_D8(){}
         ~GEN_NOR2_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR2_D8 running ..." << endl;
+            // cout << "This is GEN_NOR2_D8 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -1949,7 +1949,7 @@ class GEN_NOR3_D1 : public Cell {
         GEN_NOR3_D1(){}
         ~GEN_NOR3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR3_D1 running ..." << endl;
+            // cout << "This is GEN_NOR3_D1 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1958,7 +1958,7 @@ class GEN_NOR3_D2 : public Cell {
         GEN_NOR3_D2(){}
         ~GEN_NOR3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR3_D2 running ..." << endl;
+            // cout << "This is GEN_NOR3_D2 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1967,7 +1967,7 @@ class GEN_NOR3_D4 : public Cell {
         GEN_NOR3_D4(){}
         ~GEN_NOR3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR3_D4 running ..." << endl;
+            // cout << "This is GEN_NOR3_D4 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1976,7 +1976,7 @@ class GEN_NOR3_D8 : public Cell {
         GEN_NOR3_D8(){}
         ~GEN_NOR3_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR3_D8 running ..." << endl;
+            // cout << "This is GEN_NOR3_D8 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -1985,7 +1985,7 @@ class GEN_NOR4_D1 : public Cell {
         GEN_NOR4_D1(){}
         ~GEN_NOR4_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR4_D1 running ..." << endl;
+            // cout << "This is GEN_NOR4_D1 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -1994,7 +1994,7 @@ class GEN_NOR4_D2 : public Cell {
         GEN_NOR4_D2(){}
         ~GEN_NOR4_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR4_D2 running ..." << endl;
+            // cout << "This is GEN_NOR4_D2 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2003,7 +2003,7 @@ class GEN_NOR4_D4 : public Cell {
         GEN_NOR4_D4(){}
         ~GEN_NOR4_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR4_D4 running ..." << endl;
+            // cout << "This is GEN_NOR4_D4 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2012,7 +2012,7 @@ class GEN_NOR4_D8 : public Cell {
         GEN_NOR4_D8(){}
         ~GEN_NOR4_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_NOR4_D8 running ..." << endl;
+            // cout << "This is GEN_NOR4_D8 running ..." << endl;
             _nor(wire["zn"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2021,7 +2021,7 @@ class GEN_OA211_D1 : public Cell {
         GEN_OA211_D1(){}
         ~GEN_OA211_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA211_D1 running ..." << endl;
+            // cout << "This is GEN_OA211_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"]);
@@ -2034,7 +2034,7 @@ class GEN_OA211_D2 : public Cell {
         GEN_OA211_D2(){}
         ~GEN_OA211_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA211_D2 running ..." << endl;
+            // cout << "This is GEN_OA211_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"]);
@@ -2047,7 +2047,7 @@ class GEN_OA211_D4 : public Cell {
         GEN_OA211_D4(){}
         ~GEN_OA211_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA211_D4 running ..." << endl;
+            // cout << "This is GEN_OA211_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"]);
@@ -2060,7 +2060,7 @@ class GEN_OA21_D1 : public Cell {
         GEN_OA21_D1(){}
         ~GEN_OA21_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA21_D1 running ..." << endl;
+            // cout << "This is GEN_OA21_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"]);
@@ -2073,7 +2073,7 @@ class GEN_OA21_D2 : public Cell {
         GEN_OA21_D2(){}
         ~GEN_OA21_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA21_D2 running ..." << endl;
+            // cout << "This is GEN_OA21_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"]);
@@ -2086,7 +2086,7 @@ class GEN_OA21_D4 : public Cell {
         GEN_OA21_D4(){}
         ~GEN_OA21_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA21_D4 running ..." << endl;
+            // cout << "This is GEN_OA21_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"]);
@@ -2099,7 +2099,7 @@ class GEN_OA221_D1 : public Cell {
         GEN_OA221_D1(){}
         ~GEN_OA221_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA221_D1 running ..." << endl;
+            // cout << "This is GEN_OA221_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2115,7 +2115,7 @@ class GEN_OA221_D2 : public Cell {
         GEN_OA221_D2(){}
         ~GEN_OA221_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA221_D2 running ..." << endl;
+            // cout << "This is GEN_OA221_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2131,7 +2131,7 @@ class GEN_OA221_D4 : public Cell {
         GEN_OA221_D4(){}
         ~GEN_OA221_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA221_D4 running ..." << endl;
+            // cout << "This is GEN_OA221_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2147,7 +2147,7 @@ class GEN_OA222_D1 : public Cell {
         GEN_OA222_D1(){}
         ~GEN_OA222_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA222_D1 running ..." << endl;
+            // cout << "This is GEN_OA222_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2166,7 +2166,7 @@ class GEN_OA222_D2 : public Cell {
         GEN_OA222_D2(){}
         ~GEN_OA222_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA222_D2 running ..." << endl;
+            // cout << "This is GEN_OA222_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2185,7 +2185,7 @@ class GEN_OA222_D4 : public Cell {
         GEN_OA222_D4(){}
         ~GEN_OA222_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA222_D4 running ..." << endl;
+            // cout << "This is GEN_OA222_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2204,7 +2204,7 @@ class GEN_OA22_D1 : public Cell {
         GEN_OA22_D1(){}
         ~GEN_OA22_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA22_D1 running ..." << endl;
+            // cout << "This is GEN_OA22_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2220,7 +2220,7 @@ class GEN_OA22_D2 : public Cell {
         GEN_OA22_D2(){}
         ~GEN_OA22_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA22_D2 running ..." << endl;
+            // cout << "This is GEN_OA22_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2236,7 +2236,7 @@ class GEN_OA22_D4 : public Cell {
         GEN_OA22_D4(){}
         ~GEN_OA22_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA22_D4 running ..." << endl;
+            // cout << "This is GEN_OA22_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2252,7 +2252,7 @@ class GEN_OA31_D1 : public Cell {
         GEN_OA31_D1(){}
         ~GEN_OA31_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA31_D1 running ..." << endl;
+            // cout << "This is GEN_OA31_D1 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"], wire["a3"]);
@@ -2265,7 +2265,7 @@ class GEN_OA31_D2 : public Cell {
         GEN_OA31_D2(){}
         ~GEN_OA31_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA31_D2 running ..." << endl;
+            // cout << "This is GEN_OA31_D2 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"], wire["a3"]);
@@ -2278,7 +2278,7 @@ class GEN_OA31_D4 : public Cell {
         GEN_OA31_D4(){}
         ~GEN_OA31_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA31_D4 running ..." << endl;
+            // cout << "This is GEN_OA31_D4 running ..." << endl;
             Wire *net0;
             net0 = new Wire();
             _or(net0, wire["a1"], wire["a2"], wire["a3"]);
@@ -2291,7 +2291,7 @@ class GEN_OA32_D1 : public Cell {
         GEN_OA32_D1(){}
         ~GEN_OA32_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA32_D1 running ..." << endl;
+            // cout << "This is GEN_OA32_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2307,7 +2307,7 @@ class GEN_OA32_D2 : public Cell {
         GEN_OA32_D2(){}
         ~GEN_OA32_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA32_D2 running ..." << endl;
+            // cout << "This is GEN_OA32_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2323,7 +2323,7 @@ class GEN_OA32_D4 : public Cell {
         GEN_OA32_D4(){}
         ~GEN_OA32_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA32_D4 running ..." << endl;
+            // cout << "This is GEN_OA32_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2339,7 +2339,7 @@ class GEN_OA33_D1 : public Cell {
         GEN_OA33_D1(){}
         ~GEN_OA33_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA33_D1 running ..." << endl;
+            // cout << "This is GEN_OA33_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2355,7 +2355,7 @@ class GEN_OA33_D2 : public Cell {
         GEN_OA33_D2(){}
         ~GEN_OA33_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA33_D2 running ..." << endl;
+            // cout << "This is GEN_OA33_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2371,7 +2371,7 @@ class GEN_OA33_D4 : public Cell {
         GEN_OA33_D4(){}
         ~GEN_OA33_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OA33_D4 running ..." << endl;
+            // cout << "This is GEN_OA33_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2387,7 +2387,7 @@ class GEN_OAI211_D1 : public Cell {
         GEN_OAI211_D1(){}
         ~GEN_OAI211_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI211_D1 running ..." << endl;
+            // cout << "This is GEN_OAI211_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2403,7 +2403,7 @@ class GEN_OAI211_D2 : public Cell {
         GEN_OAI211_D2(){}
         ~GEN_OAI211_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI211_D2 running ..." << endl;
+            // cout << "This is GEN_OAI211_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2419,7 +2419,7 @@ class GEN_OAI211_D4 : public Cell {
         GEN_OAI211_D4(){}
         ~GEN_OAI211_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI211_D4 running ..." << endl;
+            // cout << "This is GEN_OAI211_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2435,7 +2435,7 @@ class GEN_OAI21_D1 : public Cell {
         GEN_OAI21_D1(){}
         ~GEN_OAI21_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI21_D1 running ..." << endl;
+            // cout << "This is GEN_OAI21_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2451,7 +2451,7 @@ class GEN_OAI21_D2 : public Cell {
         GEN_OAI21_D2(){}
         ~GEN_OAI21_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI21_D2 running ..." << endl;
+            // cout << "This is GEN_OAI21_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2467,7 +2467,7 @@ class GEN_OAI21_D4 : public Cell {
         GEN_OAI21_D4(){}
         ~GEN_OAI21_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI21_D4 running ..." << endl;
+            // cout << "This is GEN_OAI21_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2483,7 +2483,7 @@ class GEN_OAI221_D1 : public Cell {
         GEN_OAI221_D1(){}
         ~GEN_OAI221_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI221_D1 running ..." << endl;
+            // cout << "This is GEN_OAI221_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2502,7 +2502,7 @@ class GEN_OAI221_D2 : public Cell {
         GEN_OAI221_D2(){}
         ~GEN_OAI221_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI221_D2 running ..." << endl;
+            // cout << "This is GEN_OAI221_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2521,7 +2521,7 @@ class GEN_OAI221_D4 : public Cell {
         GEN_OAI221_D4(){}
         ~GEN_OAI221_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI221_D4 running ..." << endl;
+            // cout << "This is GEN_OAI221_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2540,7 +2540,7 @@ class GEN_OAI222_D1 : public Cell {
         GEN_OAI222_D1(){}
         ~GEN_OAI222_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI222_D1 running ..." << endl;
+            // cout << "This is GEN_OAI222_D1 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -2562,7 +2562,7 @@ class GEN_OAI222_D2 : public Cell {
         GEN_OAI222_D2(){}
         ~GEN_OAI222_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI222_D2 running ..." << endl;
+            // cout << "This is GEN_OAI222_D2 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -2584,7 +2584,7 @@ class GEN_OAI222_D4 : public Cell {
         GEN_OAI222_D4(){}
         ~GEN_OAI222_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI222_D4 running ..." << endl;
+            // cout << "This is GEN_OAI222_D4 running ..." << endl;
             Wire *net0, *net1, *net2, *net3;
             net0 = new Wire();
             net1 = new Wire();
@@ -2606,7 +2606,7 @@ class GEN_OAI22_D1 : public Cell {
         GEN_OAI22_D1(){}
         ~GEN_OAI22_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI22_D1 running ..." << endl;
+            // cout << "This is GEN_OAI22_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2625,7 +2625,7 @@ class GEN_OAI22_D2 : public Cell {
         GEN_OAI22_D2(){}
         ~GEN_OAI22_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI22_D2 running ..." << endl;
+            // cout << "This is GEN_OAI22_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2644,7 +2644,7 @@ class GEN_OAI22_D4 : public Cell {
         GEN_OAI22_D4(){}
         ~GEN_OAI22_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI22_D4 running ..." << endl;
+            // cout << "This is GEN_OAI22_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2663,7 +2663,7 @@ class GEN_OAI31_D1 : public Cell {
         GEN_OAI31_D1(){}
         ~GEN_OAI31_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI31_D1 running ..." << endl;
+            // cout << "This is GEN_OAI31_D1 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2679,7 +2679,7 @@ class GEN_OAI31_D2 : public Cell {
         GEN_OAI31_D2(){}
         ~GEN_OAI31_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI31_D2 running ..." << endl;
+            // cout << "This is GEN_OAI31_D2 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2695,7 +2695,7 @@ class GEN_OAI31_D4 : public Cell {
         GEN_OAI31_D4(){}
         ~GEN_OAI31_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI31_D4 running ..." << endl;
+            // cout << "This is GEN_OAI31_D4 running ..." << endl;
             Wire *net0, *net1;
             net0 = new Wire();
             net1 = new Wire();
@@ -2711,7 +2711,7 @@ class GEN_OAI32_D1 : public Cell {
         GEN_OAI32_D1(){}
         ~GEN_OAI32_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI32_D1 running ..." << endl;
+            // cout << "This is GEN_OAI32_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2730,7 +2730,7 @@ class GEN_OAI32_D2 : public Cell {
         GEN_OAI32_D2(){}
         ~GEN_OAI32_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI32_D2 running ..." << endl;
+            // cout << "This is GEN_OAI32_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2749,7 +2749,7 @@ class GEN_OAI32_D4 : public Cell {
         GEN_OAI32_D4(){}
         ~GEN_OAI32_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI32_D4 running ..." << endl;
+            // cout << "This is GEN_OAI32_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2768,7 +2768,7 @@ class GEN_OAI33_D1 : public Cell {
         GEN_OAI33_D1(){}
         ~GEN_OAI33_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI33_D1 running ..." << endl;
+            // cout << "This is GEN_OAI33_D1 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2787,7 +2787,7 @@ class GEN_OAI33_D2 : public Cell {
         GEN_OAI33_D2(){}
         ~GEN_OAI33_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI33_D2 running ..." << endl;
+            // cout << "This is GEN_OAI33_D2 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2806,7 +2806,7 @@ class GEN_OAI33_D4 : public Cell {
         GEN_OAI33_D4(){}
         ~GEN_OAI33_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OAI33_D4 running ..." << endl;
+            // cout << "This is GEN_OAI33_D4 running ..." << endl;
             Wire *net0, *net1, *net2;
             net0 = new Wire();
             net1 = new Wire();
@@ -2825,7 +2825,7 @@ class GEN_OR2_D1 : public Cell {
         GEN_OR2_D1(){}
         ~GEN_OR2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR2_D1 running ..." << endl;
+            // cout << "This is GEN_OR2_D1 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -2834,7 +2834,7 @@ class GEN_OR2_D2 : public Cell {
         GEN_OR2_D2(){}
         ~GEN_OR2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR2_D2 running ..." << endl;
+            // cout << "This is GEN_OR2_D2 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -2843,7 +2843,7 @@ class GEN_OR2_D4 : public Cell {
         GEN_OR2_D4(){}
         ~GEN_OR2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR2_D4 running ..." << endl;
+            // cout << "This is GEN_OR2_D4 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -2852,7 +2852,7 @@ class GEN_OR2_D8 : public Cell {
         GEN_OR2_D8(){}
         ~GEN_OR2_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR2_D8 running ..." << endl;
+            // cout << "This is GEN_OR2_D8 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -2861,7 +2861,7 @@ class GEN_OR3_D1 : public Cell {
         GEN_OR3_D1(){}
         ~GEN_OR3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR3_D1 running ..." << endl;
+            // cout << "This is GEN_OR3_D1 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -2870,7 +2870,7 @@ class GEN_OR3_D2 : public Cell {
         GEN_OR3_D2(){}
         ~GEN_OR3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR3_D2 running ..." << endl;
+            // cout << "This is GEN_OR3_D2 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -2879,7 +2879,7 @@ class GEN_OR3_D4 : public Cell {
         GEN_OR3_D4(){}
         ~GEN_OR3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR3_D4 running ..." << endl;
+            // cout << "This is GEN_OR3_D4 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -2888,7 +2888,7 @@ class GEN_OR3_D8 : public Cell {
         GEN_OR3_D8(){}
         ~GEN_OR3_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR3_D8 running ..." << endl;
+            // cout << "This is GEN_OR3_D8 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -2897,7 +2897,7 @@ class GEN_OR4_D1 : public Cell {
         GEN_OR4_D1(){}
         ~GEN_OR4_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR4_D1 running ..." << endl;
+            // cout << "This is GEN_OR4_D1 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2906,7 +2906,7 @@ class GEN_OR4_D2 : public Cell {
         GEN_OR4_D2(){}
         ~GEN_OR4_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR4_D2 running ..." << endl;
+            // cout << "This is GEN_OR4_D2 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2915,7 +2915,7 @@ class GEN_OR4_D4 : public Cell {
         GEN_OR4_D4(){}
         ~GEN_OR4_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR4_D4 running ..." << endl;
+            // cout << "This is GEN_OR4_D4 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2924,7 +2924,7 @@ class GEN_OR4_D8 : public Cell {
         GEN_OR4_D8(){}
         ~GEN_OR4_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_OR4_D8 running ..." << endl;
+            // cout << "This is GEN_OR4_D8 running ..." << endl;
             _or(wire["z"], wire["a1"], wire["a2"], wire["a3"], wire["a4"]);
         }
 };
@@ -2933,7 +2933,7 @@ class GEN_SCAN_DFCLR_D1 : public Cell {
         GEN_SCAN_DFCLR_D1(){}
         ~GEN_SCAN_DFCLR_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFCLR_D1 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFCLR_D1 running ..." << endl;
             Wire *cdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *se1, *se_check, *xsi_check, *xd_check, *xcdn_i;
             cdn_i = new Wire();
             d_i = new Wire();
@@ -2976,7 +2976,7 @@ class GEN_SCAN_DFCLR_D2 : public Cell {
         GEN_SCAN_DFCLR_D2(){}
         ~GEN_SCAN_DFCLR_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFCLR_D2 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFCLR_D2 running ..." << endl;
             Wire *cdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *se1, *se_check, *xsi_check, *xd_check, *xcdn_i;
             cdn_i = new Wire();
             d_i = new Wire();
@@ -3019,7 +3019,7 @@ class GEN_SCAN_DFCLR_D4 : public Cell {
         GEN_SCAN_DFCLR_D4(){}
         ~GEN_SCAN_DFCLR_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFCLR_D4 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFCLR_D4 running ..." << endl;
             Wire *cdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *se1, *se_check, *xsi_check, *xd_check, *xcdn_i;
             cdn_i = new Wire();
             d_i = new Wire();
@@ -3062,7 +3062,7 @@ class GEN_SCAN_DFCLR_D8 : public Cell {
         GEN_SCAN_DFCLR_D8(){}
         ~GEN_SCAN_DFCLR_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFCLR_D8 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFCLR_D8 running ..." << endl;
             Wire *cdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *se1, *se_check, *xsi_check, *xd_check, *xcdn_i;
             cdn_i = new Wire();
             d_i = new Wire();
@@ -3105,7 +3105,7 @@ class GEN_SCAN_DF_D1 : public Cell {
         GEN_SCAN_DF_D1(){}
         ~GEN_SCAN_DF_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DF_D1 running ..." << endl;
+            // cout << "This is GEN_SCAN_DF_D1 running ..." << endl;
             Wire *d_i, *q_buf, *sd, *xse, *xsd;
             d_i = new Wire();
             q_buf = new Wire();
@@ -3130,7 +3130,7 @@ class GEN_SCAN_DF_D2 : public Cell {
         GEN_SCAN_DF_D2(){}
         ~GEN_SCAN_DF_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DF_D2 running ..." << endl;
+            // cout << "This is GEN_SCAN_DF_D2 running ..." << endl;
             Wire *d_i, *q_buf, *sd, *xse, *xsd;
             d_i = new Wire();
             q_buf = new Wire();
@@ -3155,7 +3155,7 @@ class GEN_SCAN_DF_D4 : public Cell {
         GEN_SCAN_DF_D4(){}
         ~GEN_SCAN_DF_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DF_D4 running ..." << endl;
+            // cout << "This is GEN_SCAN_DF_D4 running ..." << endl;
             Wire *d_i, *q_buf, *sd, *xse, *xsd;
             d_i = new Wire();
             q_buf = new Wire();
@@ -3180,7 +3180,7 @@ class GEN_SCAN_DF_D8 : public Cell {
         GEN_SCAN_DF_D8(){}
         ~GEN_SCAN_DF_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DF_D8 running ..." << endl;
+            // cout << "This is GEN_SCAN_DF_D8 running ..." << endl;
             Wire *d_i, *q_buf, *sd, *xse, *xsd;
             d_i = new Wire();
             q_buf = new Wire();
@@ -3205,7 +3205,7 @@ class GEN_SCAN_DFSET_D1 : public Cell {
         GEN_SCAN_DFSET_D1(){}
         ~GEN_SCAN_DFSET_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFSET_D1 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFSET_D1 running ..." << endl;
             Wire *sdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *xsi_check, *xd_check, *xsdn_i;
             sdn_i = new Wire();
             d_i = new Wire();
@@ -3242,7 +3242,7 @@ class GEN_SCAN_DFSET_D2 : public Cell {
         GEN_SCAN_DFSET_D2(){}
         ~GEN_SCAN_DFSET_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFSET_D2 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFSET_D2 running ..." << endl;
             Wire *sdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *xsi_check, *xd_check, *xsdn_i;
             sdn_i = new Wire();
             d_i = new Wire();
@@ -3279,7 +3279,7 @@ class GEN_SCAN_DFSET_D4 : public Cell {
         GEN_SCAN_DFSET_D4(){}
         ~GEN_SCAN_DFSET_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFSET_D4 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFSET_D4 running ..." << endl;
             Wire *sdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *xsi_check, *xd_check, *xsdn_i;
             sdn_i = new Wire();
             d_i = new Wire();
@@ -3316,7 +3316,7 @@ class GEN_SCAN_DFSET_D8 : public Cell {
         GEN_SCAN_DFSET_D8(){}
         ~GEN_SCAN_DFSET_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SCAN_DFSET_D8 running ..." << endl;
+            // cout << "This is GEN_SCAN_DFSET_D8 running ..." << endl;
             Wire *sdn_i, *d_i, *q_buf, *sd, *si_check, *d_check, *xsi_check, *xd_check, *xsdn_i;
             sdn_i = new Wire();
             d_i = new Wire();
@@ -3353,7 +3353,7 @@ class GEN_XNOR2_D1 : public Cell {
         GEN_XNOR2_D1(){}
         ~GEN_XNOR2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR2_D1 running ..." << endl;
+            // cout << "This is GEN_XNOR2_D1 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -3362,7 +3362,7 @@ class GEN_XNOR2_D2 : public Cell {
         GEN_XNOR2_D2(){}
         ~GEN_XNOR2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR2_D2 running ..." << endl;
+            // cout << "This is GEN_XNOR2_D2 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -3371,7 +3371,7 @@ class GEN_XNOR2_D4 : public Cell {
         GEN_XNOR2_D4(){}
         ~GEN_XNOR2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR2_D4 running ..." << endl;
+            // cout << "This is GEN_XNOR2_D4 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -3380,7 +3380,7 @@ class GEN_XNOR2_D8 : public Cell {
         GEN_XNOR2_D8(){}
         ~GEN_XNOR2_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR2_D8 running ..." << endl;
+            // cout << "This is GEN_XNOR2_D8 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"]);
         }
 };
@@ -3389,7 +3389,7 @@ class GEN_XNOR3_D1 : public Cell {
         GEN_XNOR3_D1(){}
         ~GEN_XNOR3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR3_D1 running ..." << endl;
+            // cout << "This is GEN_XNOR3_D1 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -3398,7 +3398,7 @@ class GEN_XNOR3_D2 : public Cell {
         GEN_XNOR3_D2(){}
         ~GEN_XNOR3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR3_D2 running ..." << endl;
+            // cout << "This is GEN_XNOR3_D2 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -3407,7 +3407,7 @@ class GEN_XNOR3_D4 : public Cell {
         GEN_XNOR3_D4(){}
         ~GEN_XNOR3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XNOR3_D4 running ..." << endl;
+            // cout << "This is GEN_XNOR3_D4 running ..." << endl;
             _xnor(wire["zn"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -3416,7 +3416,7 @@ class GEN_XOR2_D1 : public Cell {
         GEN_XOR2_D1(){}
         ~GEN_XOR2_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR2_D1 running ..." << endl;
+            // cout << "This is GEN_XOR2_D1 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -3425,7 +3425,7 @@ class GEN_XOR2_D2 : public Cell {
         GEN_XOR2_D2(){}
         ~GEN_XOR2_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR2_D2 running ..." << endl;
+            // cout << "This is GEN_XOR2_D2 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -3434,7 +3434,7 @@ class GEN_XOR2_D4 : public Cell {
         GEN_XOR2_D4(){}
         ~GEN_XOR2_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR2_D4 running ..." << endl;
+            // cout << "This is GEN_XOR2_D4 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -3443,7 +3443,7 @@ class GEN_XOR2_D8 : public Cell {
         GEN_XOR2_D8(){}
         ~GEN_XOR2_D8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR2_D8 running ..." << endl;
+            // cout << "This is GEN_XOR2_D8 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"]);
         }
 };
@@ -3452,7 +3452,7 @@ class GEN_XOR3_D1 : public Cell {
         GEN_XOR3_D1(){}
         ~GEN_XOR3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR3_D1 running ..." << endl;
+            // cout << "This is GEN_XOR3_D1 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -3461,7 +3461,7 @@ class GEN_XOR3_D2 : public Cell {
         GEN_XOR3_D2(){}
         ~GEN_XOR3_D2(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR3_D2 running ..." << endl;
+            // cout << "This is GEN_XOR3_D2 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -3470,7 +3470,7 @@ class GEN_XOR3_D4 : public Cell {
         GEN_XOR3_D4(){}
         ~GEN_XOR3_D4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_XOR3_D4 running ..." << endl;
+            // cout << "This is GEN_XOR3_D4 running ..." << endl;
             _xor(wire["z"], wire["a1"], wire["a2"], wire["a3"]);
         }
 };
@@ -3479,7 +3479,7 @@ class GEN_CLKGATE_D1 : public Cell {
         GEN_CLKGATE_D1(){}
         ~GEN_CLKGATE_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_CLKGATE_D1 running ..." << endl;
+            // cout << "This is GEN_CLKGATE_D1 running ..." << endl;
         }
 };
 class GEN_SYNC2C_D1 : public Cell {
@@ -3487,7 +3487,7 @@ class GEN_SYNC2C_D1 : public Cell {
         GEN_SYNC2C_D1(){}
         ~GEN_SYNC2C_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SYNC2C_D1 running ..." << endl;
+            // cout << "This is GEN_SYNC2C_D1 running ..." << endl;
         }
 };
 class GEN_SYNC3_D1 : public Cell {
@@ -3495,7 +3495,7 @@ class GEN_SYNC3_D1 : public Cell {
         GEN_SYNC3_D1(){}
         ~GEN_SYNC3_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SYNC3_D1 running ..." << endl;
+            // cout << "This is GEN_SYNC3_D1 running ..." << endl;
         }
 };
 class GEN_SYNC3S_D1 : public Cell {
@@ -3503,7 +3503,7 @@ class GEN_SYNC3S_D1 : public Cell {
         GEN_SYNC3S_D1(){}
         ~GEN_SYNC3S_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SYNC3S_D1 running ..." << endl;
+            // cout << "This is GEN_SYNC3S_D1 running ..." << endl;
         }
 };
 class GEN_RAMS_16X272 : public Cell {
@@ -3511,7 +3511,7 @@ class GEN_RAMS_16X272 : public Cell {
         GEN_RAMS_16X272(){}
         ~GEN_RAMS_16X272(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_16X272 running ..." << endl;
+            // cout << "This is GEN_RAMS_16X272 running ..." << endl;
         }
 };
 class GEN_RAMS_16X256 : public Cell {
@@ -3519,7 +3519,7 @@ class GEN_RAMS_16X256 : public Cell {
         GEN_RAMS_16X256(){}
         ~GEN_RAMS_16X256(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_16X256 running ..." << endl;
+            // cout << "This is GEN_RAMS_16X256 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_80x14 : public Cell {
@@ -3527,7 +3527,7 @@ class GEN_RAMS_OLAT_80x14 : public Cell {
         GEN_RAMS_OLAT_80x14(){}
         ~GEN_RAMS_OLAT_80x14(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_80x14 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_80x14 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_80x65 : public Cell {
@@ -3535,7 +3535,7 @@ class GEN_RAMS_OLAT_80x65 : public Cell {
         GEN_RAMS_OLAT_80x65(){}
         ~GEN_RAMS_OLAT_80x65(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_80x65 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_80x65 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_160x16 : public Cell {
@@ -3543,7 +3543,7 @@ class GEN_RAMS_OLAT_160x16 : public Cell {
         GEN_RAMS_OLAT_160x16(){}
         ~GEN_RAMS_OLAT_160x16(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_160x16 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_160x16 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_160x65 : public Cell {
@@ -3551,7 +3551,7 @@ class GEN_RAMS_OLAT_160x65 : public Cell {
         GEN_RAMS_OLAT_160x65(){}
         ~GEN_RAMS_OLAT_160x65(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_160x65 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_160x65 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_8x65 : public Cell {
@@ -3559,7 +3559,7 @@ class GEN_RAMS_OLAT_8x65 : public Cell {
         GEN_RAMS_OLAT_8x65(){}
         ~GEN_RAMS_OLAT_8x65(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_8x65 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_8x65 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_128x6 : public Cell {
@@ -3567,7 +3567,7 @@ class GEN_RAMS_OLAT_128x6 : public Cell {
         GEN_RAMS_OLAT_128x6(){}
         ~GEN_RAMS_OLAT_128x6(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_128x6 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_128x6 running ..." << endl;
         }
 };
 class GEN_RAMS_256x64 : public Cell {
@@ -3575,7 +3575,7 @@ class GEN_RAMS_256x64 : public Cell {
         GEN_RAMS_256x64(){}
         ~GEN_RAMS_256x64(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_256x64 running ..." << endl;
+            // cout << "This is GEN_RAMS_256x64 running ..." << endl;
         }
 };
 class GEN_RAMS_16x64 : public Cell {
@@ -3583,7 +3583,7 @@ class GEN_RAMS_16x64 : public Cell {
         GEN_RAMS_16x64(){}
         ~GEN_RAMS_16x64(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_16x64 running ..." << endl;
+            // cout << "This is GEN_RAMS_16x64 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_128x11 : public Cell {
@@ -3591,7 +3591,7 @@ class GEN_RAMS_OLAT_128x11 : public Cell {
         GEN_RAMS_OLAT_128x11(){}
         ~GEN_RAMS_OLAT_128x11(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_128x11 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_128x11 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_61x65 : public Cell {
@@ -3599,7 +3599,7 @@ class GEN_RAMS_OLAT_61x65 : public Cell {
         GEN_RAMS_OLAT_61x65(){}
         ~GEN_RAMS_OLAT_61x65(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_61x65 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_61x65 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_80x9 : public Cell {
@@ -3607,7 +3607,7 @@ class GEN_RAMS_WT_IPASS_OLAT_80x9 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_80x9(){}
         ~GEN_RAMS_WT_IPASS_OLAT_80x9(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x9 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x9 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_80x15 : public Cell {
@@ -3615,7 +3615,7 @@ class GEN_RAMS_WT_IPASS_OLAT_80x15 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_80x15(){}
         ~GEN_RAMS_WT_IPASS_OLAT_80x15(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x15 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x15 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_60x21 : public Cell {
@@ -3623,7 +3623,7 @@ class GEN_RAMS_WT_IPASS_OLAT_60x21 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_60x21(){}
         ~GEN_RAMS_WT_IPASS_OLAT_60x21(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_60x21 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_60x21 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_256x8 : public Cell {
@@ -3631,7 +3631,7 @@ class GEN_RAMS_WT_256x8 : public Cell {
         GEN_RAMS_WT_256x8(){}
         ~GEN_RAMS_WT_256x8(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_256x8 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_256x8 running ..." << endl;
         }
 };
 class GEN_RAMS_256x7 : public Cell {
@@ -3639,7 +3639,7 @@ class GEN_RAMS_256x7 : public Cell {
         GEN_RAMS_256x7(){}
         ~GEN_RAMS_256x7(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_256x7 running ..." << endl;
+            // cout << "This is GEN_RAMS_256x7 running ..." << endl;
         }
 };
 class GEN_RAMS_256x3 : public Cell {
@@ -3647,7 +3647,7 @@ class GEN_RAMS_256x3 : public Cell {
         GEN_RAMS_256x3(){}
         ~GEN_RAMS_256x3(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_256x3 running ..." << endl;
+            // cout << "This is GEN_RAMS_256x3 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_19x4 : public Cell {
@@ -3655,7 +3655,7 @@ class GEN_RAMS_WT_IPASS_OLAT_19x4 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_19x4(){}
         ~GEN_RAMS_WT_IPASS_OLAT_19x4(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_19x4 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_19x4 running ..." << endl;
         }
 };
 class GEN_RAMS_128x18 : public Cell {
@@ -3663,7 +3663,7 @@ class GEN_RAMS_128x18 : public Cell {
         GEN_RAMS_128x18(){}
         ~GEN_RAMS_128x18(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_128x18 running ..." << endl;
+            // cout << "This is GEN_RAMS_128x18 running ..." << endl;
         }
 };
 class GEN_SYNC3C_D1 : public Cell {
@@ -3671,7 +3671,7 @@ class GEN_SYNC3C_D1 : public Cell {
         GEN_SYNC3C_D1(){}
         ~GEN_SYNC3C_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SYNC3C_D1 running ..." << endl;
+            // cout << "This is GEN_SYNC3C_D1 running ..." << endl;
         }
 };
 class GEN_SYNC3C_STRICT_D1 : public Cell {
@@ -3679,7 +3679,7 @@ class GEN_SYNC3C_STRICT_D1 : public Cell {
         GEN_SYNC3C_STRICT_D1(){}
         ~GEN_SYNC3C_STRICT_D1(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_SYNC3C_STRICT_D1 running ..." << endl;
+            // cout << "This is GEN_SYNC3C_STRICT_D1 running ..." << endl;
             Wire *src_sel, *dst_sel;
             src_sel = new Wire();
             dst_sel = new Wire();
@@ -3692,7 +3692,7 @@ class GEN_RAMS_512x256 : public Cell {
         GEN_RAMS_512x256(){}
         ~GEN_RAMS_512x256(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_512x256 running ..." << endl;
+            // cout << "This is GEN_RAMS_512x256 running ..." << endl;
         }
 };
 class GEN_RAMS_64x116 : public Cell {
@@ -3700,7 +3700,7 @@ class GEN_RAMS_64x116 : public Cell {
         GEN_RAMS_64x116(){}
         ~GEN_RAMS_64x116(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_64x116 running ..." << endl;
+            // cout << "This is GEN_RAMS_64x116 running ..." << endl;
         }
 };
 class GEN_RAMS_64x1088 : public Cell {
@@ -3708,7 +3708,7 @@ class GEN_RAMS_64x1088 : public Cell {
         GEN_RAMS_64x1088(){}
         ~GEN_RAMS_64x1088(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_64x1088 running ..." << endl;
+            // cout << "This is GEN_RAMS_64x1088 running ..." << endl;
         }
 };
 class GEN_RAMS_64x1024 : public Cell {
@@ -3716,7 +3716,7 @@ class GEN_RAMS_64x1024 : public Cell {
         GEN_RAMS_64x1024(){}
         ~GEN_RAMS_64x1024(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_64x1024 running ..." << endl;
+            // cout << "This is GEN_RAMS_64x1024 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_256x14 : public Cell {
@@ -3724,7 +3724,7 @@ class GEN_RAMS_OLAT_256x14 : public Cell {
         GEN_RAMS_OLAT_256x14(){}
         ~GEN_RAMS_OLAT_256x14(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_256x14 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_256x14 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_256x16 : public Cell {
@@ -3732,7 +3732,7 @@ class GEN_RAMS_OLAT_256x16 : public Cell {
         GEN_RAMS_OLAT_256x16(){}
         ~GEN_RAMS_OLAT_256x16(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_256x16 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_256x16 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_256x257 : public Cell {
@@ -3740,7 +3740,7 @@ class GEN_RAMS_OLAT_256x257 : public Cell {
         GEN_RAMS_OLAT_256x257(){}
         ~GEN_RAMS_OLAT_256x257(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_256x257 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_256x257 running ..." << endl;
         }
 };
 class GEN_RAMS_OLAT_8x257 : public Cell {
@@ -3748,7 +3748,7 @@ class GEN_RAMS_OLAT_8x257 : public Cell {
         GEN_RAMS_OLAT_8x257(){}
         ~GEN_RAMS_OLAT_8x257(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_OLAT_8x257 running ..." << endl;
+            // cout << "This is GEN_RAMS_OLAT_8x257 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_80x72 : public Cell {
@@ -3756,7 +3756,7 @@ class GEN_RAMS_WT_IPASS_OLAT_80x72 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_80x72(){}
         ~GEN_RAMS_WT_IPASS_OLAT_80x72(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x72 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x72 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_80x17 : public Cell {
@@ -3764,7 +3764,7 @@ class GEN_RAMS_WT_IPASS_OLAT_80x17 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_80x17(){}
         ~GEN_RAMS_WT_IPASS_OLAT_80x17(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x17 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_80x17 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_60x168 : public Cell {
@@ -3772,7 +3772,7 @@ class GEN_RAMS_WT_IPASS_OLAT_60x168 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_60x168(){}
         ~GEN_RAMS_WT_IPASS_OLAT_60x168(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_60x168 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_60x168 running ..." << endl;
         }
 };
 class GEN_RAMS_WT_IPASS_OLAT_20x32 : public Cell {
@@ -3780,7 +3780,7 @@ class GEN_RAMS_WT_IPASS_OLAT_20x32 : public Cell {
         GEN_RAMS_WT_IPASS_OLAT_20x32(){}
         ~GEN_RAMS_WT_IPASS_OLAT_20x32(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_WT_IPASS_OLAT_20x32 running ..." << endl;
+            // cout << "This is GEN_RAMS_WT_IPASS_OLAT_20x32 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE21_64x21 : public Cell {
@@ -3788,7 +3788,7 @@ class GEN_RAMS_SP_WENABLE21_64x21 : public Cell {
         GEN_RAMS_SP_WENABLE21_64x21(){}
         ~GEN_RAMS_SP_WENABLE21_64x21(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE21_64x21 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE21_64x21 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE32_1024x32 : public Cell {
@@ -3796,7 +3796,7 @@ class GEN_RAMS_SP_WENABLE32_1024x32 : public Cell {
         GEN_RAMS_SP_WENABLE32_1024x32(){}
         ~GEN_RAMS_SP_WENABLE32_1024x32(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE32_1024x32 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE32_1024x32 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE8_4096x32 : public Cell {
@@ -3804,7 +3804,7 @@ class GEN_RAMS_SP_WENABLE8_4096x32 : public Cell {
         GEN_RAMS_SP_WENABLE8_4096x32(){}
         ~GEN_RAMS_SP_WENABLE8_4096x32(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE8_4096x32 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE8_4096x32 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE22_64x88 : public Cell {
@@ -3812,7 +3812,7 @@ class GEN_RAMS_SP_WENABLE22_64x88 : public Cell {
         GEN_RAMS_SP_WENABLE22_64x88(){}
         ~GEN_RAMS_SP_WENABLE22_64x88(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE22_64x88 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE22_64x88 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE8_512x256 : public Cell {
@@ -3820,7 +3820,7 @@ class GEN_RAMS_SP_WENABLE8_512x256 : public Cell {
         GEN_RAMS_SP_WENABLE8_512x256(){}
         ~GEN_RAMS_SP_WENABLE8_512x256(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE8_512x256 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE8_512x256 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE21_64x84 : public Cell {
@@ -3828,7 +3828,7 @@ class GEN_RAMS_SP_WENABLE21_64x84 : public Cell {
         GEN_RAMS_SP_WENABLE21_64x84(){}
         ~GEN_RAMS_SP_WENABLE21_64x84(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE21_64x84 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE21_64x84 running ..." << endl;
         }
 };
 class GEN_RAMS_SP_WENABLE32_512x128 : public Cell {
@@ -3836,7 +3836,7 @@ class GEN_RAMS_SP_WENABLE32_512x128 : public Cell {
         GEN_RAMS_SP_WENABLE32_512x128(){}
         ~GEN_RAMS_SP_WENABLE32_512x128(){}
         static void step(unordered_map<string, Wire*> &wire) {
-            cout << "This is GEN_RAMS_SP_WENABLE32_512x128 running ..." << endl;
+            // cout << "This is GEN_RAMS_SP_WENABLE32_512x128 running ..." << endl;
         }
 };
 typedef void (*func_ptr)(unordered_map<string, Wire*>&);

@@ -4,9 +4,9 @@ LIB = ./lib
 OBJDIR = ./build
 EXEDIR = ./bin
 CFLAGS = -Wall -g
-CFLAGS = 
+# CFLAGS = 
 PREPROCESS_OBJS = ./build/preprocess.o
-SIMULATOR_OBJS = ./build/main.o ./build/wire.o ./build/gate.o ./build/vlib.o ./build/vcd.o
+SIMULATOR_OBJS = ./build/main.o ./build/wire.o ./build/gate.o ./build/vlib.o ./build/vcd.o ./build/simulator.o
 # CFLAGS += -O2
 
 all: directories preprocess simulator

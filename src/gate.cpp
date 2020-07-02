@@ -94,7 +94,7 @@ Gate::update(){
 }
 
 void
-Gate::update(unordered_map<string, short>& m) { // input is set to val
+Gate::update(unordered_map<string, short>& m) { // input (a1 a2 a3) is set to val
     // TODO:
     // compare to lastVal, and update lastVal
     // if has change, set input posedge/negedge and call step(), which will update output
