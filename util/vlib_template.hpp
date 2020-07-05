@@ -40,39 +40,48 @@ class Cell {
         }
         // Built-in Primitives
         static void _and(Wire* o, Wire* a, Wire* b) {
+            if (!o || !a || !b) { return; }
             check2(a); check2(b);
             o -> val = a -> val & b -> val;
         }
         static void _and(Wire* o, Wire* a, Wire* b, Wire* c) {
+            if (!o || !a || !b || !c) { return; }
             check2(a); check2(b); check2(c);
             o -> val = a -> val & b -> val & c -> val;
         }
         static void _and(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            if (!o || !a || !b || !c || !d) { return; }
             check2(a); check2(b); check2(c); check2(d);
             o -> val = a -> val & b -> val & c -> val & d -> val;
         }
         static void _or(Wire* o, Wire* a, Wire* b) {
+            if (!o || !a || !b) { return; }
             check2(a); check2(b);
             o -> val = a -> val | b -> val;
         }
         static void _or(Wire* o, Wire* a, Wire* b, Wire* c) {
+            if (!o || !a || !b || !c) { return; }
             check2(a); check2(b); check2(c);
             o -> val = a -> val | b -> val | c -> val;
         }
         static void _or(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            if (!o || !a || !b || !c || !d) { return; }
             check2(a); check2(b); check2(c); check2(d);
             o -> val = a -> val | b -> val | c -> val | d -> val;
         }
         static void _not(Wire* o, Wire* i) {
+            if (!o || !i) { return; }
             check2(i);
             o -> val = ~(i -> val) + 4;
             check2(o);
         }
         static void _buf(Wire* o, Wire* i) {
+            if (!o || !i) { return; }
             check2(i);
             o -> val = i -> val;
         }
         static void _xor(Wire* o, Wire* a, Wire* b) {
+            if (!o || !a || !b) { return; }
             check2(a); check2(b);
             if (a -> val == 1 && b -> val == 1) 
                 o -> val = 1;
@@ -82,6 +91,7 @@ class Cell {
             }
         }
         static void _xor(Wire* o, Wire* a, Wire* b, Wire* c) {
+            if (!o || !a || !b || !c) { return; }
             check2(a); check2(b); check2(c);
             _xor(o, a, b);
             check2(o);
@@ -89,41 +99,49 @@ class Cell {
             check2(o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b) {
+            if (!o || !a || !b) { return; }
             check2(a); check2(b);
             _and(o, a, b);
             _not(o, o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b, Wire* c) {
+            if (!o || !a || !b || !c) { return; }
             check2(a); check2(b); check2(c);
             _and(o, a, b, c);
             _not(o, o);
         }
         static void _nand(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            if (!o || !a || !b || !c || !d) { return; }
             check2(a); check2(b); check2(c); check2(d);
             _and(o, a, b, c, d);
             _not(o, o);
         }
         static void _nor(Wire* o, Wire* a, Wire* b) {
+            if (!o || !a || !b) { return; }
             check2(a); check2(b);
             _or(o, a, b);
             _not(o, o);
         }
         static void _nor(Wire* o, Wire* a, Wire* b, Wire* c) {
+            if (!o || !a || !b || !c) { return; }
             check2(a); check2(b); check2(c);
             _or(o, a, b, c);
             _not(o, o);
         }
         static void _nor(Wire* o, Wire* a, Wire* b, Wire* c, Wire* d) {
+            if (!o || !a || !b || !c || !d) { return; }
             check2(a); check2(b); check2(c); check2(d);
             _or(o, a, b, c, d);
             _not(o, o);
         }
         static void _xnor(Wire* o, Wire* a, Wire* b) {
+            if (!o || !a || !b) { return; }
             check2(a); check2(b);
             _xor(o, a, b);
             _not(o, o);
         }
         static void _xnor(Wire* o, Wire* a, Wire* b, Wire* c) {
+            if (!o || !a || !b || !c) { return; }
             check2(a); check2(b); check2(c);
             _xor(o, a, b, c);
             _not(o, o);
